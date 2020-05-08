@@ -10,8 +10,9 @@ namespace NaughtyCharacter
 		public Vector2 LastMoveInput { get; private set; }
 		public Vector2 CameraInput { get; private set; }
 		public bool JumpInput { get; private set; }
+        public bool ClickInput { get; private set; }
 
-		public bool HasMoveInput { get; private set; }
+        public bool HasMoveInput { get; private set; }
 
 		public void UpdateInput()
 		{
@@ -40,6 +41,7 @@ namespace NaughtyCharacter
 			// Update other inputs
 			CameraInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 			JumpInput = Input.GetButton("Jump");
-		}
+            ClickInput = Input.GetMouseButtonDown(0);
+        }
 	}
 }
