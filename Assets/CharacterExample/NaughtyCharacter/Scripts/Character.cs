@@ -55,6 +55,7 @@ namespace NaughtyCharacter
 		public MovementSettings MovementSettings;
 		public GravitySettings GravitySettings;
 		public RotationSettings RotationSettings;
+        public CharacterActionController CharacterActionController;
 
 		private CharacterController _characterController; // The Unity's CharacterController
 		private CharacterAnimator _characterAnimator;
@@ -68,8 +69,9 @@ namespace NaughtyCharacter
 		private Vector3 _lastMovementInput;
 		private bool _hasMovementInput;
 		private bool _jumpInput;
+		private bool _clickInput;
 
-		public Vector3 Velocity => _characterController.velocity;
+        public Vector3 Velocity => _characterController.velocity;
 		public Vector3 HorizontalVelocity => _characterController.velocity.SetY(0.0f);
 		public Vector3 VerticalVelocity => _characterController.velocity.Multiply(0.0f, 1.0f, 0.0f);
 		public bool IsGrounded { get; private set; }
@@ -86,7 +88,8 @@ namespace NaughtyCharacter
 		private void Update()
 		{
 			Controller.OnCharacterUpdate();
-		}
+            UpdateCharacterAction();
+        }
 
 		private void FixedUpdate()
 		{
@@ -127,7 +130,12 @@ namespace NaughtyCharacter
 			_jumpInput = jumpInput;
 		}
 
-		public Vector2 GetControlRotation()
+        public void SetClickInput(bool clickInput)
+        {
+            _clickInput = clickInput;
+        }
+
+        public Vector2 GetControlRotation()
 		{
 			return _controlRotation;
 		}
@@ -183,6 +191,14 @@ namespace NaughtyCharacter
 				_verticalSpeed = Mathf.MoveTowards(_verticalSpeed, -GravitySettings.MaxFallSpeed, GravitySettings.Gravity * Time.deltaTime);
 			}
 		}
+
+        private void UpdateCharacterAction()
+        {
+            if (_clickInput)
+            {
+                CharacterActionController.CharacterClicked(this);
+            }
+        }
 
 		private Vector3 GetMovementDirection()
 		{
