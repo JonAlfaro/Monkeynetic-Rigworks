@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Materials/Projectile.mat.meta
 guid: 8f346107fb7d4c24ba8c0a9f79de5241
+=======
+guid: cee96a2661edd1040b6f86ac79ab5fc8
+>>>>>>> 499302344a0de943801cc1420b4ba77875109671:Assets/Imported/Samples/Terrain Tools/0.1.0-preview/Terrain Assets/TerrainBrushes/noise_soft.brush.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0

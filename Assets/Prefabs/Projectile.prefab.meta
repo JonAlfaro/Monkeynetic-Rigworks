@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Prefabs/Projectile.prefab.meta
 guid: c261a55fdbd45fd47bb3047e7100b32a
+=======
+guid: 6277c51416cc04c4f9b8c90174bcea69
+>>>>>>> 499302344a0de943801cc1420b4ba77875109671:Assets/Prefabs/pfFlower1.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 
