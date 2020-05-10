@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5ef72f631a59fc54a9c62e695445ae87, type: 2}
+  - {fileID: 2100000, guid: bb2bf226604e45c4294975f3367ad817, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,7 +112,8 @@ MonoBehaviour:
     MaxHealth: 5
     MovementSpeed: 2
     UnitType: 0
-    AttackRange: 3
+    OutgoingDamageMultiplier: 1
+    IncomingDamageMultiplier: 1
   StartingUnitMovementType: 0
   UnitMovementPassive:
     RetargetMinTime: 3
@@ -123,4 +124,7 @@ MonoBehaviour:
     TargetUnitType: 1
     UnitAttackTargetingType: 0
     CheckForValidTargetInterval: 0.1
-  TimeBetweenAttacks: 3
+  UnitAttack:
+    AttackProjectile: {fileID: 0}
+    TimeBetweenAttacks: 3
+    Range: 3
