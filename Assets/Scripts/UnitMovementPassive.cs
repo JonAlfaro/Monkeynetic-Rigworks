@@ -10,21 +10,18 @@ public class UnitMovementPassive
     public float TargetDistanceMin;
     public float TargetDistanceMax;
     public Vector3 MovementTarget { get; private set; }
-    public UnityEvent<Vector3> OnNewMovementTarget;
-
-    public UnitMovementPassive()
-    {
-    }
+    private UnityEvent<Vector3> onNewMovementTarget = new UnityEvent<Vector3>();
 
     public IEnumerator GetMovementTargetCoroutine(UnityAction<Vector3> onNewMovementTarget)
     {
-        // Event to call when this coroutine is triggered
-        OnNewMovementTarget.AddListener(onNewMovementTarget);
+        // Set the event to call when this coroutine is triggered
+        this.onNewMovementTarget.RemoveAllListeners();
+        this.onNewMovementTarget.AddListener(onNewMovementTarget);
 
         while (true)
         {
             SetNewMovementTarget();
-            OnNewMovementTarget?.Invoke(MovementTarget);
+            this.onNewMovementTarget.Invoke(MovementTarget);
 
             // Wait this long before finding a new target
             float nextTargetTime = Random.Range(RetargetMinTime, RetargetMaxTime);
