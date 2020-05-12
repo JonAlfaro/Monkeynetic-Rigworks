@@ -10,13 +10,15 @@ public class UnitMovementPassive
     public float TargetDistanceMin;
     public float TargetDistanceMax;
     public Vector3 MovementTarget { get; private set; }
+    private Unit unit;
     private UnityEvent<Vector3> onNewMovementTarget = new UnityEvent<Vector3>();
 
-    public IEnumerator GetMovementTargetCoroutine(UnityAction<Vector3> onNewMovementTarget)
+    public IEnumerator GetMovementTargetCoroutine(UnityAction<Vector3> onNewMovementTarget, Unit unit)
     {
         // Set the event to call when this coroutine is triggered
         this.onNewMovementTarget.RemoveAllListeners();
         this.onNewMovementTarget.AddListener(onNewMovementTarget);
+        this.unit = unit;
 
         while (true)
         {
@@ -29,11 +31,12 @@ public class UnitMovementPassive
         }
     }
 
+    // TODO add a field for the area that this guy has to stay within
     private void SetNewMovementTarget()
     {
         float randomX = Random.Range(TargetDistanceMin, TargetDistanceMax);
         float randomZ = Random.Range(TargetDistanceMin, TargetDistanceMax);
 
-        MovementTarget = new Vector3(randomX, 0, randomZ);
+        MovementTarget = unit.transform.position + new Vector3(randomX, 0, randomZ);
     }
 }

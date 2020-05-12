@@ -9,6 +9,7 @@ public class Unit : MonoBehaviour
 
     public UnitMovementType StartingUnitMovementType = UnitMovementType.None;
     public UnitMovementPassive UnitMovementPassive = new UnitMovementPassive();
+    public UnitMovementAggressive UnitMovementAggressive = new UnitMovementAggressive();
     public UnitAttackTargeting UnitAttackTargeting = new UnitAttackTargeting();
     public UnitAttack UnitAttack = new UnitAttack();
 
@@ -70,11 +71,12 @@ public class Unit : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        // TODO: Monkey 🐒🐒🐒🐒
     }
     // Called whenever the GetMovementTargetCoroutine is called. Assigns a new movement target and starts moving towards it
     void OnNewMovementTarget(Vector3 newMovementTarget)
     {
-        movementTarget = transform.position + newMovementTarget;
+        movementTarget = newMovementTarget;
         hasMovmentTarget = true;
     }
 
@@ -90,10 +92,10 @@ public class Unit : MonoBehaviour
                 break;
             case UnitMovementType.Passive:
                 // Start a couroutine to get a new random movement target at a pre-determined interval.
-                movementCoroutine = StartCoroutine(UnitMovementPassive.GetMovementTargetCoroutine(OnNewMovementTarget));
+                movementCoroutine = StartCoroutine(UnitMovementPassive.GetMovementTargetCoroutine(OnNewMovementTarget, this));
                 break;
             case UnitMovementType.Aggressive:
-                // TODO
+                movementCoroutine = StartCoroutine(UnitMovementAggressive.GetMovementTargetCoroutine(OnNewMovementTarget, this));
                 break;
             case UnitMovementType.FollowPath:
                 // TODO
