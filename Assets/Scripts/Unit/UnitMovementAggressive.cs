@@ -47,7 +47,7 @@ public class UnitMovementAggressive
 
         if (target != null)
         {
-            targetPosition = new Vector3(target.position.x, myPosition.y, target.position.z);
+            targetPosition = target.position;
         }
 
         float distanceToTarget = Vector3.Distance(myPosition, targetPosition);

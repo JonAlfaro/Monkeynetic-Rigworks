@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 
 public enum UnitMovementType { Passive, Aggressive, FollowPath, None }
 public enum UnitType { Enemy, Tower, Player, None }
@@ -23,10 +24,12 @@ public class Unit : MonoBehaviour
     private Vector3 movementTarget;
     private bool hasMovementTarget = false;
     private Coroutine movementCoroutine;
+    private NavMeshAgent navMeshAgent;
 
     // Lifecycle functions
     private void Awake()
     {
+        InitNavMeshAgent();
         if (TargetTransform == null)
         {
             TargetTransform = transform;
@@ -46,36 +49,13 @@ public class Unit : MonoBehaviour
         {
             UnitAttack.Attack();
         }
-    }
-
-    private void FixedUpdate()
-    {
-        // Perform movement
-        if (hasMovementTarget)
-        {
-            // Move towards the target
-            transform.position = Vector3.MoveTowards(transform.position, movementTarget, Time.fixedDeltaTime * UnitStats.MovementSpeed);
-
-            // If target is reached (ignoring y axis), stop moving
-            Vector3 currentPositionWithoutY = new Vector3(transform.position.x, 0, transform.position.z);
-            Vector3 targetPositionWithoutY = new Vector3(movementTarget.x, 0, movementTarget.z);
-
-            if (Vector3.Distance(currentPositionWithoutY, targetPositionWithoutY) < 0.1f)
-            {
-                hasMovementTarget = false;
-            }
-        }
 
         // Perform rotation
         // If the unit has a valid attack target look towards it, otherwise look towards the movement target
-        if (UnitAttack.Target != null)
+        if (UnitAttack.Target != null && UnitAttack.Target.IsValidTarget)
         {
             // Ignores y axis (it wont look up or down at the target)
             transform.LookAt(new Vector3(UnitAttack.Target.TargetTransform.position.x, transform.position.y, UnitAttack.Target.TargetTransform.position.z));
-        }
-        else if (hasMovementTarget)
-        {
-            transform.LookAt(movementTarget);
         }
     }
 
@@ -96,6 +76,9 @@ public class Unit : MonoBehaviour
     {
         movementTarget = newMovementTarget;
         hasMovementTarget = true;
+
+        // Set navMeshAgent target
+        navMeshAgent?.SetDestination(movementTarget);
     }
 
     public void SetMovementType(UnitMovementType unitMovementType)
@@ -127,6 +110,16 @@ public class Unit : MonoBehaviour
         UnitAttack.Target = attackTarget;
     }
 
+    private void InitNavMeshAgent()
+    {
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        if (navMeshAgent)
+        {
+            navMeshAgent.speed = UnitStats.MovementSpeed;
+        }
+    }
+
+    // Draws unit range in the editor only
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, UnitAttack.Range);

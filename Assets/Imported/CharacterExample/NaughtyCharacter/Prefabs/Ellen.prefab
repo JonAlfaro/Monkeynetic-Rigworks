@@ -3558,7 +3558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnitStats:
-    MaxHealth: 10
+    MaxHealth: 50
     MovementSpeed: 3
     UnitType: 2
     OutgoingDamageMultiplier: 1
