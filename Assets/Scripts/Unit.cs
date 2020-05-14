@@ -1,17 +1,19 @@
 ﻿using UnityEngine;
 
 public enum UnitMovementType { Passive, Aggressive, FollowPath, None }
-public enum UnitType { Enemy, Tower }
+public enum UnitType { Enemy, Tower, Player, None }
 
 public class Unit : MonoBehaviour
 {
+    // Unit stat stuff
     public UnitStats UnitStats = new UnitStats();
-
     public UnitMovementType StartingUnitMovementType = UnitMovementType.None;
     public UnitMovementPassive UnitMovementPassive = new UnitMovementPassive();
     public UnitMovementAggressive UnitMovementAggressive = new UnitMovementAggressive();
     public UnitAttackTargeting UnitAttackTargeting = new UnitAttackTargeting();
     public UnitAttack UnitAttack = new UnitAttack();
+    
+    public Transform TargetTransform; // This is the transform that projectiles will target. If left null it will default to the units transform
 
     // Getters
     public UnitType UnitType => UnitStats.UnitType;
@@ -19,12 +21,16 @@ public class Unit : MonoBehaviour
     public float AttackRange => UnitAttack.Range;
 
     private Vector3 movementTarget;
-    private bool hasMovmentTarget = false;
+    private bool hasMovementTarget = false;
     private Coroutine movementCoroutine;
 
     // Lifecycle functions
     private void Awake()
     {
+        if (TargetTransform == null)
+        {
+            TargetTransform = transform;
+        }
         UnitStats.Init();
         UnitAttack.Init(this);
         SetMovementType(StartingUnitMovementType);
@@ -45,7 +51,7 @@ public class Unit : MonoBehaviour
     private void FixedUpdate()
     {
         // Perform movement
-        if (hasMovmentTarget)
+        if (hasMovementTarget)
         {
             // Move towards the target
             transform.position = Vector3.MoveTowards(transform.position, movementTarget, Time.fixedDeltaTime * UnitStats.MovementSpeed);
@@ -56,8 +62,20 @@ public class Unit : MonoBehaviour
 
             if (Vector3.Distance(currentPositionWithoutY, targetPositionWithoutY) < 0.1f)
             {
-                hasMovmentTarget = false;
+                hasMovementTarget = false;
             }
+        }
+
+        // Perform rotation
+        // If the unit has a valid attack target look towards it, otherwise look towards the movement target
+        if (UnitAttack.Target != null)
+        {
+            // Ignores y axis (it wont look up or down at the target)
+            transform.LookAt(new Vector3(UnitAttack.Target.TargetTransform.position.x, transform.position.y, UnitAttack.Target.TargetTransform.position.z));
+        }
+        else if (hasMovementTarget)
+        {
+            transform.LookAt(movementTarget);
         }
     }
 
@@ -77,7 +95,7 @@ public class Unit : MonoBehaviour
     void OnNewMovementTarget(Vector3 newMovementTarget)
     {
         movementTarget = newMovementTarget;
-        hasMovmentTarget = true;
+        hasMovementTarget = true;
     }
 
     public void SetMovementType(UnitMovementType unitMovementType)

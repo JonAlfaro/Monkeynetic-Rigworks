@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8878554800626905242}
   - component: {fileID: 8878554800626905245}
   m_Layer: 0
-  m_Name: Projectile
+  m_Name: Attack_MagicMissile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f2f587462ae903e47a60718b83def658, type: 2}
+  - {fileID: 2100000, guid: bf433f87a064d2342ba94cc36717a648, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,7 +92,7 @@ SphereCollider:
   m_GameObject: {fileID: 8878554800626905244}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -109,5 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 2
-  ProjectileSpeed: 10
+  ProjectileSpeed: 6
   OnDestroyEffect: {fileID: 0}
+  ProjectileLifeTime: 2

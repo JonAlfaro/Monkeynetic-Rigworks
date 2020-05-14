@@ -46,6 +46,7 @@ public class UnitAttackTargeting
 
     private bool IsTargetValidAndInRange(Unit target)
     {
+        // TODO we want to ignore the y-axis distance, make a helper function that makes the y-axis zero and then does vector3.distance
         return target != null
             && target.IsValidTarget
             && target.UnitType == TargetUnitType
