@@ -110,5 +110,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 2
   ProjectileSpeed: 6
-  OnDestroyEffect: {fileID: 0}
+  OnDestroyEffect: {fileID: 427282648657909231, guid: cb9b38110381fc34fabdd7a3d866f716, type: 3}
   ProjectileLifeTime: 2

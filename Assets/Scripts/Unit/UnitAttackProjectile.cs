@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class UnitAttackProjectile : MonoBehaviour
 {
@@ -12,7 +10,8 @@ public class UnitAttackProjectile : MonoBehaviour
     private Unit targetUnit;
     private Vector3 targetPosition;
     private float lifeTimeEnd;
-
+    private Vector3 previousPosition;
+    
     public void Init(Unit targetUnit, UnitStats unitStats)
     {
         this.targetUnit = targetUnit;
@@ -21,25 +20,28 @@ public class UnitAttackProjectile : MonoBehaviour
         Damage *= unitStats.OutgoingDamageMultiplier;
 
         lifeTimeEnd = ProjectileLifeTime != 0 ? Time.fixedTime + ProjectileLifeTime : Mathf.Infinity;
+        previousPosition = transform.position;
     }
 
     private void FixedUpdate()
     {
+        if (HasHitTarget())
+        {
+            Trigger();
+            return;
+        }
+
         // If the target unit hasn't been destroyed, update the target position to its current position
         if (targetUnit != null && targetUnit.transform != null)
         {
             targetPosition = targetUnit.TargetTransform.position;
         }
 
+        previousPosition = transform.position;
         // Move towards the target
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.fixedDeltaTime * ProjectileSpeed);
 
-        // TODO use raycast instead so it triggers when it hits their body not the center
-        if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
-        {
-            Trigger();
-            return;
-        }
+        Debug.DrawLine(previousPosition, transform.position);
 
         if (Time.fixedTime >= lifeTimeEnd)
         {
@@ -62,5 +64,30 @@ public class UnitAttackProjectile : MonoBehaviour
 
         // Destroy self
         Destroy(gameObject);
+    }
+
+    private bool HasHitTarget()
+    {
+        // Check if we have reached the target position
+        if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+        {
+            return true;
+        }
+
+        // Check if we have collided with the target unit
+        Vector3 travelDirection = transform.position - previousPosition;
+        RaycastHit[] raycastHits = Physics.RaycastAll(new Ray(previousPosition, travelDirection.normalized), travelDirection.magnitude);
+
+        foreach (RaycastHit raycastHit in raycastHits)
+        {
+            Unit hitUnit = raycastHit.collider.GetComponent<Unit>();
+
+            if (hitUnit != null && hitUnit.Equals(targetUnit))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
