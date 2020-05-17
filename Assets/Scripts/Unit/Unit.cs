@@ -7,12 +7,15 @@ public enum UnitType { Enemy, Tower, Player, None }
 public class Unit : MonoBehaviour
 {
     // Unit stat stuff
+    [Header("Stats")]
     public UnitStats UnitStats = new UnitStats();
+    [Header("Movement")]
     public UnitMovementType StartingUnitMovementType = UnitMovementType.None;
     public UnitMovementPassive UnitMovementPassive = new UnitMovementPassive();
     public UnitMovementAggressive UnitMovementAggressive = new UnitMovementAggressive();
-    public UnitAttackTargeting UnitAttackTargeting = new UnitAttackTargeting();
+    [Header("Attack")]
     public UnitAttack UnitAttack = new UnitAttack();
+    public UnitAttackTargeting UnitAttackTargeting = new UnitAttackTargeting();
     
     public Transform TargetTransform; // This is the transform that projectiles will target. If left null it will default to the units transform
 
@@ -22,7 +25,6 @@ public class Unit : MonoBehaviour
     public float AttackRange => UnitAttack.Range;
 
     private Vector3 movementTarget;
-    private bool hasMovementTarget = false;
     private Coroutine movementCoroutine;
     private NavMeshAgent navMeshAgent;
 
@@ -49,18 +51,18 @@ public class Unit : MonoBehaviour
             return;
         }
 
-        // Perform attack
-        if (UnitAttack.Target != null && UnitAttack.IsReady)
+        // If the unit has a valid attack target look towards it, otherwise the unit will look towards its movement target (done automatically using NavMeshAgent)
+        if (UnitAttackTargeting.IsTargetValidAndInRange(UnitAttack.Target, UnitAttack.Range))
         {
-            UnitAttack.Attack();
-        }
-
-        // Perform rotation
-        // If the unit has a valid attack target look towards it, otherwise look towards the movement target
-        if (UnitAttack.Target != null && UnitAttack.Target.IsValidTarget)
-        {
+            // Perform rotation
             // Ignores y axis (it wont look up or down at the target)
             transform.LookAt(new Vector3(UnitAttack.Target.TargetTransform.position.x, transform.position.y, UnitAttack.Target.TargetTransform.position.z));
+
+            // Perform attack
+            if (UnitAttack.IsReady)
+            {
+                UnitAttack.Attack();
+            }
         }
     }
 
@@ -80,7 +82,6 @@ public class Unit : MonoBehaviour
     void OnNewMovementTarget(Vector3 newMovementTarget)
     {
         movementTarget = newMovementTarget;
-        hasMovementTarget = true;
 
         // Set navMeshAgent target
         navMeshAgent?.SetDestination(movementTarget);

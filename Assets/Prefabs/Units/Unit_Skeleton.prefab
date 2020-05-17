@@ -127,16 +127,17 @@ MonoBehaviour:
     Enabled: 1
     MinDistanceFromTarget: 2
     MaxDistanceFromTarget: 3.5
-  UnitAttackTargeting:
-    TargetUnitType: 2
-    UnitAttackTargetingType: 0
-    CheckForValidTargetInterval: 0.1
   UnitAttack:
     AttackProjectile: {fileID: 8878554800626905244, guid: fe23c89453a82174083fcb59ab489507, type: 3}
     TimeBetweenAttacks: 3
     Range: 4
     ProjectileSpawnTransform: {fileID: 8554111079748884678}
-    LeashRange: 36
+  UnitAttackTargeting:
+    TargetUnitType: 2
+    UnitAttackTargetingType: 0
+    CheckForValidTargetInterval: 0.1
+    TargetingRange: 8
+    LeashRange: 32
   TargetTransform: {fileID: 0}
 --- !u!195 &854417935132763554
 NavMeshAgent:
