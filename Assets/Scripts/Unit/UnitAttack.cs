@@ -7,6 +7,7 @@ public class UnitAttack
     public GameObject AttackProjectile;
     public float TimeBetweenAttacks = 3f;
     public float Range = 3;
+    public float LeashRange = 0f;
     public Unit Target { get; set; }
     public float NextAttackTime { get; private set; } = 0f;
     public bool IsReady => Time.time >= NextAttackTime;
@@ -17,6 +18,11 @@ public class UnitAttack
     public void Init(Unit unit)
     {
         this.unit = unit;
+
+        if (LeashRange < Range)
+        {
+            LeashRange = Range;
+        }
 
         if (ProjectileSpawnTransform == null)
         {

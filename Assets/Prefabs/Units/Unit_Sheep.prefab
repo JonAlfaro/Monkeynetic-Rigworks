@@ -117,16 +117,17 @@ MonoBehaviour:
     IncomingDamageMultiplier: 1
   StartingUnitMovementType: 0
   UnitMovementPassive:
+    Enabled: 1
     RetargetMinTime: 3
     RetargetMaxTime: 20
     TargetDistanceMin: -10
     TargetDistanceMax: 10
   UnitMovementAggressive:
+    Enabled: 0
     MinDistanceFromTarget: 1
     MaxDistanceFromTarget: 1
-    target: {fileID: 0}
   UnitAttackTargeting:
-    TargetUnitType: 1
+    TargetUnitType: 3
     UnitAttackTargetingType: 0
     CheckForValidTargetInterval: 0.1
   UnitAttack:

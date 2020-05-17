@@ -26,7 +26,7 @@ public class UnitAttackTargeting
 
         while (true)
         {
-            if (!IsTargetValidAndInRange(currentTarget))
+            if (!IsTargetValidAndInLeashRange(currentTarget))
             {
                 // TODO Add a layerMask to make it more performant
                 Collider[] targets = Physics.OverlapSphere(Unit.transform.position, Unit.AttackRange);
@@ -50,7 +50,15 @@ public class UnitAttackTargeting
         return target != null
             && target.IsValidTarget
             && target.UnitType == TargetUnitType
-            && Vector3.Distance(Unit.transform.position, target.transform.position) < Unit.AttackRange;
+            && Vector3.Distance(Unit.transform.position, target.transform.position) <= Unit.AttackRange;
+    }
+
+    private bool IsTargetValidAndInLeashRange(Unit target)
+    {
+        return target != null
+            && target.IsValidTarget
+            && target.UnitType == TargetUnitType
+            && Vector3.Distance(Unit.transform.position, target.transform.position) <= Unit.UnitAttack.LeashRange;
     }
 
     private void SelectClosestTarget(Collider[] targets)

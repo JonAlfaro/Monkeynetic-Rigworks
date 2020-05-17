@@ -5,6 +5,7 @@ using UnityEngine.Events;
 [System.Serializable]
 public class UnitMovementPassive
 {
+    public bool Enabled = false;
     public float RetargetMinTime;
     public float RetargetMaxTime;
     public float TargetDistanceMin;

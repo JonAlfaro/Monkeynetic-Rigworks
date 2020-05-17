@@ -44,6 +44,11 @@ public class Unit : MonoBehaviour
     private void Update()
     {
         UpdateState();
+        if (UnitStats.IsDead)
+        {
+            return;
+        }
+
         // Perform attack
         if (UnitAttack.Target != null && UnitAttack.IsReady)
         {
@@ -83,20 +88,21 @@ public class Unit : MonoBehaviour
 
     public void SetMovementType(UnitMovementType unitMovementType)
     {
+        if (movementCoroutine != null)
+        {
+            StopCoroutine(movementCoroutine);
+        }
+
         switch (unitMovementType)
         {
             case UnitMovementType.None:
-                if (movementCoroutine != null)
-                {
-                    StopCoroutine(movementCoroutine);
-                }
                 break;
             case UnitMovementType.Passive:
                 // Start a couroutine to get a new random movement target at a pre-determined interval.
                 movementCoroutine = StartCoroutine(UnitMovementPassive.GetMovementTargetCoroutine(OnNewMovementTarget, this));
                 break;
             case UnitMovementType.Aggressive:
-                movementCoroutine = StartCoroutine(UnitMovementAggressive.GetMovementTargetCoroutine(OnNewMovementTarget, this));
+                movementCoroutine = StartCoroutine(UnitMovementAggressive.GetMovementTargetCoroutine(OnNewMovementTarget, this, UnitAttack.Target.transform));
                 break;
             case UnitMovementType.FollowPath:
                 // TODO
@@ -108,6 +114,15 @@ public class Unit : MonoBehaviour
     void OnNewAttackTarget(Unit attackTarget)
     {
         UnitAttack.Target = attackTarget;
+        
+        if (attackTarget == null)
+        {
+            SetMovementType(StartingUnitMovementType);
+        }
+        else if (UnitMovementAggressive.Enabled)
+        {
+            SetMovementType(UnitMovementType.Aggressive);
+        }
     }
 
     private void InitNavMeshAgent()

@@ -116,16 +116,17 @@ MonoBehaviour:
     UnitType: 0
     OutgoingDamageMultiplier: 1
     IncomingDamageMultiplier: 1
-  StartingUnitMovementType: 1
+  StartingUnitMovementType: 0
   UnitMovementPassive:
-    RetargetMinTime: 3
-    RetargetMaxTime: 20
+    Enabled: 1
+    RetargetMinTime: 1
+    RetargetMaxTime: 12
     TargetDistanceMin: -10
     TargetDistanceMax: 10
   UnitMovementAggressive:
+    Enabled: 1
     MinDistanceFromTarget: 2
     MaxDistanceFromTarget: 3.5
-    target: {fileID: 0}
   UnitAttackTargeting:
     TargetUnitType: 2
     UnitAttackTargetingType: 0
@@ -135,6 +136,7 @@ MonoBehaviour:
     TimeBetweenAttacks: 3
     Range: 4
     ProjectileSpawnTransform: {fileID: 8554111079748884678}
+    LeashRange: 36
   TargetTransform: {fileID: 0}
 --- !u!195 &854417935132763554
 NavMeshAgent:
