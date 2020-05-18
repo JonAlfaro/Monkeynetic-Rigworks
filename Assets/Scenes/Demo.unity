@@ -225,10 +225,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 717667190, guid: 624ed88bdba9ae549b799fc81ade2689, type: 3}
-      propertyPath: ThingyToSpawn
-      value: 
-      objectReference: {fileID: 526841143013874517, guid: a39fc1f1973f5904b847b72810f9d868, type: 3}
     - target: {fileID: 3902157398716559074, guid: 624ed88bdba9ae549b799fc81ade2689, type: 3}
       propertyPath: m_LocalPosition.x
       value: 67.91
@@ -273,6 +269,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5723183517758802688, guid: 624ed88bdba9ae549b799fc81ade2689, type: 3}
+      propertyPath: PlayerCamera
+      value: 
+      objectReference: {fileID: 921065455}
     - target: {fileID: 8871225050701723248, guid: 624ed88bdba9ae549b799fc81ade2689, type: 3}
       propertyPath: m_Name
       value: Ellen
@@ -5667,6 +5667,11 @@ PrefabInstance:
 --- !u!1 &921065454 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3306100764376975615, guid: 80844b2319340044da27db99208a9eac, type: 3}
+  m_PrefabInstance: {fileID: 2019064142}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &921065455 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4479908057211236910, guid: 80844b2319340044da27db99208a9eac, type: 3}
   m_PrefabInstance: {fileID: 2019064142}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &921065459
@@ -11891,8 +11896,8 @@ GameObject:
   - component: {fileID: 1898159285}
   - component: {fileID: 1898159284}
   m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
+  m_Name: Floor
+  m_TagString: BuildableArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

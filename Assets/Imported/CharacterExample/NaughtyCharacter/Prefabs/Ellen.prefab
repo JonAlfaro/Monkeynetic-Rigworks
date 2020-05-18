@@ -3441,6 +3441,7 @@ GameObject:
   - component: {fileID: 4449062145031092406}
   - component: {fileID: 717667185}
   - component: {fileID: 717667190}
+  - component: {fileID: 5723183517758802688}
   m_Layer: 0
   m_Name: Ellen
   m_TagString: Untagged
@@ -3565,23 +3566,26 @@ MonoBehaviour:
     IncomingDamageMultiplier: 1
   StartingUnitMovementType: 3
   UnitMovementPassive:
+    Enabled: 0
     RetargetMinTime: 0
     RetargetMaxTime: 0
     TargetDistanceMin: 0
     TargetDistanceMax: 0
   UnitMovementAggressive:
+    Enabled: 0
     MinDistanceFromTarget: 1
     MaxDistanceFromTarget: 1
-    target: {fileID: 0}
-  UnitAttackTargeting:
-    TargetUnitType: 3
-    UnitAttackTargetingType: 0
-    CheckForValidTargetInterval: 0.1
   UnitAttack:
     AttackProjectile: {fileID: 0}
     TimeBetweenAttacks: 3
     Range: 3
     ProjectileSpawnTransform: {fileID: 0}
+  UnitAttackTargeting:
+    TargetUnitType: 3
+    UnitAttackTargetingType: 0
+    CheckForValidTargetInterval: 0.1
+    TargetingRange: 0
+    LeashRange: 0
   TargetTransform: {fileID: 8405859880136057120}
 --- !u!114 &717667190
 MonoBehaviour:
@@ -3596,7 +3600,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActionType: 0
-  ThingyToSpawn: {fileID: 8949979087863436010, guid: 4d3e2efba42d2ff479eea6a3c4976966, type: 3}
+  ThingyToSpawn: {fileID: 526841143013874517, guid: a39fc1f1973f5904b847b72810f9d868, type: 3}
+--- !u!114 &5723183517758802688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8871225050701723248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f81d94444d0fc44a75110e743fafa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerCamera: {fileID: 0}
+  Range: 100
+  RoundingFactor: 1
+  Enabled: 1
+  OnNewMouseTarget:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9029171360561855646
 GameObject:
   m_ObjectHideFlags: 0
