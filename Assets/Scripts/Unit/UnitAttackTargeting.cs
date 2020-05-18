@@ -12,6 +12,8 @@ public class UnitAttackTargeting
     public UnitType TargetUnitType;
     public UnitAttackTargetingType UnitAttackTargetingType;
     public float CheckForValidTargetInterval = 0.1f;
+    public float TargetingRange = 0f;
+    public float LeashRange = 0f;
 
     private Unit Unit;
     private Unit currentTarget;
@@ -20,16 +22,26 @@ public class UnitAttackTargeting
     public IEnumerator GetAttackTargetCoroutine(Unit unit, UnityAction<Unit> onNewAttackTarget)
     {
         Unit = unit;
+        // Set range and leash range to at least the units attack range
+        if (TargetingRange < Unit.AttackRange)
+        {
+            TargetingRange = Unit.AttackRange;
+        }
+        if (LeashRange < TargetingRange)
+        {
+            LeashRange = TargetingRange;
+        }
+
         // Set the event to call when a new target is found
         this.onNewAttackTarget.RemoveAllListeners();
         this.onNewAttackTarget.AddListener(onNewAttackTarget);
 
         while (true)
         {
-            if (!IsTargetValidAndInRange(currentTarget))
+            if (!IsTargetValidAndInRange(currentTarget, LeashRange))
             {
                 // TODO Add a layerMask to make it more performant
-                Collider[] targets = Physics.OverlapSphere(Unit.transform.position, Unit.AttackRange);
+                Collider[] targets = Physics.OverlapSphere(Unit.transform.position, TargetingRange);
 
                 // Based on the unit targeting type, select a target
                 switch (UnitAttackTargetingType)
@@ -44,12 +56,12 @@ public class UnitAttackTargeting
         }
     }
 
-    private bool IsTargetValidAndInRange(Unit target)
+    public bool IsTargetValidAndInRange(Unit target, float range)
     {
         return target != null
             && target.IsValidTarget
             && target.UnitType == TargetUnitType
-            && Vector3.Distance(Unit.transform.position, target.transform.position) < Unit.AttackRange;
+            && Vector3.Distance(Unit.transform.position, target.transform.position) <= range;
     }
 
     private void SelectClosestTarget(Collider[] targets)
@@ -61,7 +73,7 @@ public class UnitAttackTargeting
         {
             Unit targetUnit = collider.GetComponent<Unit>();
             // If this is a valid unit, check how close to us it is
-            if (IsTargetValidAndInRange(targetUnit))
+            if (IsTargetValidAndInRange(targetUnit, TargetingRange))
             {
                 float distanceToTarget = Vector3.Distance(Unit.transform.position, collider.transform.position);
                 if (distanceToTarget < closestUnitDistance)

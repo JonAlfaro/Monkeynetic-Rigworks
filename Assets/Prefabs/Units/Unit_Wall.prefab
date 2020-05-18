@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 526841143013874522}
   - component: {fileID: 526841143013874523}
   - component: {fileID: 526841143013874516}
+  - component: {fileID: -3902707968569155420}
   m_Layer: 0
-  m_Name: Unit_Turret
+  m_Name: Unit_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 84c3b1d74fbf9744cb9db28545ad10b8, type: 2}
+  - {fileID: 2100000, guid: 88e3ef78c0e258b48abac594a4484593, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -116,15 +117,40 @@ MonoBehaviour:
     IncomingDamageMultiplier: 1
   StartingUnitMovementType: 3
   UnitMovementPassive:
+    Enabled: 0
     RetargetMinTime: 0
     RetargetMaxTime: 0
     TargetDistanceMin: 0
     TargetDistanceMax: 0
-  UnitAttackTargeting:
-    TargetUnitType: 0
-    UnitAttackTargetingType: 0
-    CheckForValidTargetInterval: 0.1
+  UnitMovementAggressive:
+    Enabled: 0
+    MinDistanceFromTarget: 1
+    MaxDistanceFromTarget: 1
   UnitAttack:
-    AttackProjectile: {fileID: 8878554800626905244, guid: c261a55fdbd45fd47bb3047e7100b32a, type: 3}
-    TimeBetweenAttacks: 2
-    Range: 5
+    AttackProjectile: {fileID: 0}
+    TimeBetweenAttacks: 999
+    Range: 0
+    ProjectileSpawnTransform: {fileID: 0}
+  UnitAttackTargeting:
+    TargetUnitType: 3
+    UnitAttackTargetingType: 0
+    CheckForValidTargetInterval: 999
+    TargetingRange: 0
+    LeashRange: 0
+  TargetTransform: {fileID: 0}
+--- !u!208 &-3902707968569155420
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526841143013874517}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

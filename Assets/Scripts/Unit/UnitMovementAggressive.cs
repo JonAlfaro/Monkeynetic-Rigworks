@@ -5,10 +5,11 @@ using UnityEngine.Events;
 [System.Serializable]
 public class UnitMovementAggressive
 {
+    public bool Enabled = false;
     public float MinDistanceFromTarget = 1f;
     public float MaxDistanceFromTarget = 1f;
 
-    public Transform target;
+    private Transform target;
     private Unit unit;
     private Vector3 targetPosition;
     private Vector3 movementTarget;
@@ -18,12 +19,13 @@ public class UnitMovementAggressive
     float closeEnoughAmount = 0.05f; // When checking distance, we don't need to be perfectly precise so we fudge it by this amount
 
     //Unit targetUnit
-    public IEnumerator GetMovementTargetCoroutine(UnityAction<Vector3> onNewMovementTarget, Unit unit)
+    public IEnumerator GetMovementTargetCoroutine(UnityAction<Vector3> onNewMovementTarget, Unit unit, Transform target)
     {
         // Set the event to call when this coroutine is triggered
         this.onNewMovementTarget.RemoveAllListeners();
         this.onNewMovementTarget.AddListener(onNewMovementTarget);
         this.unit = unit;
+        this.target = target;
 
         while (true)
         {
@@ -47,7 +49,7 @@ public class UnitMovementAggressive
 
         if (target != null)
         {
-            targetPosition = new Vector3(target.position.x, myPosition.y, target.position.z);
+            targetPosition = target.position;
         }
 
         float distanceToTarget = Vector3.Distance(myPosition, targetPosition);

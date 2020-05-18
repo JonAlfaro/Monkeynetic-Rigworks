@@ -1,17 +1,23 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 
 public enum UnitMovementType { Passive, Aggressive, FollowPath, None }
-public enum UnitType { Enemy, Tower }
+public enum UnitType { Enemy, Tower, Player, None }
 
 public class Unit : MonoBehaviour
 {
+    // Unit stat stuff
+    [Header("Stats")]
     public UnitStats UnitStats = new UnitStats();
-
+    [Header("Movement")]
     public UnitMovementType StartingUnitMovementType = UnitMovementType.None;
     public UnitMovementPassive UnitMovementPassive = new UnitMovementPassive();
     public UnitMovementAggressive UnitMovementAggressive = new UnitMovementAggressive();
-    public UnitAttackTargeting UnitAttackTargeting = new UnitAttackTargeting();
+    [Header("Attack")]
     public UnitAttack UnitAttack = new UnitAttack();
+    public UnitAttackTargeting UnitAttackTargeting = new UnitAttackTargeting();
+    
+    public Transform TargetTransform; // This is the transform that projectiles will target. If left null it will default to the units transform
 
     // Getters
     public UnitType UnitType => UnitStats.UnitType;
@@ -19,12 +25,17 @@ public class Unit : MonoBehaviour
     public float AttackRange => UnitAttack.Range;
 
     private Vector3 movementTarget;
-    private bool hasMovmentTarget = false;
     private Coroutine movementCoroutine;
+    private NavMeshAgent navMeshAgent;
 
     // Lifecycle functions
     private void Awake()
     {
+        InitNavMeshAgent();
+        if (TargetTransform == null)
+        {
+            TargetTransform = transform;
+        }
         UnitStats.Init();
         UnitAttack.Init(this);
         SetMovementType(StartingUnitMovementType);
@@ -35,28 +46,22 @@ public class Unit : MonoBehaviour
     private void Update()
     {
         UpdateState();
-        // Perform attack
-        if (UnitAttack.Target != null && UnitAttack.IsReady)
+        if (UnitStats.IsDead)
         {
-            UnitAttack.Attack();
+            return;
         }
-    }
 
-    private void FixedUpdate()
-    {
-        // Perform movement
-        if (hasMovmentTarget)
+        // If the unit has a valid attack target look towards it, otherwise the unit will look towards its movement target (done automatically using NavMeshAgent)
+        if (UnitAttackTargeting.IsTargetValidAndInRange(UnitAttack.Target, UnitAttack.Range))
         {
-            // Move towards the target
-            transform.position = Vector3.MoveTowards(transform.position, movementTarget, Time.fixedDeltaTime * UnitStats.MovementSpeed);
+            // Perform rotation
+            // Ignores y axis (it wont look up or down at the target)
+            transform.LookAt(new Vector3(UnitAttack.Target.TargetTransform.position.x, transform.position.y, UnitAttack.Target.TargetTransform.position.z));
 
-            // If target is reached (ignoring y axis), stop moving
-            Vector3 currentPositionWithoutY = new Vector3(transform.position.x, 0, transform.position.z);
-            Vector3 targetPositionWithoutY = new Vector3(movementTarget.x, 0, movementTarget.z);
-
-            if (Vector3.Distance(currentPositionWithoutY, targetPositionWithoutY) < 0.1f)
+            // Perform attack
+            if (UnitAttack.IsReady)
             {
-                hasMovmentTarget = false;
+                UnitAttack.Attack();
             }
         }
     }
@@ -77,25 +82,28 @@ public class Unit : MonoBehaviour
     void OnNewMovementTarget(Vector3 newMovementTarget)
     {
         movementTarget = newMovementTarget;
-        hasMovmentTarget = true;
+
+        // Set navMeshAgent target
+        navMeshAgent?.SetDestination(movementTarget);
     }
 
     public void SetMovementType(UnitMovementType unitMovementType)
     {
+        if (movementCoroutine != null)
+        {
+            StopCoroutine(movementCoroutine);
+        }
+
         switch (unitMovementType)
         {
             case UnitMovementType.None:
-                if (movementCoroutine != null)
-                {
-                    StopCoroutine(movementCoroutine);
-                }
                 break;
             case UnitMovementType.Passive:
                 // Start a couroutine to get a new random movement target at a pre-determined interval.
                 movementCoroutine = StartCoroutine(UnitMovementPassive.GetMovementTargetCoroutine(OnNewMovementTarget, this));
                 break;
             case UnitMovementType.Aggressive:
-                movementCoroutine = StartCoroutine(UnitMovementAggressive.GetMovementTargetCoroutine(OnNewMovementTarget, this));
+                movementCoroutine = StartCoroutine(UnitMovementAggressive.GetMovementTargetCoroutine(OnNewMovementTarget, this, UnitAttack.Target.transform));
                 break;
             case UnitMovementType.FollowPath:
                 // TODO
@@ -107,8 +115,27 @@ public class Unit : MonoBehaviour
     void OnNewAttackTarget(Unit attackTarget)
     {
         UnitAttack.Target = attackTarget;
+        
+        if (attackTarget == null)
+        {
+            SetMovementType(StartingUnitMovementType);
+        }
+        else if (UnitMovementAggressive.Enabled)
+        {
+            SetMovementType(UnitMovementType.Aggressive);
+        }
     }
 
+    private void InitNavMeshAgent()
+    {
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        if (navMeshAgent)
+        {
+            navMeshAgent.speed = UnitStats.MovementSpeed;
+        }
+    }
+
+    // Draws unit range in the editor only
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, UnitAttack.Range);
