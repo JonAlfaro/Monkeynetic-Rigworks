@@ -10,6 +10,11 @@ public class EnvriomentController : MonoBehaviour
     private TreePrototype[] _treeCache;
     private TreePrototype[] _activeTree;
     private GameObject[] _grassArr;
+    private Color currentSkyboxColor;
+    private Color targetSkyboxColor;
+    private Quaternion currentLightRotation;
+    private Quaternion targetLightRotation;
+    private Quaternion targetLightRotationElderC;
     private int _grassArrIndex = 0;
     public Color SkyboxColorDefault;
     public Color SkyboxColorElderCSummon;
@@ -23,6 +28,11 @@ public class EnvriomentController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        targetLightRotationElderC = new Quaternion(0.6f, 0.0f, -0.4f, -0.1f);
+        currentSkyboxColor = SkyboxColorDefault;
+        targetSkyboxColor = SkyboxColorDefault;
+        currentLightRotation =  stageLight.transform.rotation;
+        targetLightRotation =  stageLight.transform.rotation;
         _treeCache = stageTerrain.terrainData.treePrototypes;
         _activeTree = stageTerrain.terrainData.treePrototypes;
         _grassArr = new[] {grassDefault, grassWind1, grassWind2};
@@ -35,12 +45,20 @@ public class EnvriomentController : MonoBehaviour
         if(Input.GetKeyDown("z"))
         {
             RotateGrassWind();
-            SetSkyboxColor(SkyboxColorElderCSummon);
+            // SetSkyboxColor(SkyboxColorElderCSummon);
+            targetSkyboxColor = SkyboxColorElderCSummon;
+            targetLightRotation = targetLightRotationElderC;
         }
+        
+        // Skybox Color Control
+        // SetSkyboxColor(Color.Lerp(currentSkyboxColor, targetSkyboxColor, Time.deltaTime/3));
+        // stageLight.transform.rotation = Quaternion.Lerp(currentLightRotation, targetLightRotation, Time.deltaTime);
+        // currentLightRotation = stageLight.transform.rotation;
     }
 
     public void SetSkyboxColor(Color color)
     {
+        currentSkyboxColor = color;
         if (RenderSettings.skybox.HasProperty("_Tint"))
         {
             RenderSettings.skybox.SetColor("_Tint", color);
