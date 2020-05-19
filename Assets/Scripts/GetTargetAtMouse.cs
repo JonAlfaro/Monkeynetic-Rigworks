@@ -37,11 +37,25 @@ public class GetTargetAtMouse : MonoBehaviour
         {
             if (raycastHit.transform.CompareTag(buildableAreaTag))
             {
-                // TODO round hit point based on rounding factor
-                TargetPosition = raycastHit.point;
+                if (RoundingFactor != 0)
+                {
+                    TargetPosition = GetRoundedVector3(raycastHit.point, RoundingFactor);
+                }
+                else
+                {
+                    TargetPosition = raycastHit.point;
+                }
+
+                OnNewMouseTarget.Invoke(TargetPosition);
+
                 break;
             }
         }
 
+    }
+
+    public static Vector3 GetRoundedVector3(Vector3 value, float factor)
+    {
+        return new Vector3(UtilityMethods.RoundToNearestFactor(value.x, factor), value.y, UtilityMethods.RoundToNearestFactor(value.z, factor));
     }
 }

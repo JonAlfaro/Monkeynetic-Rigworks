@@ -3600,7 +3600,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActionType: 0
-  ThingyToSpawn: {fileID: 526841143013874517, guid: a39fc1f1973f5904b847b72810f9d868, type: 3}
+  OnBuild:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: BuildingManager, Assembly-CSharp
+        m_MethodName: Build
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDebugLog:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5723183517758802688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3615,11 +3632,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerCamera: {fileID: 0}
   Range: 100
-  RoundingFactor: 1
+  RoundingFactor: 1.25
   Enabled: 1
   OnNewMouseTarget:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: BuildingManager, Assembly-CSharp
+        m_MethodName: SetBuildingPosition
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &9029171360561855646
 GameObject:
   m_ObjectHideFlags: 0

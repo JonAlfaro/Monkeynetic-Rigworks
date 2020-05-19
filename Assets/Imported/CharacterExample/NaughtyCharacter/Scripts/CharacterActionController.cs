@@ -1,35 +1,26 @@
 ﻿using NaughtyCharacter;
 using UnityEngine;
+using UnityEngine.Events;
 
-public enum CharacterActionType { SpawnThingy, DebugLog }
+public enum CharacterActionType { Build, DebugLog }
 
 // This class will have shit like building and shooting ak-47 etc.
 public class CharacterActionController : MonoBehaviour
 {
     public CharacterActionType ActionType;
-    public GameObject ThingyToSpawn;
+    public UnityEvent OnBuild;
+    public UnityEvent OnDebugLog;
 
     public void CharacterClicked(Character character)
     {
         switch (ActionType)
         {
-            case CharacterActionType.DebugLog:
-                DebugLog();
+            case CharacterActionType.Build:
+                OnBuild.Invoke();
                 break;
-            case CharacterActionType.SpawnThingy:
-                SpawnThingy();
+            case CharacterActionType.DebugLog:
+                OnDebugLog.Invoke();
                 break;
         }
-    }
-
-    private void DebugLog()
-    {
-        Debug.Log("Action Fired");
-    }
-
-    private void SpawnThingy()
-    {
-        Vector3 forwardFromRotation = transform.position + (transform.rotation * Vector3.forward);
-        Instantiate(ThingyToSpawn, forwardFromRotation, Quaternion.identity);
     }
 }
