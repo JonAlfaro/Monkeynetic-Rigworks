@@ -6,6 +6,8 @@ public class EnvriomentController : MonoBehaviour
     private static readonly int SunDirection = Shader.PropertyToID("_SunDirection");
     private float _dayHourTick;
     private float _nightHourTick;
+    private readonly float _nightLerpDivider = 5;
+    private float _nightLerpStep;
 
 
     private float _timeTracker;
@@ -51,6 +53,7 @@ public class EnvriomentController : MonoBehaviour
     private void Start()
     {
         const int degreesInDay = 200;
+        _nightLerpStep = 1 / _nightLerpDivider;
         _timeTracker = startTime;
         _dayHourTick = degreesInDay / hoursInADay / secondsInHour;
         _nightHourTick = (360 - degreesInDay) / hoursInANight / secondsInHour;
@@ -83,9 +86,28 @@ public class EnvriomentController : MonoBehaviour
             (stageLightTransform = stageLight.transform).localRotation *=
                 Quaternion.AngleAxis(_dayHourTick * Time.fixedDeltaTime, Vector3.right);
             Shader.SetGlobalVector("_SunDirection", stageLightTransform.forward);
-            
-            Shader.SetGlobalColor("_ColorSky", colorDaySky);
-            Shader.SetGlobalColor("_ColorHorizon", colorDayHorizon);
+
+            if (_timeTracker - sunriseTime <= 1)
+            {
+                // Dawn -> Day Color Lerp
+                var lerpStep = _timeTracker - sunriseTime;
+                Shader.SetGlobalColor("_ColorSky", Color.Lerp(colorDawnSky, colorDaySky, lerpStep));
+                Shader.SetGlobalColor("_ColorHorizon",
+                    Color.Lerp(colorDawnHorizon, colorDayHorizon, lerpStep));
+            }
+            else if (sunriseTime + hoursInADay - _timeTracker >= 0 && sunriseTime + hoursInADay - _timeTracker <= 1)
+            {
+                // Day -> Dusk Color Lerp
+                var lerpStep = 1 - (sunriseTime + hoursInADay - _timeTracker);
+                Shader.SetGlobalColor("_ColorSky", Color.Lerp(colorDaySky, colorDuskSky, lerpStep));
+                Shader.SetGlobalColor("_ColorHorizon",
+                    Color.Lerp(colorDayHorizon, colorDuskHorizon, lerpStep));
+            }
+            else
+            {
+                Shader.SetGlobalColor("_ColorSky", colorDaySky);
+                Shader.SetGlobalColor("_ColorHorizon", colorDayHorizon);
+            }
         }
         else
         {
@@ -93,8 +115,31 @@ public class EnvriomentController : MonoBehaviour
             (stageLightTransform = stageLight.transform).localRotation *=
                 Quaternion.AngleAxis(_nightHourTick * Time.fixedDeltaTime, Vector3.right);
             Shader.SetGlobalVector("_SunDirection", stageLightTransform.forward);
-            Shader.SetGlobalColor("_ColorSky", colorNightSky);
-            Shader.SetGlobalColor("_ColorHorizon", colorNightHorizon);
+
+            if (_timeTracker - sunriseTime - _nightLerpStep <= _nightLerpStep)
+            {
+                var lerpStep = (_timeTracker - (sunriseTime - _nightLerpStep)) * _nightLerpDivider;
+                // Night -> Dawn Color Lerp
+                Shader.SetGlobalColor("_ColorSky",
+                    Color.Lerp(colorNightSky, colorDawnSky, lerpStep));
+                Shader.SetGlobalColor("_ColorHorizon",
+                    Color.Lerp(colorNightHorizon, colorDawnHorizon, lerpStep));
+            }
+            else if (sunriseTime + hoursInADay + _nightLerpStep - _timeTracker >= 0 &&
+                     sunriseTime + hoursInADay + _nightLerpStep - _timeTracker <= _nightLerpStep)
+            {
+                // Dusk -> Night Color Lerp
+                var lerpStep = 1 - (sunriseTime + hoursInADay + _nightLerpStep - _timeTracker) * _nightLerpDivider;
+                Shader.SetGlobalColor("_ColorSky",
+                    Color.Lerp(colorDuskSky, colorNightSky, lerpStep));
+                Shader.SetGlobalColor("_ColorHorizon",
+                    Color.Lerp(colorDuskHorizon, colorNightHorizon, lerpStep));
+            }
+            else
+            {
+                Shader.SetGlobalColor("_ColorSky", colorNightSky);
+                Shader.SetGlobalColor("_ColorHorizon", colorNightHorizon);
+            }
         }
 
         // Shader.SetGlobalVector("_SkyAngle", new Vector4(GetXDegree(stageLight.transform), 0));

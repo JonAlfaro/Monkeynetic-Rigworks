@@ -9707,18 +9707,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f3f8697a4acfda43871597e85036c22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorDawnHorizon: {r: 0, g: 0, b: 0, a: 0}
-  colorDawnSky: {r: 0, g: 0, b: 0, a: 0}
+  colorDawnHorizon: {r: 1, g: 0.47457013, b: 0, a: 0}
+  colorDawnSky: {r: 1, g: 0, b: 0, a: 0}
   colorDayHorizon: {r: 0.03137255, g: 0.24705884, b: 0.9725491, a: 0}
   colorDaySky: {r: 0.03137255, g: 0.24705884, b: 0.9725491, a: 0}
-  colorDuskHorizon: {r: 0, g: 0, b: 0, a: 0}
-  colorDuskSky: {r: 0, g: 0, b: 0, a: 0}
+  colorDuskHorizon: {r: 1, g: 0, b: 0, a: 0}
+  colorDuskSky: {r: 0.03297438, g: 0.09650112, b: 0.5377358, a: 0}
   colorNightHorizon: {r: 0.003921569, g: 0.003921569, b: 0.054901965, a: 0}
   colorNightSky: {r: 0.11764707, g: 0, b: 0.27450982, a: 0}
-  hoursInADay: 13
-  hoursInANight: 11
+  hoursInADay: 14
+  hoursInANight: 10
   playerCamera: {fileID: 921065458}
-  secondsInHour: 10
+  secondsInHour: 2
   stageLight: {fileID: 2075280644}
   stageTerrain: {fileID: 1405334178}
   startTime: 12
