@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.Serialization;
 
-public class EnvriomentController : MonoBehaviour
+public class csSkyboxController : MonoBehaviour
 {
     private static readonly int SunDirection = Shader.PropertyToID("_SunDirection");
     private float _dayHourTick;
     private float _nightHourTick;
     private readonly float _nightLerpDivider = 5;
     private float _nightLerpStep;
-
 
     private float _timeTracker;
 
