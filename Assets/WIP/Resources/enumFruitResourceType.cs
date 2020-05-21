@@ -1,0 +1,1 @@
+﻿public enum FruitResourceType { ForestApple, BlueCoconut, WhiteBerry, BeachPeach, FireMelon, Rockana, GoldenGrape, RainbowMango, OrangeOrange }
