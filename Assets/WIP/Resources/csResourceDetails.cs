@@ -23,11 +23,9 @@ public class csResourceDetails : MonoBehaviour
 
     private void OnTriggerEnter(Collider colider)
     {
-        Debug.Log("zzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
         switch (colider.gameObject.name)
         {
             case "pfPlayerWithControlles":
-                Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                 increaseResource.Invoke(fruitType,fruitAmount);
                 break;
             case "PlayerTwoWithCamera":
