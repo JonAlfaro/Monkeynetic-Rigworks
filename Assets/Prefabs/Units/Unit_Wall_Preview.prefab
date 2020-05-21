@@ -11,11 +11,8 @@ GameObject:
   - component: {fileID: 526841143013874520}
   - component: {fileID: 526841143013874521}
   - component: {fileID: 526841143013874522}
-  - component: {fileID: 526841143013874523}
-  - component: {fileID: 526841143013874516}
-  - component: {fileID: -3902707968569155420}
   m_Layer: 0
-  m_Name: Unit_Wall
+  m_Name: Unit_Wall_Preview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,73 +81,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &526841143013874523
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526841143013874517}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &526841143013874516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526841143013874517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1dc71cda670cc340abfa186b2942d9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UnitStats:
-    MaxHealth: 15
-    MovementSpeed: 0
-    UnitType: 1
-    OutgoingDamageMultiplier: 1
-    IncomingDamageMultiplier: 1
-  StartingUnitMovementType: 3
-  UnitMovementPassive:
-    Enabled: 0
-    RetargetMinTime: 0
-    RetargetMaxTime: 0
-    TargetDistanceMin: 0
-    TargetDistanceMax: 0
-  UnitMovementAggressive:
-    Enabled: 0
-    MinDistanceFromTarget: 1
-    MaxDistanceFromTarget: 1
-  UnitAttack:
-    AttackProjectile: {fileID: 0}
-    TimeBetweenAttacks: 999
-    Range: 0
-    ProjectileSpawnTransform: {fileID: 0}
-  UnitAttackTargeting:
-    TargetUnitType: 3
-    UnitAttackTargetingType: 0
-    CheckForValidTargetInterval: 999
-    TargetingRange: 0
-    LeashRange: 0
-  TargetTransform: {fileID: 0}
---- !u!208 &-3902707968569155420
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526841143013874517}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
