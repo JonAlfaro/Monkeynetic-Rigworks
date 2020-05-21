@@ -9707,6 +9707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f3f8697a4acfda43871597e85036c22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  printTime: 0
   colorDawnHorizon: {r: 1, g: 0.47457013, b: 0, a: 0}
   colorDawnSky: {r: 1, g: 0, b: 0, a: 0}
   colorDayHorizon: {r: 0.03137255, g: 0.24705884, b: 0.9725491, a: 0}
@@ -13640,7 +13641,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2075280645}
   - component: {fileID: 2075280644}
-  - component: {fileID: 2075280646}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -13724,19 +13724,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 270, z: 0}
---- !u!114 &2075280646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2075280643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: def70d65bd139f549af0f5dfe3c797fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skyboxSpeed: 10
 --- !u!4 &2076244221 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 306146363703508006, guid: e89fa9a95520c3b4baa8d3e0cc9e40b8, type: 3}
