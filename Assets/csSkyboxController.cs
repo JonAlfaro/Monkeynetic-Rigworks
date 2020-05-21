@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 public class csSkyboxController : MonoBehaviour
@@ -7,6 +8,7 @@ public class csSkyboxController : MonoBehaviour
     private float _dayHourTick;
     private float _nightHourTick;
     private readonly float _nightLerpDivider = 5;
+    public Boolean printTime = false;
     private float _nightLerpStep;
 
     private float _timeTracker;
@@ -70,18 +72,26 @@ public class csSkyboxController : MonoBehaviour
         _timeTracker += 1 / secondsInHour * Time.fixedDeltaTime;
         if (_timeTracker >= 24) _timeTracker = 0;
 
-        if (_timeTracker < 1)
-            Debug.Log((int) (_timeTracker + 12) + ":" + (int) (_timeTracker % 1 * 60) + "AM");
-        else if (_timeTracker < 12)
-            Debug.Log((int) _timeTracker + ":" + (int) (_timeTracker % 1 * 60) + "AM");
-        else if (_timeTracker < 13)
-            Debug.Log((int) _timeTracker + ":" + (int) (_timeTracker % 1 * 60) + "PM");
-        else
-            Debug.Log((int) _timeTracker - 12 + ":" + (int) ((_timeTracker - 12) % 1 * 60) + "PM");
+        if (printTime)
+        {
+            if (_timeTracker < 1)
+                Debug.Log((int) (_timeTracker + 12) + ":" + (int) (_timeTracker % 1 * 60) + "AM");
+            else if (_timeTracker < 12)
+                Debug.Log((int) _timeTracker + ":" + (int) (_timeTracker % 1 * 60) + "AM");
+            else if (_timeTracker < 13)
+                Debug.Log((int) _timeTracker + ":" + (int) (_timeTracker % 1 * 60) + "PM");
+            else
+                Debug.Log((int) _timeTracker - 12 + ":" + (int) ((_timeTracker - 12) % 1 * 60) + "PM");  
+        }
+        
 
         if (_timeTracker >= sunriseTime && _timeTracker <= sunriseTime + hoursInADay)
         {
-            Debug.Log("DAY TICK: " + _dayHourTick);
+            if (printTime)
+            {
+                Debug.Log("DAY TICK: " + _dayHourTick);
+            }
+
             (stageLightTransform = stageLight.transform).localRotation *=
                 Quaternion.AngleAxis(_dayHourTick * Time.fixedDeltaTime, Vector3.right);
             Shader.SetGlobalVector("_SunDirection", stageLightTransform.forward);
@@ -110,7 +120,11 @@ public class csSkyboxController : MonoBehaviour
         }
         else
         {
-            Debug.Log("NIGHT TICK: " + _nightHourTick);
+            if (printTime)
+            {
+                Debug.Log("NIGHT TICK: " + _nightHourTick);
+            }
+
             (stageLightTransform = stageLight.transform).localRotation *=
                 Quaternion.AngleAxis(_nightHourTick * Time.fixedDeltaTime, Vector3.right);
             Shader.SetGlobalVector("_SunDirection", stageLightTransform.forward);
