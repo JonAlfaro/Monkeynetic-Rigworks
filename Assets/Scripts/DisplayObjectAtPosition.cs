@@ -2,7 +2,6 @@
 
 public class DisplayObjectAtPosition : MonoBehaviour
 {
-    public bool Enabled;
     public GameObject Object;
     public Material DisplayMaterial;
     public Vector3? Position = new Vector3(0, 0, 0);
@@ -15,21 +14,12 @@ public class DisplayObjectAtPosition : MonoBehaviour
         InstantiateAndSetMaterial();
     }
 
-    public void EnableDisplay(bool enabled)
-    {
-        instantiatedObject?.SetActive(enabled);
-    }
-
     public void SetPosition(Vector3? position)
     {
         Position = position;
-        if (position != null)
+        if (position != null && instantiatedObject != null)
         {
             instantiatedObject.transform.position = (Vector3)Position + PositionOffset;
-        }
-        else
-        {
-            EnableDisplay(false);
         }
     }
 
@@ -49,6 +39,7 @@ public class DisplayObjectAtPosition : MonoBehaviour
     private void InstantiateAndSetMaterial()
     {
         instantiatedObject = Instantiate(Object, (Vector3)Position + PositionOffset, Quaternion.identity);
+        instantiatedObject.transform.SetParent(transform);
         if (DisplayMaterial)
         {
             instantiatedObject.GetComponent<Renderer>().material = DisplayMaterial;

@@ -59,6 +59,11 @@ public class BuildingManager : MonoBehaviour
 
     public void Build()
     {
+        if (!GameVariables.IsBuildModeEnabled)
+        {
+            return;
+        }
+
         if (IsBuildingPositionValid && Building != null)
         {
             Instantiate(Building, (Vector3)BuildingPosition + BuildingOffset, BuildingRotation);
@@ -69,9 +74,14 @@ public class BuildingManager : MonoBehaviour
         }
     }
 
+    public void ToggleBuildMode()
+    {
+        SetIsBuildingPositionValid();
+    }
+
     private void SetIsBuildingPositionValid()
     {
-        IsBuildingPositionValid = BuildingPosition != null && !AreOtherThingsInTheWay((Vector3)BuildingPosition + BuildingOffset);
+        IsBuildingPositionValid = GameVariables.IsBuildModeEnabled && BuildingPosition != null && !AreOtherThingsInTheWay((Vector3)BuildingPosition + BuildingOffset);
         BuildingValidChanged.Invoke(IsBuildingPositionValid);
     }
 
