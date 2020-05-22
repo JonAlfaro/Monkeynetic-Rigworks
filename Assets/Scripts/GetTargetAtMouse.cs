@@ -7,7 +7,7 @@ public class GetTargetAtMouse : MonoBehaviour
     public float Range = 10f;
     public float RoundingFactor = 1f;
     public bool Enabled = true;
-    public UnityEvent<Vector3> OnNewMouseTarget;
+    public UnityEvent<Vector3?> OnNewMouseTarget;
     public Vector3 TargetPosition { get; private set; }
     private string buildableAreaTag = "BuildableArea";
 
@@ -48,10 +48,11 @@ public class GetTargetAtMouse : MonoBehaviour
 
                 OnNewMouseTarget.Invoke(TargetPosition);
 
-                break;
+                return;
             }
         }
 
+        OnNewMouseTarget.Invoke(null);
     }
 
     public static Vector3 GetRoundedVector3(Vector3 value, float factor)

@@ -1,30 +1,32 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class BuildingManager : MonoBehaviour
 {
     public GameObject Building;
-    public Vector3 BuildingPosition;
+    public Vector3? BuildingPosition;
     public Vector3 BuildingOffset = new Vector3(0, 1, 0);
     public Quaternion BuildingRotation = Quaternion.identity;
     public bool IsBuildingPositionValid { get; set; }
+    public UnityEvent<bool> BuildingValidChanged;
 
     private Vector3 buildingExtents = new Vector3(0.5f, 0.5f, 0.5f);
 
-    private void Awake()
+    private void Start()
     {
         SetBuilding(Building);
     }
 
-    public void SetBuildingPosition(Vector3 buildingPosition)
+    public void SetBuildingPosition(Vector3? buildingPosition)
     {
-        IsBuildingPositionValid = !AreOtherThingsInTheWay(buildingPosition + BuildingOffset);
         BuildingPosition = buildingPosition;
+        SetIsBuildingPositionValid();
     }
 
     public void SetBuildingOffset(Vector3 buildingOffset)
     {
-        IsBuildingPositionValid = !AreOtherThingsInTheWay(BuildingPosition + buildingOffset);
         BuildingOffset = buildingOffset;
+        SetIsBuildingPositionValid();
     }
 
     public void SetBuilding(GameObject building)
@@ -46,6 +48,8 @@ public class BuildingManager : MonoBehaviour
         {
             buildingExtents = new Vector3(0.5f, 0.5f, 0.5f);
         }
+
+        SetIsBuildingPositionValid();
     }
 
     public void SetBuildingRotation(Quaternion buildingRotation)
@@ -57,12 +61,18 @@ public class BuildingManager : MonoBehaviour
     {
         if (IsBuildingPositionValid && Building != null)
         {
-            Instantiate(Building, BuildingPosition + BuildingOffset, BuildingRotation);
+            Instantiate(Building, (Vector3)BuildingPosition + BuildingOffset, BuildingRotation);
         }
         else
         {
             Debug.Log("This is an invalid building position or there is nothing to build");
         }
+    }
+
+    private void SetIsBuildingPositionValid()
+    {
+        IsBuildingPositionValid = BuildingPosition != null && !AreOtherThingsInTheWay((Vector3)BuildingPosition + BuildingOffset);
+        BuildingValidChanged.Invoke(IsBuildingPositionValid);
     }
 
     private bool AreOtherThingsInTheWay(Vector3 position)
