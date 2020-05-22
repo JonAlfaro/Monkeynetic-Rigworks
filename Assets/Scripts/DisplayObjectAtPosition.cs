@@ -36,8 +36,18 @@ public class DisplayObjectAtPosition : MonoBehaviour
         InstantiateAndSetMaterial();
     }
 
+    public void SetObject(BuildingPrefab buildingPrefab)
+    {
+        Object = buildingPrefab.BuildingPreview;
+        InstantiateAndSetMaterial();
+    }
+
     private void InstantiateAndSetMaterial()
     {
+        if (instantiatedObject != null)
+        {
+            Destroy(instantiatedObject);
+        }
         instantiatedObject = Instantiate(Object, (Vector3)Position + PositionOffset, Quaternion.identity);
         instantiatedObject.transform.SetParent(transform);
         if (DisplayMaterial)

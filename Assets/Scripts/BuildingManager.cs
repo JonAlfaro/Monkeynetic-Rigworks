@@ -3,12 +3,13 @@ using UnityEngine.Events;
 
 public class BuildingManager : MonoBehaviour
 {
-    public GameObject[] Buildings;
+    public BuildingPrefab[] Buildings;
     public Vector3? BuildingPosition;
     public Vector3 BuildingOffset = new Vector3(0, 1, 0);
     public Quaternion BuildingRotation = Quaternion.identity;
     public bool IsBuildingPositionValid { get; set; }
     public UnityEvent<bool> BuildingValidChanged;
+    public UnityEvent<BuildingPrefab> BuildingChanged;
 
     private GameObject selectedBuilding;
     private Vector3 buildingExtents = new Vector3(0.5f, 0.5f, 0.5f);
@@ -72,9 +73,9 @@ public class BuildingManager : MonoBehaviour
         SetBuilding(Buildings[buildingIndex - 1]);
     }
 
-    private void SetBuilding(GameObject building)
+    private void SetBuilding(BuildingPrefab buildingPrefab)
     {
-        selectedBuilding = building;
+        selectedBuilding = buildingPrefab.Building;
 
         if (selectedBuilding == null)
         {
@@ -82,7 +83,7 @@ public class BuildingManager : MonoBehaviour
         }
 
         // Get the building extents. This is used to check for collisions to determine if this is a valid spot to build
-        Collider buildingCollider = building.GetComponent<Collider>();
+        Collider buildingCollider = selectedBuilding.GetComponent<Collider>();
         if (buildingCollider != null)
         {
             buildingExtents = buildingCollider.bounds.extents;
@@ -92,6 +93,7 @@ public class BuildingManager : MonoBehaviour
             buildingExtents = new Vector3(0.5f, 0.5f, 0.5f);
         }
 
+        BuildingChanged.Invoke(buildingPrefab);
         SetIsBuildingPositionValid();
     }
 

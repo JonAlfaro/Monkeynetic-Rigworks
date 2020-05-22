@@ -8067,9 +8067,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Buildings:
-  - {fileID: 526841143013874517, guid: a39fc1f1973f5904b847b72810f9d868, type: 3}
-  - {fileID: 526841143013874517, guid: 1b5566f6b11b60241994c3b5f0541bdc, type: 3}
-  - {fileID: 854417935132763545, guid: ba27f248dbba05d43ae07f45ddcaf8a3, type: 3}
+  - Building: {fileID: 526841143013874517, guid: a39fc1f1973f5904b847b72810f9d868, type: 3}
+    BuildingPreview: {fileID: 526841143013874517, guid: 826c8bbeba680f34e9e189cce2fa0fc1, type: 3}
+  - Building: {fileID: 526841143013874517, guid: 1b5566f6b11b60241994c3b5f0541bdc, type: 3}
+    BuildingPreview: {fileID: 526841143013874517, guid: 11109f71ffffad84492e917b54ff87a3, type: 3}
+  - Building: {fileID: 854417935132763545, guid: ba27f248dbba05d43ae07f45ddcaf8a3, type: 3}
+    BuildingPreview: {fileID: 854417935132763545, guid: b03542c137b3425468c07d07341d716a, type: 3}
   BuildingOffset: {x: 0, y: 1, z: 0}
   BuildingRotation: {x: 0, y: 0, z: 0, w: 1}
   BuildingValidChanged:
@@ -8078,6 +8081,21 @@ MonoBehaviour:
       - m_Target: {fileID: 1192018152}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  BuildingChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1192018153}
+        m_TargetAssemblyTypeName: DisplayObjectAtPosition, Assembly-CSharp
+        m_MethodName: SetObject
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
