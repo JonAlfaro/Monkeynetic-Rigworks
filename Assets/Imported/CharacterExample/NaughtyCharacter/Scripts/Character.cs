@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace NaughtyCharacter
@@ -70,6 +71,8 @@ namespace NaughtyCharacter
 		private bool _hasMovementInput;
 		private bool _jumpInput;
 		private bool _clickInput;
+		private bool _rightClickInput;
+		private List<KeyCode> _keyInput;
 
         public Vector3 Velocity => _characterController.velocity;
 		public Vector3 HorizontalVelocity => _characterController.velocity.SetY(0.0f);
@@ -130,9 +133,15 @@ namespace NaughtyCharacter
 			_jumpInput = jumpInput;
 		}
 
-        public void SetClickInput(bool clickInput)
+        public void SetClickInput(bool clickInput, bool rightClickInput)
         {
             _clickInput = clickInput;
+            _rightClickInput = rightClickInput;
+        }
+
+        public void SetKeyInput(List<KeyCode> keyInput)
+        {
+            _keyInput = keyInput;
         }
 
         public Vector2 GetControlRotation()
@@ -196,7 +205,18 @@ namespace NaughtyCharacter
         {
             if (_clickInput)
             {
-                CharacterActionController.CharacterClicked(this);
+                CharacterActionController.OnClick.Invoke();
+            }
+            if (_rightClickInput)
+            {
+                CharacterActionController.OnRightClick.Invoke();
+            }
+            if (_keyInput != null && _keyInput.Count > 0)
+            {
+                foreach  (KeyCode keyCode in _keyInput)
+                {
+                    CharacterActionController.OnKey.Invoke(keyCode);
+                }
             }
         }
 
