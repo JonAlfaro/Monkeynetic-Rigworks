@@ -27,7 +27,7 @@ public class UnitMovementAggressive
         this.unit = unit;
         this.target = target;
 
-        while (true)
+        while (!unit.UnitStats.IsDead)
         {
             SetNewMovementTarget();
 

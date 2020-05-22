@@ -4300,6 +4300,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnNumberedAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 935766841}
+        m_TargetAssemblyTypeName: BuildingManager, Assembly-CSharp
+        m_MethodName: SelectBuilding
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &552160440
 GameObject:
   m_ObjectHideFlags: 0
@@ -8051,7 +8066,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ec256ae9f49ce4db353a605df582cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Building: {fileID: 526841143013874517, guid: a39fc1f1973f5904b847b72810f9d868, type: 3}
+  Buildings:
+  - {fileID: 526841143013874517, guid: a39fc1f1973f5904b847b72810f9d868, type: 3}
+  - {fileID: 526841143013874517, guid: 1b5566f6b11b60241994c3b5f0541bdc, type: 3}
+  - {fileID: 854417935132763545, guid: ba27f248dbba05d43ae07f45ddcaf8a3, type: 3}
   BuildingOffset: {x: 0, y: 1, z: 0}
   BuildingRotation: {x: 0, y: 0, z: 0, w: 1}
   BuildingValidChanged:
@@ -10025,7 +10043,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1192018153
 MonoBehaviour:
   m_ObjectHideFlags: 0
