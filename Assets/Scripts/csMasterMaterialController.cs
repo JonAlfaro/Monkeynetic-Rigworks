@@ -22,11 +22,12 @@ public class csMasterMaterialController : MonoBehaviour
         private float _secondCounter = 0;
         private readonly MaterialPropertyBlock _matPropBlock;
         private readonly Renderer _matRend;
-        private readonly float _dissolveStep = 0f;
+        private float _dissolveStep = 0f;
         private float _timeToDissolve;
         private float _dissolvePosition = StartDissolveX;
         private static readonly int Dissolve = Shader.PropertyToID("_Dissolve");
         private static readonly int DissolveColor = Shader.PropertyToID("_DissolveColor");
+        private float _fixedDelta;
 
 
         public DissolveController(Boolean running, float fixedDeltaTime, float timeToDissolve, Renderer matRend, MaterialPropertyBlock matPropBlock, Color dissolveColor)
@@ -40,20 +41,22 @@ public class csMasterMaterialController : MonoBehaviour
             // Construct Controller Properities
             _dissolveStep = (TimeForFullDissolveCycle*fixedDeltaTime)/timeToDissolve;
             _timeToDissolve = timeToDissolve;
+            _fixedDelta = fixedDeltaTime;
             _running = running;
         }
 
         public void Reset()
         {
             _secondCounter = 0;
+            _dissolvePosition = StartDissolveX;
             _running = true;
         }
         
         public void Reset(int newTimeToDissolve)
         {
-            _secondCounter = 0;
             _timeToDissolve = newTimeToDissolve;
-            _running = true;
+            _dissolveStep = (TimeForFullDissolveCycle*_fixedDelta)/_timeToDissolve;
+            Reset();
         }
 
         public bool Next(Renderer matRend, MaterialPropertyBlock matPropBlock)

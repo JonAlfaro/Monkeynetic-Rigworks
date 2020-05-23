@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 8109626099523914523}
   - component: {fileID: 4305300423729739954}
   - component: {fileID: 7994708818436895558}
+  - component: {fileID: 6097909265392915939}
+  - component: {fileID: 910209101702362044}
   m_Layer: 0
   m_Name: pfTree2
-  m_TagString: Untagged
+  m_TagString: CanBeThwackdable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,3 +83,30 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6097909265392915939
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2874112583136888005}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.5156243, z: 0.15}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &910209101702362044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2874112583136888005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 195bc24f7b2f68e469b323de89e3ee22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropCount: 2
+  dropResouceType: 0
