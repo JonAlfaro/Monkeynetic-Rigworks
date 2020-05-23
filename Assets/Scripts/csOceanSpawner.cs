@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using System.Collections.Generic;
-using System.Linq;
 
 public class OceanSpawner : MonoBehaviour
 {
@@ -30,7 +27,9 @@ public class OceanSpawner : MonoBehaviour
 
         for (var y = 0; y <= 10; y++)
         {
+#pragma warning disable 219
             for (var x = 0; y <= 10; y++)
+#pragma warning restore 219
             {
                 triTracker += 4;
                 points.Add(l0);

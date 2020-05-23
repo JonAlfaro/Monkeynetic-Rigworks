@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 526841143013874523}
   - component: {fileID: 526841143013874516}
   - component: {fileID: -3902707968569155420}
-  - component: {fileID: 3161950263144445513}
+  - component: {fileID: 2388965011783968354}
   m_Layer: 0
   m_Name: Unit_Wall
   m_TagString: Untagged
@@ -155,7 +155,7 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
---- !u!114 &3161950263144445513
+--- !u!114 &2388965011783968354
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,7 +164,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 526841143013874517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96a053729225ff24c80d546a4b6aa553, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f5f75457c96e3f42be6ef9e8b00c656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaterialColor: {r: 0, g: 0.9622642, b: 0.0808124, a: 0}
+  materialColor: {r: 0, g: 0, b: 0, a: 0}
+  dissolveColor: {r: 0, g: 0.22602229, b: 0.8679245, a: 0}
+  secondsToDissolve: 1
