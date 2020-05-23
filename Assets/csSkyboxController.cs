@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 public class csSkyboxController : MonoBehaviour
@@ -10,6 +11,7 @@ public class csSkyboxController : MonoBehaviour
     private readonly float _nightLerpDivider = 5;
     public Boolean printTime = false;
     private float _nightLerpStep;
+    [FormerlySerializedAs("PushTime")] public UnityEvent<float> pushTime;
 
     private float _timeTracker;
 
@@ -71,6 +73,7 @@ public class csSkyboxController : MonoBehaviour
         Transform stageLightTransform;
         _timeTracker += 1 / secondsInHour * Time.fixedDeltaTime;
         if (_timeTracker >= 24) _timeTracker = 0;
+        pushTime.Invoke(_timeTracker);
 
         if (printTime)
         {
