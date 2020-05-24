@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
+
 public class GameEvents : MonoBehaviour
 {
     public UnityEvent<bool> OnToggleBuildMode;
     public UnityEvent<int> OnNumberedAction;
+
 
     public void HandleInput(KeyCode key)
     {
@@ -12,6 +14,12 @@ public class GameEvents : MonoBehaviour
             case KeyCode.B:
                 GameVariables.IsBuildModeEnabled = !GameVariables.IsBuildModeEnabled;
                 OnToggleBuildMode.Invoke(GameVariables.IsBuildModeEnabled);
+                // Switch back to Action Mode
+                GameVariables.IsActionModeEnabled = !GameVariables.IsBuildModeEnabled ? true : false;
+                break;
+            case KeyCode.Escape:
+                GameVariables.IsMenuMode = !GameVariables.IsMenuMode;
+                GameVariables.IsActionModeEnabled = !GameVariables.IsMenuMode ? true : false;
                 break;
             case KeyCode.Alpha0:
             case KeyCode.Alpha1:
