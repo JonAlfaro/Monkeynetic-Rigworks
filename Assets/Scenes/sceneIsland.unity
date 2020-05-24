@@ -2763,6 +2763,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2440549886098326566, guid: eaa8b3f7b6614db43a176709f4a57472, type: 3}
   m_PrefabInstance: {fileID: 327856990}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &328552518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 328552519}
+  - component: {fileID: 328552520}
+  m_Layer: 0
+  m_Name: SpawnPoint (Sheep) (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &328552519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328552518}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 213.1, y: 23.1, z: 286.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 753613480}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &328552520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328552518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f610c7482fc2b674aa8046401f66e73e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnitPrefab: {fileID: 8949979087863436010, guid: 4d3e2efba42d2ff479eea6a3c4976966, type: 3}
+  MaxSpawnRange: 20
+  CanSpawnGameTimeHours: 05000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000
+  NumberToSpawn: 2
+  MaxConcurrentSpawnedCount: 5
+  SpawnCooldown: 60
 --- !u!4 &329798935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 423682, guid: 80844b2319340044da27db99208a9eac, type: 3}
@@ -3562,6 +3611,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8109626099523914523, guid: 854a7001d09d5da41b777cda35d5c2cc, type: 3}
   m_PrefabInstance: {fileID: 444371251}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &445918789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 445918790}
+  - component: {fileID: 445918791}
+  m_Layer: 0
+  m_Name: SpawnPoint (Sheep) (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &445918790
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445918789}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -143, y: 33.53, z: 312.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 753613480}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &445918791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445918789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f610c7482fc2b674aa8046401f66e73e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnitPrefab: {fileID: 8949979087863436010, guid: 4d3e2efba42d2ff479eea6a3c4976966, type: 3}
+  MaxSpawnRange: 20
+  CanSpawnGameTimeHours: 05000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000
+  NumberToSpawn: 1
+  MaxConcurrentSpawnedCount: 5
+  SpawnCooldown: 60
 --- !u!1001 &447653986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3711,6 +3809,55 @@ Transform:
   m_Father: {fileID: 1351993407}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &452468547
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 452468548}
+  - component: {fileID: 452468549}
+  m_Layer: 0
+  m_Name: SpawnPoint (Skeleton) (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &452468548
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452468547}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 222.5, y: 55.46, z: 940.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 753613480}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &452468549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452468547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f610c7482fc2b674aa8046401f66e73e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnitPrefab: {fileID: 854417935132763545, guid: ba27f248dbba05d43ae07f45ddcaf8a3, type: 3}
+  MaxSpawnRange: 22
+  CanSpawnGameTimeHours: 00000000010000000200000003000000040000001300000014000000150000001600000017000000
+  NumberToSpawn: 3
+  MaxConcurrentSpawnedCount: 12
+  SpawnCooldown: 15
 --- !u!1 &471683253
 GameObject:
   m_ObjectHideFlags: 0
@@ -4171,6 +4318,55 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &533234025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 533234026}
+  - component: {fileID: 533234027}
+  m_Layer: 0
+  m_Name: SpawnPoint (Skeleton) (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &533234026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533234025}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 121.8, y: 23.7, z: 356.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 753613480}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &533234027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533234025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f610c7482fc2b674aa8046401f66e73e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnitPrefab: {fileID: 854417935132763545, guid: ba27f248dbba05d43ae07f45ddcaf8a3, type: 3}
+  MaxSpawnRange: 20
+  CanSpawnGameTimeHours: 00000000010000000200000003000000040000001300000014000000150000001600000017000000
+  NumberToSpawn: 2
+  MaxConcurrentSpawnedCount: 6
+  SpawnCooldown: 30
 --- !u!1 &539177503
 GameObject:
   m_ObjectHideFlags: 0
@@ -6024,6 +6220,46 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738543761}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &753613479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 753613480}
+  m_Layer: 0
+  m_Name: SpawnPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &753613480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753613479}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -73.00397, y: -30.00536, z: -70.907974}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1187059900}
+  - {fileID: 533234026}
+  - {fileID: 1456616799}
+  - {fileID: 869651347}
+  - {fileID: 452468548}
+  - {fileID: 1822021855}
+  - {fileID: 1753312176}
+  - {fileID: 328552519}
+  - {fileID: 1093960561}
+  - {fileID: 445918790}
+  m_Father: {fileID: 1351993407}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &765671809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7241,6 +7477,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2440549886098326566, guid: eaa8b3f7b6614db43a176709f4a57472, type: 3}
   m_PrefabInstance: {fileID: 867787699}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &869651346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 869651347}
+  - component: {fileID: 869651348}
+  m_Layer: 0
+  m_Name: SpawnPoint (Skeleton) (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &869651347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869651346}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 102.8, y: 54.9, z: 1076.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 753613480}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &869651348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869651346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f610c7482fc2b674aa8046401f66e73e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnitPrefab: {fileID: 854417935132763545, guid: ba27f248dbba05d43ae07f45ddcaf8a3, type: 3}
+  MaxSpawnRange: 8
+  CanSpawnGameTimeHours: 00000000010000000200000003000000040000001300000014000000150000001600000017000000
+  NumberToSpawn: 2
+  MaxConcurrentSpawnedCount: 2
+  SpawnCooldown: 30
 --- !u!4 &871167322 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8109626099523914523, guid: 854a7001d09d5da41b777cda35d5c2cc, type: 3}
@@ -7346,6 +7631,7 @@ Transform:
   m_Children:
   - {fileID: 935766840}
   - {fileID: 547097310}
+  - {fileID: 1195539422}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9506,6 +9792,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8109626099523914523, guid: 854a7001d09d5da41b777cda35d5c2cc, type: 3}
   m_PrefabInstance: {fileID: 1093457860}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1093960560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1093960561}
+  - component: {fileID: 1093960562}
+  m_Layer: 0
+  m_Name: SpawnPoint (Sheep) (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1093960561
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093960560}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -174.2, y: 27.3, z: 762.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 753613480}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1093960562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093960560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f610c7482fc2b674aa8046401f66e73e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnitPrefab: {fileID: 8949979087863436010, guid: 4d3e2efba42d2ff479eea6a3c4976966, type: 3}
+  MaxSpawnRange: 50
+  CanSpawnGameTimeHours: 05000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000
+  NumberToSpawn: 3
+  MaxConcurrentSpawnedCount: 20
+  SpawnCooldown: 90
 --- !u!1 &1097359953
 GameObject:
   m_ObjectHideFlags: 0
@@ -10140,6 +10475,55 @@ Transform:
   m_Father: {fileID: 1339444954}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1187059898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1187059900}
+  - component: {fileID: 1187059899}
+  m_Layer: 0
+  m_Name: SpawnPoint (Skeleton)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1187059899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187059898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f610c7482fc2b674aa8046401f66e73e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnitPrefab: {fileID: 854417935132763545, guid: ba27f248dbba05d43ae07f45ddcaf8a3, type: 3}
+  MaxSpawnRange: 12
+  CanSpawnGameTimeHours: 00000000010000000200000003000000040000001300000014000000150000001600000017000000
+  NumberToSpawn: 2
+  MaxConcurrentSpawnedCount: 4
+  SpawnCooldown: 30
+--- !u!4 &1187059900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187059898}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 97.4, y: 23.7, z: 210.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 753613480}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1192018152
 GameObject:
   m_ObjectHideFlags: 0
@@ -10186,6 +10570,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1195539421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1195539422}
+  - component: {fileID: 1195539423}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1195539422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195539421}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 874924914}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1195539423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195539421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ae6d8d6a65c0745a402ccd81bfa43d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1204527380
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11719,6 +12146,7 @@ Transform:
   - {fileID: 7684849}
   - {fileID: 448981541}
   - {fileID: 606217341600883757}
+  - {fileID: 753613480}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11735,6 +12163,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   printTime: 0
+  pushTime:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1195539423}
+        m_TargetAssemblyTypeName: SpawnManager, Assembly-CSharp
+        m_MethodName: OnTimeChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   colorDawnHorizon: {r: 1, g: 0.47457013, b: 0, a: 0}
   colorDawnSky: {r: 1, g: 0, b: 0, a: 0}
   colorDayHorizon: {r: 0.03137255, g: 0.24705884, b: 0.9725491, a: 0}
@@ -12669,6 +13112,55 @@ Transform:
   m_Father: {fileID: 336804563}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1456616798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1456616799}
+  - component: {fileID: 1456616800}
+  m_Layer: 0
+  m_Name: SpawnPoint (Skeleton) (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1456616799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456616798}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -216.3, y: 28, z: 765.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 753613480}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1456616800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456616798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f610c7482fc2b674aa8046401f66e73e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnitPrefab: {fileID: 854417935132763545, guid: ba27f248dbba05d43ae07f45ddcaf8a3, type: 3}
+  MaxSpawnRange: 60
+  CanSpawnGameTimeHours: 00000000010000000200000003000000040000001300000014000000150000001600000017000000
+  NumberToSpawn: 3
+  MaxConcurrentSpawnedCount: 10
+  SpawnCooldown: 30
 --- !u!1001 &1462080197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14669,6 +15161,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7412572127328543914, guid: c931804c4da27b8428f9418544d4718d, type: 3}
   m_PrefabInstance: {fileID: 489794808}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1753312175
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1753312176}
+  - component: {fileID: 1753312177}
+  m_Layer: 0
+  m_Name: SpawnPoint (Sheep)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1753312176
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753312175}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 61.3, y: 23.1, z: 260.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 753613480}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1753312177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753312175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f610c7482fc2b674aa8046401f66e73e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnitPrefab: {fileID: 8949979087863436010, guid: 4d3e2efba42d2ff479eea6a3c4976966, type: 3}
+  MaxSpawnRange: 5
+  CanSpawnGameTimeHours: 05000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000
+  NumberToSpawn: 2
+  MaxConcurrentSpawnedCount: 5
+  SpawnCooldown: 60
 --- !u!1 &1759008364
 GameObject:
   m_ObjectHideFlags: 0
@@ -14827,6 +15368,55 @@ Transform:
   m_Father: {fileID: 210713497}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1822021854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1822021855}
+  - component: {fileID: 1822021856}
+  m_Layer: 0
+  m_Name: SpawnPoint (Skeleton) (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1822021855
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822021854}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 427.82, y: 54.26, z: 676.11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 753613480}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1822021856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822021854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f610c7482fc2b674aa8046401f66e73e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnitPrefab: {fileID: 854417935132763545, guid: ba27f248dbba05d43ae07f45ddcaf8a3, type: 3}
+  MaxSpawnRange: 10
+  CanSpawnGameTimeHours: 00000000010000000200000003000000040000001300000014000000150000001600000017000000
+  NumberToSpawn: 5
+  MaxConcurrentSpawnedCount: 15
+  SpawnCooldown: 60
 --- !u!4 &1824256812 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8109626099523914523, guid: 854a7001d09d5da41b777cda35d5c2cc, type: 3}
@@ -16541,7 +17131,6 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!4 &2075280645
