@@ -268,6 +268,8 @@ MonoBehaviour:
   NumberToSpawn: 3
   MaxConcurrentSpawnedCount: 12
   SpawnCooldown: 15
+  ShouldDespawnGameTimeHours: 
+  RandomizedDespawnTimeRange: 15
 --- !u!4 &25774520 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8109626099523914523, guid: 854a7001d09d5da41b777cda35d5c2cc, type: 3}
@@ -3170,6 +3172,8 @@ MonoBehaviour:
   NumberToSpawn: 2
   MaxConcurrentSpawnedCount: 4
   SpawnCooldown: 30
+  ShouldDespawnGameTimeHours: 05000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000
+  RandomizedDespawnTimeRange: 15
 --- !u!1001 &381326316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4568,6 +4572,8 @@ MonoBehaviour:
   NumberToSpawn: 2
   MaxConcurrentSpawnedCount: 6
   SpawnCooldown: 30
+  ShouldDespawnGameTimeHours: 05000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000
+  RandomizedDespawnTimeRange: 15
 --- !u!1 &539177503
 GameObject:
   m_ObjectHideFlags: 0
@@ -9169,6 +9175,8 @@ MonoBehaviour:
   NumberToSpawn: 1
   MaxConcurrentSpawnedCount: 5
   SpawnCooldown: 60
+  ShouldDespawnGameTimeHours: 
+  RandomizedDespawnTimeRange: 5
 --- !u!1001 &967617256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9608,6 +9616,8 @@ MonoBehaviour:
   NumberToSpawn: 3
   MaxConcurrentSpawnedCount: 10
   SpawnCooldown: 30
+  ShouldDespawnGameTimeHours: 05000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000
+  RandomizedDespawnTimeRange: 15
 --- !u!4 &1072684579 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7412572127328543914, guid: c931804c4da27b8428f9418544d4718d, type: 3}
@@ -10940,6 +10950,8 @@ MonoBehaviour:
   NumberToSpawn: 5
   MaxConcurrentSpawnedCount: 15
   SpawnCooldown: 60
+  ShouldDespawnGameTimeHours: 
+  RandomizedDespawnTimeRange: 15
 --- !u!1001 &1231341409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12098,6 +12110,8 @@ MonoBehaviour:
   NumberToSpawn: 2
   MaxConcurrentSpawnedCount: 5
   SpawnCooldown: 60
+  ShouldDespawnGameTimeHours: 
+  RandomizedDespawnTimeRange: 5
 --- !u!1001 &1286212622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13532,6 +13546,8 @@ MonoBehaviour:
   NumberToSpawn: 2
   MaxConcurrentSpawnedCount: 5
   SpawnCooldown: 60
+  ShouldDespawnGameTimeHours: 
+  RandomizedDespawnTimeRange: 5
 --- !u!4 &1449037800
 Transform:
   m_ObjectHideFlags: 0
@@ -14470,6 +14486,8 @@ MonoBehaviour:
   NumberToSpawn: 3
   MaxConcurrentSpawnedCount: 20
   SpawnCooldown: 90
+  ShouldDespawnGameTimeHours: 
+  RandomizedDespawnTimeRange: 5
 --- !u!4 &1564245199 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8109626099523914523, guid: 854a7001d09d5da41b777cda35d5c2cc, type: 3}
@@ -14534,6 +14552,8 @@ MonoBehaviour:
   NumberToSpawn: 2
   MaxConcurrentSpawnedCount: 2
   SpawnCooldown: 30
+  ShouldDespawnGameTimeHours: 
+  RandomizedDespawnTimeRange: 15
 --- !u!1001 &1605295443
 PrefabInstance:
   m_ObjectHideFlags: 0

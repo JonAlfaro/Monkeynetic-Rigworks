@@ -9,6 +9,9 @@ public class SpawnPoint : MonoBehaviour
     public int NumberToSpawn = 1;
     public int MaxConcurrentSpawnedCount = 10;
     public float SpawnCooldown = 50f;
+    [Header("Despawning")]
+    public List<int> ShouldDespawnGameTimeHours = new List<int>();
+    public float RandomizedDespawnTimeRange = 5f;
 
     private float timeTillNextSpawn = 0f;
     private List<Unit> spawns = new List<Unit>();
@@ -16,6 +19,14 @@ public class SpawnPoint : MonoBehaviour
     public void Spawn(float gameTime)
     {
         RemoveDeadSpawnsFromList();
+        if (ShouldDespawn(gameTime))
+        {
+            foreach (Unit unit in spawns)
+            {
+                this.SetTimeout(() => unit.TakeDamage(999f), Random.Range(0, RandomizedDespawnTimeRange));
+            }
+            spawns = new List<Unit>();
+        }
         if (!ShouldSpawn(gameTime))
         {
             return;
@@ -53,6 +64,8 @@ public class SpawnPoint : MonoBehaviour
         && CanSpawnGameTimeHours.Contains((int)System.Math.Floor(gameTime))
         && timeTillNextSpawn <= Time.time
         && spawns.Count < MaxConcurrentSpawnedCount;
+
+    private bool ShouldDespawn(float gameTime) => ShouldDespawnGameTimeHours.Contains((int)System.Math.Floor(gameTime));
 
     private void RemoveDeadSpawnsFromList()
     {
