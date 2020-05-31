@@ -129,7 +129,6 @@ public class csSkyboxController : MonoBehaviour
                     if (!_firstToggle)
                     {
                         startOfDay.Invoke();
-                        Debug.Log("DAY TRIGGER");
                     }
 
                     _firstToggle = false;
@@ -177,8 +176,7 @@ public class csSkyboxController : MonoBehaviour
                 {
                     if (!_firstToggle)
                     {
-                        startOfNight.Invoke();
-                        Debug.Log("NGIHT TRIGGER");
+                        startOfNight.Invoke(); 
                     }
 
                     _firstToggle = false;
