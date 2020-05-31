@@ -12,6 +12,13 @@ public class csSkyboxController : MonoBehaviour
     public Boolean printTime = false;
     private float _nightLerpStep;
     [FormerlySerializedAs("PushTime")] public UnityEvent<float> pushTime;
+    [FormerlySerializedAs("startOfNight")] public UnityEvent startOfNight;
+    [FormerlySerializedAs("startOfDay")] public UnityEvent startOfDay;
+
+    private bool _dayEventToggle = true;
+    private bool _nightEventToggle = true;
+    private bool _firstToggle = true;
+    
 
     private float _timeTracker;
 
@@ -117,6 +124,19 @@ public class csSkyboxController : MonoBehaviour
             }
             else
             {
+                if (_dayEventToggle)
+                {
+                    if (!_firstToggle)
+                    {
+                        startOfDay.Invoke();
+                        Debug.Log("DAY TRIGGER");
+                    }
+
+                    _firstToggle = false;
+                    _dayEventToggle = false;
+                    _nightEventToggle = true;
+                }
+                
                 Shader.SetGlobalColor("_ColorSky", colorDaySky);
                 Shader.SetGlobalColor("_ColorHorizon", colorDayHorizon);
             }
@@ -153,6 +173,19 @@ public class csSkyboxController : MonoBehaviour
             }
             else
             {
+                if (_nightEventToggle)
+                {
+                    if (!_firstToggle)
+                    {
+                        startOfNight.Invoke();
+                        Debug.Log("NGIHT TRIGGER");
+                    }
+
+                    _firstToggle = false;
+                    _nightEventToggle = false;
+                    _dayEventToggle = true;
+                }
+                
                 Shader.SetGlobalColor("_ColorSky", colorNightSky);
                 Shader.SetGlobalColor("_ColorHorizon", colorNightHorizon);
             }
