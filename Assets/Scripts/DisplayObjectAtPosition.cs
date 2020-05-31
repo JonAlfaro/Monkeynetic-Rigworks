@@ -48,6 +48,10 @@ public class DisplayObjectAtPosition : MonoBehaviour
         {
             Destroy(instantiatedObject);
         }
+        if (Position == null)
+        {
+            Position = new Vector3(0, 0, 0);
+        }
         instantiatedObject = Instantiate(Object, (Vector3)Position + PositionOffset, Quaternion.identity);
         instantiatedObject.transform.SetParent(transform);
         if (DisplayMaterial)
