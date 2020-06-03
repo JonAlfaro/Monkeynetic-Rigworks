@@ -117,11 +117,8 @@ public class Unit : MonoBehaviour
         {
             UnitAttackTargeting.LeashRange = newLeashRange;
         }
+        UnitAttackTargeting.TargetUnitType = target.UnitType;
         UnitAttackTargeting.SetTarget(target);
-        UnitAttack.Target = target;
-
-        // Start aggressive movement
-        SetMovementType(UnitMovementType.Aggressive);
     }
 
     // Called whenever the GetAttackTargetCoroutine finds a new attack target

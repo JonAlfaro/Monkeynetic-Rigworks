@@ -67,6 +67,7 @@ public class UnitAttackTargeting
     public void SetTarget(Unit target)
     {
         currentTarget = target;
+        onNewAttackTarget.Invoke(currentTarget);
     }
 
     private void SelectClosestTarget(Collider[] targets)
