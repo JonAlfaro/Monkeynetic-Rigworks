@@ -111,6 +111,16 @@ public class Unit : MonoBehaviour
         }
     }
 
+    public void SetTarget(Unit target, float newLeashRange = 0f)
+    {
+        if (newLeashRange > 0)
+        {
+            UnitAttackTargeting.LeashRange = newLeashRange;
+        }
+        UnitAttackTargeting.TargetUnitType = target.UnitType;
+        UnitAttackTargeting.SetTarget(target);
+    }
+
     // Called whenever the GetAttackTargetCoroutine finds a new attack target
     void OnNewAttackTarget(Unit attackTarget)
     {

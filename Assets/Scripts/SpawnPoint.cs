@@ -13,23 +13,15 @@ public class SpawnPoint : MonoBehaviour
     public List<int> ShouldDespawnGameTimeHours = new List<int>();
     public float RandomizedDespawnTimeRange = 5f;
 
-    private float timeTillNextSpawn = 0f;
-    private List<Unit> spawns = new List<Unit>();
+    protected float timeTillNextSpawn = 0f;
+    protected List<Unit> spawns = new List<Unit>();
 
-    public void Spawn(float gameTime)
+    public virtual bool Spawn(float gameTime)
     {
-        RemoveDeadSpawnsFromList();
-        if (ShouldDespawn(gameTime))
-        {
-            foreach (Unit unit in spawns)
-            {
-                this.SetTimeout(() => unit.TakeDamage(999f), Random.Range(0, RandomizedDespawnTimeRange));
-            }
-            spawns = new List<Unit>();
-        }
+        DespawnCheck(gameTime);
         if (!ShouldSpawn(gameTime))
         {
-            return;
+            return false;
         }
         timeTillNextSpawn = Time.time + SpawnCooldown;
 
@@ -57,6 +49,8 @@ public class SpawnPoint : MonoBehaviour
                 Debug.LogError("Couldn't find Unit component on UnitPrefab. Make sure it's on the UnitPrefab directly.");
             }
         }
+
+        return true;
     }
 
     private bool ShouldSpawn(float gameTime) =>
@@ -67,9 +61,22 @@ public class SpawnPoint : MonoBehaviour
 
     private bool ShouldDespawn(float gameTime) => ShouldDespawnGameTimeHours.Contains((int)System.Math.Floor(gameTime));
 
-    private void RemoveDeadSpawnsFromList()
+    protected virtual void RemoveDeadSpawnsFromList()
     {
         spawns.RemoveAll(gameObject => gameObject.UnitStats.IsDead);
+    }
+
+    protected void DespawnCheck(float gameTime)
+    {
+        RemoveDeadSpawnsFromList();
+        if (ShouldDespawn(gameTime))
+        {
+            foreach (Unit unit in spawns)
+            {
+                this.SetTimeout(() => unit.TakeDamage(999f), Random.Range(0, RandomizedDespawnTimeRange));
+            }
+            spawns = new List<Unit>();
+        }
     }
 
     private void OnDrawGizmos()

@@ -18,7 +18,6 @@ public class UnitMovementAggressive
 
     float closeEnoughAmount = 0.05f; // When checking distance, we don't need to be perfectly precise so we fudge it by this amount
 
-    //Unit targetUnit
     public IEnumerator GetMovementTargetCoroutine(UnityAction<Vector3> onNewMovementTarget, Unit unit, Transform target)
     {
         // Set the event to call when this coroutine is triggered
@@ -41,7 +40,7 @@ public class UnitMovementAggressive
         }
     }
 
-    // Sets movementTarget. Returns true if there is a new movement target, false if not.
+    // Sets movementTarget
     private void SetNewMovementTarget()
     {
         previousMovementTarget = movementTarget;

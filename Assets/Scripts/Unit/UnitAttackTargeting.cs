@@ -64,6 +64,12 @@ public class UnitAttackTargeting
             && Vector3.Distance(Unit.transform.position, target.transform.position) <= range;
     }
 
+    public void SetTarget(Unit target)
+    {
+        currentTarget = target;
+        onNewAttackTarget.Invoke(currentTarget);
+    }
+
     private void SelectClosestTarget(Collider[] targets)
     {
         Unit closestUnit = null;
