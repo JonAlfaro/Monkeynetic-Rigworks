@@ -18,15 +18,7 @@ public class SpawnPoint : MonoBehaviour
 
     public virtual bool Spawn(float gameTime)
     {
-        RemoveDeadSpawnsFromList();
-        if (ShouldDespawn(gameTime))
-        {
-            foreach (Unit unit in spawns)
-            {
-                this.SetTimeout(() => unit.TakeDamage(999f), Random.Range(0, RandomizedDespawnTimeRange));
-            }
-            spawns = new List<Unit>();
-        }
+        DespawnCheck(gameTime);
         if (!ShouldSpawn(gameTime))
         {
             return false;
@@ -72,6 +64,19 @@ public class SpawnPoint : MonoBehaviour
     protected virtual void RemoveDeadSpawnsFromList()
     {
         spawns.RemoveAll(gameObject => gameObject.UnitStats.IsDead);
+    }
+
+    protected void DespawnCheck(float gameTime)
+    {
+        RemoveDeadSpawnsFromList();
+        if (ShouldDespawn(gameTime))
+        {
+            foreach (Unit unit in spawns)
+            {
+                this.SetTimeout(() => unit.TakeDamage(999f), Random.Range(0, RandomizedDespawnTimeRange));
+            }
+            spawns = new List<Unit>();
+        }
     }
 
     private void OnDrawGizmos()

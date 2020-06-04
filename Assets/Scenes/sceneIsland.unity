@@ -7774,25 +7774,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: 0}
-  MaxSpawnRange: 0
-  CanSpawnGameTimeHours: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f0000001000000011000000120000001300000014000000150000001600000017000000
+  MaxSpawnRange: 10
+  CanSpawnGameTimeHours: 00000000010000000200000003000000140000001500000016000000170000001700000017000000
   NumberToSpawn: 1
   MaxConcurrentSpawnedCount: 10
   SpawnCooldown: 50
-  ShouldDespawnGameTimeHours: 
+  ShouldDespawnGameTimeHours: 040000000500000006000000
   RandomizedDespawnTimeRange: 5
   SpawnList:
-  - Unit: {fileID: 0}
+  - Unit: {fileID: 854417935132763545, guid: ba27f248dbba05d43ae07f45ddcaf8a3, type: 3}
     MinTimeUntilNextSpawn: 0.5
-    MaxTimeUntilNextSpawn: 0.5
+    MaxTimeUntilNextSpawn: 2
     SpawnWeight: 1
     AmountToSpawn: 1
-    Probability: 1
+    Probability: 0.33
     MinSpawnsPerWave: 0
     MaxSpawnsPerWave: 0
+    SpawnAmountInCurrentWave: 0
+  - Unit: {fileID: 854417935132763545, guid: ba27f248dbba05d43ae07f45ddcaf8a3, type: 3}
+    MinTimeUntilNextSpawn: 1
+    MaxTimeUntilNextSpawn: 2.5
+    SpawnWeight: 2
+    AmountToSpawn: 2
+    Probability: 0.33
+    MinSpawnsPerWave: 0
+    MaxSpawnsPerWave: 0
+    SpawnAmountInCurrentWave: 0
+  - Unit: {fileID: 854417935132763545, guid: ba27f248dbba05d43ae07f45ddcaf8a3, type: 3}
+    MinTimeUntilNextSpawn: 2
+    MaxTimeUntilNextSpawn: 3
+    SpawnWeight: 3
+    AmountToSpawn: 3
+    Probability: 0.33
+    MinSpawnsPerWave: 0
+    MaxSpawnsPerWave: 0
+    SpawnAmountInCurrentWave: 0
   RandomiseSpawnOrder: 1
-  WaveWeight: 30
-  TargetOverride: {fileID: 0}
+  DesiredWaveWeight: 30
+  SpawnGameDay: 1
+  TargetOverride: {fileID: 518399960}
   LeashRangeOverride: 100
 --- !u!1001 &864395944
 PrefabInstance:
@@ -12809,10 +12829,10 @@ MonoBehaviour:
   hoursInADay: 14
   hoursInANight: 10
   playerCamera: {fileID: 921065458}
-  secondsInHour: 2
+  secondsInHour: 6
   stageLight: {fileID: 2075280644}
   stageTerrain: {fileID: 1405334178}
-  startTime: 12
+  startTime: 19
   sunriseTime: 5
 --- !u!1001 &1367027194
 PrefabInstance:

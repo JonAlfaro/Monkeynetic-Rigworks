@@ -6,7 +6,8 @@ public class WaveSpawnPoint : SpawnPoint
     [Header("Spawn List")]
     public List<WaveSpawn> SpawnList = new List<WaveSpawn>() { new WaveSpawn() };
     public bool RandomiseSpawnOrder = true;
-    public int WaveWeight = 30;
+    public int DesiredWaveWeight = 30;
+    public int SpawnGameDay = 1;
 
     [Header("Target Override")]
     public Unit TargetOverride;
@@ -15,23 +16,31 @@ public class WaveSpawnPoint : SpawnPoint
     private List<WaveSpawn> activeSpawnList;
     private HashSet<int> overridenSpawns = new HashSet<int>();
     private int currentSpawnIndex = 0;
+    private int currentWaveWeight = 0;
 
     private void Awake()
     {
         activeSpawnList = CreateActiveSpawnList();
+        MaxConcurrentSpawnedCount = 999;
     }
 
     public override bool Spawn(float gameTime)
     {
-        if (currentSpawnIndex >= SpawnList.Count)
+        DespawnCheck(gameTime);
+        if (SpawnGameDay != 0 && GameVariables.GameDay != SpawnGameDay)
+        {
+            return false;
+        }
+
+        if (currentSpawnIndex >= activeSpawnList.Count)
         {
             return false;
         }
 
         // Override spawn values with the values set in the current WaveSpawn
-        UnitPrefab = SpawnList[currentSpawnIndex].Unit;
-        NumberToSpawn = SpawnList[currentSpawnIndex].AmountToSpawn;
-        SpawnCooldown = SpawnList[currentSpawnIndex].MinTimeUntilNextSpawn;
+        UnitPrefab = activeSpawnList[currentSpawnIndex].Unit;
+        NumberToSpawn = activeSpawnList[currentSpawnIndex].AmountToSpawn;
+        SpawnCooldown = Random.Range(activeSpawnList[currentSpawnIndex].MinTimeUntilNextSpawn, activeSpawnList[currentSpawnIndex].MaxTimeUntilNextSpawn);
 
         if (base.Spawn(gameTime)) {
             ApplyTargetOverride();
@@ -85,7 +94,7 @@ public class WaveSpawnPoint : SpawnPoint
      */
     private List<WaveSpawn> CreateActiveSpawnList()
     {
-        int currentWaveWeight = 0;
+        currentWaveWeight = 0;
         // Copy SpawnList since we don't want to modify the original
         List<WaveSpawn> spawnList = new List<WaveSpawn>(SpawnList);
         List<WaveSpawn> newSpawnList = new List<WaveSpawn>();
@@ -103,16 +112,21 @@ public class WaveSpawnPoint : SpawnPoint
             }
         }
 
-        // TODO add the other units based on their probability
-        while (currentWaveWeight < WaveWeight && spawnList.Count > 0)
+        // As long as the current wave weight is lower than the desired wave weight and we have things to spawn
+        while (currentWaveWeight < DesiredWaveWeight && spawnList.Count > 0)
         {
+            // Add other units based on their probability
             foreach (WaveSpawn waveSpawn in spawnList)
             {
-                if (waveSpawn.MaxSpawnsPerWave > 0 
-                    && waveSpawn.MaxSpawnsPerWave > waveSpawn.SpawnAmountInCurrentWave)
+                if (currentWaveWeight >= DesiredWaveWeight)
+                {
+                    break;
+                }
+                if (waveSpawn.ShouldSpawn())
                 {
                     newSpawnList.Add(waveSpawn);
                     waveSpawn.SpawnAmountInCurrentWave++;
+                    currentWaveWeight += waveSpawn.SpawnWeight;
                 }
             }
         }
