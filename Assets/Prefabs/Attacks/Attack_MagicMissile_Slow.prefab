@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8878554800626905242}
   - component: {fileID: 8878554800626905245}
   m_Layer: 0
-  m_Name: Attack_Bullet
+  m_Name: Attack_MagicMissile_Slow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f2f587462ae903e47a60718b83def658, type: 2}
+  - {fileID: 2100000, guid: bf433f87a064d2342ba94cc36717a648, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,15 +108,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 062179b829bc5144fa8913ffbc83f612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 2
-  ProjectileSpeed: 10
-  OnDestroyEffect: {fileID: 427282648657909231, guid: 853752132dad9b546bac1f790975db42, type: 3}
-  ProjectileLifeTime: 0
+  Damage: 1
+  ProjectileSpeed: 12
+  OnDestroyEffect: {fileID: 427282648657909231, guid: cb9b38110381fc34fabdd7a3d866f716, type: 3}
+  ProjectileLifeTime: 2
   Debuff:
-    Enabled: 0
-    Duration: 0
+    Enabled: 1
+    Duration: 3
     Damage: 0
-    MovementSpeedModifier: 0
+    MovementSpeedModifier: -2
     ParticleEffect: {fileID: 0}
     ShouldModifyAttackTarget: 0
     ModifiedAttackTarget: 0

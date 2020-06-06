@@ -6,6 +6,7 @@ public class UnitAttackProjectile : MonoBehaviour
     public float ProjectileSpeed = 10;
     public GameObject OnDestroyEffect;
     public float ProjectileLifeTime = 0f;
+    public Debuff Debuff;
 
     private Unit targetUnit;
     private Vector3 targetPosition;
@@ -18,6 +19,7 @@ public class UnitAttackProjectile : MonoBehaviour
         targetPosition = targetUnit.transform.position;
         // Modify damage by the units outgoing damage multiplier
         Damage *= unitStats.OutgoingDamageMultiplier;
+        Debuff.Damage *= unitStats.OutgoingDamageMultiplier;
 
         lifeTimeEnd = ProjectileLifeTime != 0 ? Time.fixedTime + ProjectileLifeTime : Mathf.Infinity;
         previousPosition = transform.position;
@@ -54,6 +56,7 @@ public class UnitAttackProjectile : MonoBehaviour
         if (reachedTarget)
         {
             targetUnit?.TakeDamage(Damage);
+            targetUnit?.AddDebuff(Debuff);
         }
 
         // Instantiate the on destroy effect and then remove it from the scene shortly after

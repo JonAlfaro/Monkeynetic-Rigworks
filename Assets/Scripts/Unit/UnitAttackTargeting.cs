@@ -17,11 +17,13 @@ public class UnitAttackTargeting
 
     private Unit Unit;
     private Unit currentTarget;
+    public UnitType currentTargetUnitType;
     private UnityEvent<Unit> onNewAttackTarget = new UnityEvent<Unit>();
 
     public IEnumerator GetAttackTargetCoroutine(Unit unit, UnityAction<Unit> onNewAttackTarget)
     {
         Unit = unit;
+        currentTargetUnitType = TargetUnitType;
         // Set range and leash range to at least the units attack range
         if (TargetingRange < Unit.AttackRange)
         {
@@ -59,8 +61,9 @@ public class UnitAttackTargeting
     public bool IsTargetValidAndInRange(Unit target, float range)
     {
         return target != null
+            && target != Unit
             && target.IsValidTarget
-            && target.UnitType == TargetUnitType
+            && target.UnitType == currentTargetUnitType
             && Vector3.Distance(Unit.transform.position, target.transform.position) <= range;
     }
 
@@ -68,6 +71,18 @@ public class UnitAttackTargeting
     {
         currentTarget = target;
         onNewAttackTarget.Invoke(currentTarget);
+    }
+
+    public void SetTargetUnitType(UnitType? unitType)
+    {
+        if (unitType == null)
+        {
+            currentTargetUnitType = TargetUnitType;
+        }
+        else
+        {
+            currentTargetUnitType = (UnitType) unitType;
+        }
     }
 
     private void SelectClosestTarget(Collider[] targets)
