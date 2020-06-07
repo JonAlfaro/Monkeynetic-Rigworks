@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace NaughtyCharacter
 {
@@ -60,6 +61,7 @@ namespace NaughtyCharacter
 
 		private CharacterController _characterController; // The Unity's CharacterController
 		private CharacterAnimator _characterAnimator;
+		private float _frozenMs = 0f;
 
 		private float _targetHorizontalSpeed; // In meters/second
 		private float _horizontalSpeed; // In meters/second
@@ -100,15 +102,25 @@ namespace NaughtyCharacter
 			Controller.OnCharacterFixedUpdate();
 		}
 
+
 		private void UpdateState()
 		{
-			UpdateHorizontalSpeed();
-			UpdateVerticalSpeed();
+			Debug.Log("FREEZE: " +  _frozenMs);
 
-			Vector3 movement = _horizontalSpeed * GetMovementDirection() + _verticalSpeed * Vector3.up;
-			_characterController.Move(movement * Time.deltaTime);
-
-			OrientToTargetRotation(movement.SetY(0.0f));
+			if (_frozenMs > 0)
+			{
+				_frozenMs -= 1000 * Time.fixedDeltaTime;
+				_horizontalSpeed = 0f;
+				_verticalSpeed = 0f;
+			}
+			else
+			{
+				UpdateHorizontalSpeed();
+				UpdateVerticalSpeed();
+				Vector3 movement = _horizontalSpeed * GetMovementDirection() + _verticalSpeed * Vector3.up;
+				_characterController.Move(movement * Time.deltaTime);
+				OrientToTargetRotation(movement.SetY(0.0f));
+			}
 
 			IsGrounded = _characterController.isGrounded;
 
@@ -247,6 +259,25 @@ namespace NaughtyCharacter
 				Quaternion targetRotation = Quaternion.Euler(0.0f, _controlRotation.y, 0.0f);
 				transform.rotation = targetRotation;
 			}
+		}
+		
+		// FreezeMovement: Freeze the movement of the player for that amount passed amount of millisecond 
+		public void FreezeMovement( float ms)
+		{
+			Debug.Log("FREEZE MOVEMENT CALLED");
+			_frozenMs = ms;
+		}
+
+		public bool IsFrozen()
+		{
+			if (_frozenMs > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			} 
 		}
 	}
 }
