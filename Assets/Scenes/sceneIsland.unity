@@ -11903,7 +11903,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cfac85306c9f4a419a4b46e7f74d015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Object: {fileID: 526841143013874517, guid: 826c8bbeba680f34e9e189cce2fa0fc1, type: 3}
+  BuildingPrefab:
+    Building: {fileID: 526841143013874517, guid: a39fc1f1973f5904b847b72810f9d868, type: 3}
+    BuildingPreview: {fileID: 526841143013874517, guid: 826c8bbeba680f34e9e189cce2fa0fc1, type: 3}
   DisplayMaterial: {fileID: 2100000, guid: 67de7ea7e3aefa443962253ec556a8d7, type: 2}
   PositionOffset: {x: 0, y: 1, z: 0}
 --- !u!4 &1192018154
@@ -15313,6 +15315,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1504252877}
     m_Modifications:
     - target: {fileID: 1753354218, guid: 66b65036a7e48b440908dc78f877d6ff, type: 3}
+      propertyPath: OnNewMouseTarget.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753354218, guid: 66b65036a7e48b440908dc78f877d6ff, type: 3}
       propertyPath: OnNewMouseTarget.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 935766841}
@@ -15320,6 +15326,18 @@ PrefabInstance:
       propertyPath: OnNewMouseTarget.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1192018153}
+    - target: {fileID: 1753354218, guid: 66b65036a7e48b440908dc78f877d6ff, type: 3}
+      propertyPath: OnNewMouseTarget.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: DisplayObjectAtPosition, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753354218, guid: 66b65036a7e48b440908dc78f877d6ff, type: 3}
+      propertyPath: OnNewMouseTarget.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753354218, guid: 66b65036a7e48b440908dc78f877d6ff, type: 3}
+      propertyPath: OnNewMouseTarget.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1753354222, guid: 66b65036a7e48b440908dc78f877d6ff, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
