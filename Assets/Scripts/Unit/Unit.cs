@@ -6,7 +6,6 @@ public enum UnitType { Enemy, Tower, Player, Core, None }
 
 public class Unit : MonoBehaviour
 {
-    // Unit stat stuff
     [Header("Stats")]
     public UnitStats UnitStats = new UnitStats();
     [Header("Movement")]
