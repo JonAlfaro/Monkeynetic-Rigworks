@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8878554800626905242}
   - component: {fileID: 8878554800626905245}
   m_Layer: 0
-  m_Name: Attack_Bullet
+  m_Name: Attack_Bullet_Charm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,15 +108,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 062179b829bc5144fa8913ffbc83f612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 2
-  ProjectileSpeed: 10
+  Damage: 0
+  ProjectileSpeed: 8
   OnDestroyEffect: {fileID: 427282648657909231, guid: 853752132dad9b546bac1f790975db42, type: 3}
   ProjectileLifeTime: 0
   Debuff:
-    Enabled: 0
-    Duration: 0
+    Enabled: 1
+    Duration: 5
     Damage: 0
     MovementSpeedModifier: 0
     ParticleEffect: {fileID: 0}
-    ShouldModifyAttackTarget: 0
+    ShouldModifyAttackTarget: 1
     ModifiedAttackTarget: 0

@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public enum UnitMovementType { Passive, Aggressive, FollowPath, None }
-public enum UnitType { Enemy, Tower, Player, None }
+public enum UnitMovementType { Passive, Aggressive, None }
+public enum UnitType { Enemy, Tower, Player, Core, None }
 
 public class Unit : MonoBehaviour
 {
-    // Unit stat stuff
     [Header("Stats")]
     public UnitStats UnitStats = new UnitStats();
     [Header("Movement")]
@@ -23,15 +22,21 @@ public class Unit : MonoBehaviour
     public UnitType UnitType => UnitStats.UnitType;
     public bool IsValidTarget => isActiveAndEnabled && !UnitStats.IsDead;
     public float AttackRange => UnitAttack.Range;
+    public bool IsDead => UnitStats.IsDead;
+    public UnitType TargetUnitType => UnitAttackTargeting.TargetUnitType;
 
     private Vector3 movementTarget;
     private Coroutine movementCoroutine;
     private NavMeshAgent navMeshAgent;
+    private DebuffHandler debuffHandler = new DebuffHandler();
+    public void AddDebuff(Debuff debuff) => debuffHandler.AddDebuff(debuff);
+    public void SetTargetType(UnitType? targetType) => UnitAttackTargeting.SetTargetUnitType(targetType);
 
     // Lifecycle functions
     private void Awake()
     {
-        InitNavMeshAgent();
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        UpdateNavMeshAgentSpeed();
         if (TargetTransform == null)
         {
             TargetTransform = transform;
@@ -41,6 +46,8 @@ public class Unit : MonoBehaviour
         SetMovementType(StartingUnitMovementType);
         // Start coroutine to check for targets in the area
         StartCoroutine(UnitAttackTargeting.GetAttackTargetCoroutine(this, OnNewAttackTarget));
+        // Start coroutine to check and apply debuffs at a set interval
+        StartCoroutine(debuffHandler.GetDebufsCheckedCoroutine(this, OnDebuffsChecked));
     }
 
     private void Update()
@@ -105,20 +112,27 @@ public class Unit : MonoBehaviour
             case UnitMovementType.Aggressive:
                 movementCoroutine = StartCoroutine(UnitMovementAggressive.GetMovementTargetCoroutine(OnNewMovementTarget, this, UnitAttack.Target.transform));
                 break;
-            case UnitMovementType.FollowPath:
-                // TODO
-                break;
         }
     }
 
-    public void SetTarget(Unit target, float newLeashRange = 0f)
+    public void ForceSetTarget(Unit target, float newLeashRange = 0f)
     {
         if (newLeashRange > 0)
         {
             UnitAttackTargeting.LeashRange = newLeashRange;
+            UnitAttackTargeting.TargetingRange = newLeashRange;
         }
         UnitAttackTargeting.TargetUnitType = target.UnitType;
+        UnitAttackTargeting.SetTargetUnitType(target.UnitType);
         UnitAttackTargeting.SetTarget(target);
+    }
+
+    public void UpdateNavMeshAgentSpeed()
+    {
+        if (navMeshAgent)
+        {
+            navMeshAgent.speed = UnitStats.CurrentMovementSpeed;
+        }
     }
 
     // Called whenever the GetAttackTargetCoroutine finds a new attack target
@@ -128,7 +142,14 @@ public class Unit : MonoBehaviour
         
         if (attackTarget == null)
         {
-            SetMovementType(StartingUnitMovementType);
+            if (UnitMovementPassive.Enabled)
+            {
+                SetMovementType(UnitMovementType.Passive);
+            }
+            else
+            {
+                SetMovementType(UnitMovementType.None);
+            }
         }
         else if (UnitMovementAggressive.Enabled)
         {
@@ -136,13 +157,10 @@ public class Unit : MonoBehaviour
         }
     }
 
-    private void InitNavMeshAgent()
+    // Called whenever debuffs are checked, after they are applied
+    void OnDebuffsChecked()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        if (navMeshAgent)
-        {
-            navMeshAgent.speed = UnitStats.MovementSpeed;
-        }
+        // TODO may want to do stuff
     }
 
     // Draws unit range in the editor only

@@ -63,7 +63,7 @@ public class WaveSpawnPoint : SpawnPoint
         {
             // If this unit hasn't had it's target overridden, override the target and add it to the set
             if (!overridenSpawns.Contains(spawn.GetInstanceID())) {
-                spawn.SetTarget(TargetOverride, LeashRangeOverride);
+                spawn.ForceSetTarget(TargetOverride, LeashRangeOverride);
                 overridenSpawns.Add(spawn.GetInstanceID());
             }
         }

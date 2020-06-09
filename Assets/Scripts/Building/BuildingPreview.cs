@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-public class DisplayObjectAtPosition : MonoBehaviour
+public class BuildingPreview : MonoBehaviour
 {
-    public GameObject Object;
+    public BuildingPrefab BuildingPrefab;
     public Material DisplayMaterial;
     public Vector3? Position = new Vector3(0, 0, 0);
     public Vector3 PositionOffset = new Vector3(0, 1, 0);
@@ -29,16 +29,9 @@ public class DisplayObjectAtPosition : MonoBehaviour
         instantiatedObject.GetComponent<Renderer>().material = material;
     }
 
-    public void SetObject(GameObject gameObject)
-    {
-        Destroy(instantiatedObject);
-        Object = gameObject;
-        InstantiateAndSetMaterial();
-    }
-
     public void SetObject(BuildingPrefab buildingPrefab)
     {
-        Object = buildingPrefab.BuildingPreview;
+        BuildingPrefab = buildingPrefab;
         InstantiateAndSetMaterial();
     }
 
@@ -52,11 +45,19 @@ public class DisplayObjectAtPosition : MonoBehaviour
         {
             Position = new Vector3(0, 0, 0);
         }
-        instantiatedObject = Instantiate(Object, (Vector3)Position + PositionOffset, Quaternion.identity);
+        instantiatedObject = Instantiate(BuildingPrefab.BuildingPreview, (Vector3)Position + PositionOffset, Quaternion.identity);
         instantiatedObject.transform.SetParent(transform);
         if (DisplayMaterial)
         {
             instantiatedObject.GetComponent<Renderer>().material = DisplayMaterial;
+        }
+
+        // The SizeController component controls the size of the range indicator in the building preview
+        SizeController sizeController = instantiatedObject.GetComponentInChildren<SizeController>();
+        float range = BuildingPrefab.Building.GetComponent<Unit>().AttackRange;
+        if (sizeController)
+        {
+            sizeController.SetSize(range * 2, null, range * 2);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class BuildingManager : MonoBehaviour
@@ -13,10 +15,12 @@ public class BuildingManager : MonoBehaviour
 
     private GameObject selectedBuilding;
     private Vector3 buildingExtents = new Vector3(0.5f, 0.5f, 0.5f);
+    private List<UIBuildingOption> uiBuildingOptions;
 
     private void Start()
     {
-        SetBuilding(Buildings[0]);
+        uiBuildingOptions = new List<UIBuildingOption>(FindObjectsOfType<UIBuildingOption>(true)).OrderBy(x => x.Order).ToList();
+        SetBuilding(0);
     }
 
     public void SetBuildingPosition(Vector3? buildingPosition)
@@ -70,12 +74,17 @@ public class BuildingManager : MonoBehaviour
             return;
         }
 
-        SetBuilding(Buildings[buildingIndex - 1]);
+        SetBuilding(buildingIndex - 1);
     }
 
-    private void SetBuilding(BuildingPrefab buildingPrefab)
+    private void SetBuilding(int buildingIndex)
     {
+        BuildingPrefab buildingPrefab = Buildings[buildingIndex];
         selectedBuilding = buildingPrefab.Building;
+        foreach (UIBuildingOption buildingOption in uiBuildingOptions)
+        {
+            buildingOption.SelectedOverlay.SetActive(false);
+        }
 
         if (selectedBuilding == null)
         {
@@ -92,7 +101,7 @@ public class BuildingManager : MonoBehaviour
         {
             buildingExtents = new Vector3(0.5f, 0.5f, 0.5f);
         }
-
+        uiBuildingOptions[buildingIndex].SelectedOverlay.SetActive(true);
         BuildingChanged.Invoke(buildingPrefab);
         SetIsBuildingPositionValid();
     }

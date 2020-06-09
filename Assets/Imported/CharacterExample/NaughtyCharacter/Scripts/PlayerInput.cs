@@ -6,7 +6,12 @@ namespace NaughtyCharacter
 	public class PlayerInput : MonoBehaviour
 	{
 		public float MoveAxisDeadZone = 0.2f;
-        public KeyCode[] keysToDetect = new[] { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.B };
+        public KeyCode[] keysToDetect = new[] 
+        {
+            // Number keys 1-0
+            KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, KeyCode.Alpha6, KeyCode.Alpha7, KeyCode.Alpha8, KeyCode.Alpha9, KeyCode.Alpha0,
+            KeyCode.B,
+        };
 
         public Vector2 MoveInput { get; private set; }
 		public Vector2 LastMoveInput { get; private set; }
