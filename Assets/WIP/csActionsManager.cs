@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 public enum ActionType { Attack, Axe, Mine, Map };
@@ -10,6 +11,7 @@ public class csActionsManager : MonoBehaviour
 {
     private ActionType _selectedAction = ActionType.Attack;
     [FormerlySerializedAs("Player")] public GameObject player;
+    [FormerlySerializedAs("ResourceManager")] public GameObject resourceManager;
     
     void Start()
     {
@@ -44,8 +46,7 @@ public class csActionsManager : MonoBehaviour
                             var thwackDetails = raycastHits[i].transform.GetComponent<csThwackDetails>();
                             var gb = Instantiate(thwackDetails.resourcePrefab, raycastHits[i].transform.position, Quaternion.identity);
                             gb.GetComponent<Rigidbody>().velocity = Random.onUnitSphere * 1;
-                            Debug.Log(thwackDetails.dropCount);
-                            Debug.Log(thwackDetails.dropResouceType);
+                            gb.GetComponent<csResourceDetails>().increaseResource.AddListener(resourceManager.GetComponent<csResourceManager>().IncreaseFruit);
                             break;
                         }
                     }

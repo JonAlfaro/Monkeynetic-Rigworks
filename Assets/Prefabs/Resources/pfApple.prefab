@@ -101,20 +101,9 @@ MonoBehaviour:
   fruitAmount: 1
   increaseResource:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: csResourceManager, Assembly-CSharp
-        m_MethodName: IncreaseFruit
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   milliSecondsUntilFreeze: 3000
+  milliSecondsUntilDespawn: 180000
 --- !u!54 &7345247838347858152
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -155,5 +144,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.71
+  m_Radius: 2.5
   m_Center: {x: 0, y: 0, z: 0}

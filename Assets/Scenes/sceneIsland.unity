@@ -17311,6 +17311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 903508191}
+  resourceManager: {fileID: 109552732}
 --- !u!1001 &1491271374
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22465,6 +22466,10 @@ PrefabInstance:
     - target: {fileID: 4479908057211236910, guid: 80844b2319340044da27db99208a9eac, type: 3}
       propertyPath: far clip plane
       value: 3137.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 4479908057211236910, guid: 80844b2319340044da27db99208a9eac, type: 3}
+      propertyPath: m_HDR
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80844b2319340044da27db99208a9eac, type: 3}
