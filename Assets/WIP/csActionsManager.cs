@@ -42,6 +42,8 @@ public class csActionsManager : MonoBehaviour
                         if (raycastHits[i].transform.CompareTag("CanBeThwackdable"))
                         {
                             var thwackDetails = raycastHits[i].transform.GetComponent<csThwackDetails>();
+                            var gb = Instantiate(thwackDetails.resourcePrefab, raycastHits[i].transform.position, Quaternion.identity);
+                            gb.GetComponent<Rigidbody>().velocity = Random.onUnitSphere * 1;
                             Debug.Log(thwackDetails.dropCount);
                             Debug.Log(thwackDetails.dropResouceType);
                             break;

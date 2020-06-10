@@ -11,16 +11,33 @@ public class csResourceDetails : MonoBehaviour
     [FormerlySerializedAs("FruitAmount")] public int fruitAmount = 1;
     [FormerlySerializedAs("IncreaseResource")] public UnityEvent<FruitResourceType,int> increaseResource;
 
-    // Start is called before the first frame update
+    [FormerlySerializedAs("MilliSecondsUntilFreeze")] public float milliSecondsUntilFreeze = 5000f;
+    [FormerlySerializedAs("MilliSecondsUntilDespawn")] public float milliSecondsUntilDespawn = 180000f;
+    private bool _isFrozen = false;
+    private Rigidbody _rb;
+
     private void Start()
     {
+        _rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    private void Update()
+    private void FixedUpdate()
     {
-    }
+        milliSecondsUntilDespawn -= Time.fixedDeltaTime * 1000;
+        if (milliSecondsUntilDespawn <= 0)
+        {
+            Destroy(gameObject);
+        }
+        
+        if (_isFrozen) return;
+        milliSecondsUntilFreeze -= Time.fixedDeltaTime * 1000;
+        if (milliSecondsUntilFreeze <= 0)
+        {
+            _isFrozen = true;
+            _rb.isKinematic = true;
+        }
 
+    }
     private void OnTriggerEnter(Collider colider)
     {
         switch (colider.gameObject.name)
