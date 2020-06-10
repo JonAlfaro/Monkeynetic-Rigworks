@@ -10842,7 +10842,7 @@ MonoBehaviour:
   - Building: {fileID: 526841143013874517, guid: 842078904573ca942a81255ce7fe59b6, type: 3}
     BuildingPreview: {fileID: 526841143013874517, guid: 11109f71ffffad84492e917b54ff87a3, type: 3}
   - Building: {fileID: 854417935132763545, guid: ba27f248dbba05d43ae07f45ddcaf8a3, type: 3}
-    BuildingPreview: {fileID: 854417935132763545, guid: b03542c137b3425468c07d07341d716a, type: 3}
+    BuildingPreview: {fileID: 854417935132763545, guid: 1859db1955fc2df458e090c605e993f9, type: 3}
   BuildingOffset: {x: 0, y: 1, z: 0}
   BuildingRotation: {x: 0, y: 0, z: 0, w: 1}
   BuildingValidChanged:
