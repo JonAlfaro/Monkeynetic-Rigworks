@@ -105,7 +105,6 @@ namespace NaughtyCharacter
 
 		private void UpdateState()
 		{
-			Debug.Log("FREEZE: " +  _frozenMs);
 
 			if (_frozenMs > 0)
 			{
@@ -264,7 +263,6 @@ namespace NaughtyCharacter
 		// FreezeMovement: Freeze the movement of the player for that amount passed amount of millisecond 
 		public void FreezeMovement( float ms)
 		{
-			Debug.Log("FREEZE MOVEMENT CALLED");
 			_frozenMs = ms;
 		}
 
