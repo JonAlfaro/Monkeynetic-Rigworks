@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.TerrainAPI;
 using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Events;
@@ -46,6 +47,7 @@ public class csActionsManager : MonoBehaviour
                             var thwackDetails = raycastHits[i].transform.GetComponent<csThwackDetails>();
                             var gb = Instantiate(thwackDetails.resourcePrefab, raycastHits[i].transform.position, Quaternion.identity);
                             gb.GetComponent<Rigidbody>().velocity = Random.onUnitSphere * 1;
+                            gb.GetComponent<csResourceDetails>().fruitAmount = thwackDetails.dropCount;
                             gb.GetComponent<csResourceDetails>().increaseResource.AddListener(resourceManager.GetComponent<csResourceManager>().IncreaseFruit);
                             break;
                         }
