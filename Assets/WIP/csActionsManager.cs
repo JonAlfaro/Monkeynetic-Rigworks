@@ -13,6 +13,7 @@ public class csActionsManager : MonoBehaviour
     private ActionType _selectedAction = ActionType.Attack;
     [FormerlySerializedAs("Player")] public GameObject player;
     [FormerlySerializedAs("ResourceManager")] public GameObject resourceManager;
+    public float shootUpSpeed = 2;
     
     void Start()
     {
@@ -46,7 +47,7 @@ public class csActionsManager : MonoBehaviour
                         {
                             var thwackDetails = raycastHits[i].transform.GetComponent<csThwackDetails>();
                             var gb = Instantiate(thwackDetails.resourcePrefab, raycastHits[i].transform.position, Quaternion.identity);
-                            gb.GetComponent<Rigidbody>().velocity = Random.onUnitSphere * 1;
+                            gb.GetComponent<Rigidbody>().velocity = (Random.onUnitSphere * 1 + (gb.transform.up*shootUpSpeed));
                             gb.GetComponent<csResourceDetails>().fruitAmount = thwackDetails.dropCount;
                             gb.GetComponent<csResourceDetails>().increaseResource.AddListener(resourceManager.GetComponent<csResourceManager>().IncreaseFruit);
                             break;
