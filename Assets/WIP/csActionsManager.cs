@@ -43,6 +43,12 @@ public class csActionsManager : MonoBehaviour
                         new Vector3(0.5f, 0.5f, 0.5f), playerForward, Quaternion.identity, 1f);
                     for (var i = raycastHits.Length-1; i >= 0; i--)
                     {
+                        if (raycastHits[i].transform.CompareTag("OrangeChest"))
+                        {
+                            raycastHits[i].transform.GetComponent<csOrangeChest>().OpenChest();
+                            break;
+                        }
+
                         if (raycastHits[i].transform.CompareTag("CanBeThwackdable"))
                         {
                             var thwackDetails = raycastHits[i].transform.GetComponent<csThwackDetails>();
