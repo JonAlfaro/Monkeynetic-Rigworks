@@ -81,6 +81,7 @@ public class Unit : MonoBehaviour
     {
         if (UnitStats.IsDead)
         {
+            debuffHandler.StopAllDebuffAnimations();
             Destroy(gameObject);
         }
         // TODO: Monkey 🐒🐒🐒🐒

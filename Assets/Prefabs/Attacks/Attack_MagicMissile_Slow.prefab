@@ -236,12 +236,12 @@ MonoBehaviour:
   Damage: 1
   ProjectileSpeed: 4.5
   OnDestroyEffect: {fileID: 427282648657909231, guid: 5a3cecc0f8ef8de45964dcb71c93dc95, type: 3}
-  ProjectileLifeTime: 4
+  ProjectileLifeTime: 0
   Debuff:
     Enabled: 1
     Duration: 4
     Damage: 0
     MovementSpeedModifier: -2
-    ParticleEffect: {fileID: 0}
+    ParticleEffect: {fileID: 3602846683137137835, guid: 4e07e72fba931ed4688ec37315809405, type: 3}
     ShouldModifyAttackTarget: 0
     ModifiedAttackTarget: 0

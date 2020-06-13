@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.VFX;
 
 [Serializable]
 public class Debuff
@@ -14,6 +15,7 @@ public class Debuff
     public UnitType ModifiedAttackTarget;
     // Not shown in inspector
     public float EndTime { get; set; }
+    public GameObject InstantiatedParticleEffect { get; set; }
 
     public float GetDamageInstance(float checkDebuffInterval)
     {
@@ -28,5 +30,22 @@ public class Debuff
         }
 
         return Damage / (Duration / checkDebuffInterval);
+    }
+
+    public void StopParticleEffect()
+    {
+        if (InstantiatedParticleEffect != null)
+        {
+            VisualEffect debuffParticleVFX = InstantiatedParticleEffect.GetComponent<VisualEffect>();
+            if (debuffParticleVFX != null)
+            {
+                debuffParticleVFX.SetVector2("Spawn Rate", new Vector2(0, 0));
+            }
+
+            InstantiatedParticleEffect.transform.SetParent(null, true);
+
+            // Destroy the object 2 seconds after
+            GameObject.Destroy(InstantiatedParticleEffect, 2f);
+        }
     }
 }

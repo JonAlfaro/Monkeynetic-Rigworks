@@ -129,7 +129,7 @@ MonoBehaviour:
     MinDistanceFromTarget: 1
     MaxDistanceFromTarget: 1
   UnitAttack:
-    AttackProjectile: {fileID: 8878554800626905244, guid: 1cc20986c130d75448c09c21521ebecb, type: 3}
+    AttackProjectile: {fileID: 8878554800626905244, guid: 6d69f3ecba1392e459f4f2378c183a97, type: 3}
     TimeBetweenAttacks: 3
     Range: 4
     ProjectileSpawnTransform: {fileID: 0}
