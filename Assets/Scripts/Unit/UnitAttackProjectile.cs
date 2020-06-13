@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.VFX;
 
 public class UnitAttackProjectile : MonoBehaviour
 {
@@ -63,6 +64,16 @@ public class UnitAttackProjectile : MonoBehaviour
         if (OnDestroyEffect != null)
         {
             Destroy(Instantiate(OnDestroyEffect, transform.position, Quaternion.identity), 5f);
+        }
+
+        VisualEffect vfx = GetComponentInChildren<VisualEffect>();
+
+        if (vfx != null)
+        {
+            vfx.Stop();
+            vfx.transform.SetParent(transform.parent);
+            vfx.SetFloat("KillTrails", -3);
+            Destroy(vfx, 2f);
         }
 
         // Destroy self
