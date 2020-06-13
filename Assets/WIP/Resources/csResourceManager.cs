@@ -20,15 +20,16 @@ public class csResourceManager : MonoBehaviour
     {
         _fruitResources.Add(FruitResourceType.ForestApple, 0);
         _fruitResources.Add(FruitResourceType.BlueCoconut, 0);
-        _fruitResources.Add(FruitResourceType.WhiteBerry, 0);
+        _fruitResources.Add(FruitResourceType.BrimstoneMelon, 0);
+        _fruitResources.Add(FruitResourceType.BigIce, 0);
+        _fruitResources.Add(FruitResourceType.VoidPineapple, 0);
+        _fruitResources.Add(FruitResourceType.OrangeOrange, 0);
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
         resourceAppleForestText.text = $"Forest Apple: {_fruitResources[FruitResourceType.ForestApple]}";
-        resourceBlueCoconutText.text = $"Blue Coconut: {_fruitResources[FruitResourceType.BlueCoconut]}";
-        resourceWhiteBerry.text = $"White Berry: {_fruitResources[FruitResourceType.WhiteBerry]}";
 
         enabledModes = "Enabled Modes= ";
         if (GameVariables.IsMenuMode)

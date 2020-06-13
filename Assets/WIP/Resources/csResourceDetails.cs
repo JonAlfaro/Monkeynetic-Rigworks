@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
 using UnityEngine.Serialization;
 
 public class csResourceDetails : MonoBehaviour
@@ -44,6 +45,7 @@ public class csResourceDetails : MonoBehaviour
         {
             case "pfPlayerWithControlles":
                 increaseResource.Invoke(fruitType,fruitAmount);
+                Destroy(gameObject);
                 break;
             case "PlayerTwoWithCamera":
                 break;
