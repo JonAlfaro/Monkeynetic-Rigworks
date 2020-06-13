@@ -72,8 +72,7 @@ public class UnitAttackProjectile : MonoBehaviour
         {
             vfx.Stop();
             vfx.transform.SetParent(transform.parent);
-            vfx.SetFloat("Size", 1.5f);
-            vfx.SetFloat("TrailsLifetime", 0);
+            vfx.SetFloat("KillTrails", -1);
             Destroy(vfx, 2f);
         }
 
