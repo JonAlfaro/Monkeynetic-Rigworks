@@ -1,5 +1,66 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5435615233149279528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7549513531621126871}
+  - component: {fileID: 4708489340489259157}
+  - component: {fileID: 6847142375319170024}
+  m_Layer: 0
+  m_Name: ORIGIN
+  m_TagString: CanBeThwackdable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7549513531621126871
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5435615233149279528}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.00096, y: 0.01659, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7862851667950461294}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4708489340489259157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5435615233149279528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 195bc24f7b2f68e469b323de89e3ee22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropCount: 1
+  dropResouceType: 4
+  resourcePrefab: {fileID: 5051736260402183984, guid: 879a5283a9cfeff4bb35d81fe9fd6812, type: 3}
+--- !u!136 &6847142375319170024
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5435615233149279528}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.004001426
+  m_Height: 0.016203973
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.009, z: 0}
 --- !u!1 &5568096284129170175
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,11 +72,10 @@ GameObject:
   - component: {fileID: 7862851667950461294}
   - component: {fileID: 4466305451969957392}
   - component: {fileID: 4561276918168075788}
-  - component: {fileID: 3596877960848459551}
-  - component: {fileID: 6938995171662803210}
+  - component: {fileID: 8612096718514953173}
   m_Layer: 0
   m_Name: pfBigIceThwackable
-  m_TagString: CanBeThwackdable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +90,8 @@ Transform:
   m_LocalRotation: {x: 0.000000067179435, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -155.55441, y: 25.97, z: 990.4254}
   m_LocalScale: {x: 237.54227, y: 237.54227, z: 237.54227}
-  m_Children: []
+  m_Children:
+  - {fileID: 7549513531621126871}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -83,32 +144,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3596877960848459551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5568096284129170175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 195bc24f7b2f68e469b323de89e3ee22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dropCount: 1
-  dropResouceType: 4
-  resourcePrefab: {fileID: 5051736260402183984, guid: 879a5283a9cfeff4bb35d81fe9fd6812, type: 3}
---- !u!136 &6938995171662803210
-CapsuleCollider:
+--- !u!64 &8612096718514953173
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5568096284129170175}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.004001426
-  m_Height: 0.016203973
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.008101987, z: 0}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6664116620273875110, guid: 1fc9348322fa4fd4db8e94181b22e4f1, type: 3}

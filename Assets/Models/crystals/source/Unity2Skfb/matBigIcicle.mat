@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3792397463080361895
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
 --- !u!21 &2100000
 Material:
   serializedVersion: 6
@@ -20,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: matBrimstoneMelon
-  m_Shader: {fileID: -6465566751694194690, guid: 0a228d6b267183248982aac017465829, type: 3}
+  m_Name: matBigIcicle
+  m_Shader: {fileID: -6465566751694194690, guid: 0fd51b4369d3bbd459e19fe01055fd49, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -32,20 +19,16 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_54D09605:
-        m_Texture: {fileID: 2800000, guid: 12a2a392f02a4dd4cb8652d3bbeba65d, type: 3}
+    - Texture2D_25D693C8:
+        m_Texture: {fileID: 2800000, guid: 1568dc667e9496448ac27526349c194d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - Texture2D_6F62CD01:
-        m_Texture: {fileID: 2800000, guid: 3cfbddd0a073df14ab06560bbd1fcbd9, type: 3}
+    - Texture2D_371E9019:
+        m_Texture: {fileID: 2800000, guid: 87c9e51f524e15745b11ecf017c0676a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - Texture2D_70258ED7:
-        m_Texture: {fileID: 2800000, guid: 4e9b9197ed9069940981b5c0947a0fe6, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_BAE67063:
-        m_Texture: {fileID: 2800000, guid: f7fbccd647634244084adc0278f51bfe, type: 3}
+    - Texture2D_F406C5DE:
+        m_Texture: {fileID: 2800000, guid: ac5efda655f21744e95742136c29d1d1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -77,8 +60,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_440A7BCB: 7.78
-    - Vector1_576216: 535.76
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -106,3 +87,16 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
+--- !u!114 &7007812373422069994
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
