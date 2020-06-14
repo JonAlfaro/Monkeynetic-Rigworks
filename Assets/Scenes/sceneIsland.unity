@@ -800,7 +800,7 @@ GameObject:
   - component: {fileID: 52880134}
   m_Layer: 0
   m_Name: Terrain_(-500.0, 0.0, 500.0)
-  m_TagString: Untagged
+  m_TagString: BuildableArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -13715,7 +13715,7 @@ GameObject:
   - component: {fileID: 939014104}
   m_Layer: 0
   m_Name: Terrain_(500.0, 0.0, -500.0)
-  m_TagString: Untagged
+  m_TagString: BuildableArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -14036,7 +14036,7 @@ GameObject:
   - component: {fileID: 959940537}
   m_Layer: 0
   m_Name: Terrain_(500.0, 0.0, -1500.0)
-  m_TagString: Untagged
+  m_TagString: BuildableArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -16355,7 +16355,7 @@ GameObject:
   - component: {fileID: 1111158171}
   m_Layer: 0
   m_Name: Terrain_(-1500.0, 0.0, 500.0)
-  m_TagString: Untagged
+  m_TagString: BuildableArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -18389,7 +18389,7 @@ GameObject:
   - component: {fileID: 1248938252}
   m_Layer: 0
   m_Name: Terrain_(500.0, 0.0, 500.0)
-  m_TagString: Untagged
+  m_TagString: BuildableArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -22454,7 +22454,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504252876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -167.4, y: 48.4, z: 330.8}
+  m_LocalPosition: {x: 451.9, y: 48.4, z: 778.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 329798935}
@@ -22715,7 +22715,7 @@ GameObject:
   - component: {fileID: 1525892948}
   m_Layer: 0
   m_Name: Terrain_(-500.0, 0.0, -1500.0)
-  m_TagString: Untagged
+  m_TagString: BuildableArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -24474,7 +24474,7 @@ PrefabInstance:
     - target: {fileID: 6162020993245396737, guid: 3abc7e7bb25e97d459e6e56c4b553c58, type: 3}
       propertyPath: Player1Canvas
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2062109153}
     - target: {fileID: 6162020993245396737, guid: 3abc7e7bb25e97d459e6e56c4b553c58, type: 3}
       propertyPath: TeleportDestination
       value: 
@@ -24498,7 +24498,7 @@ GameObject:
   - component: {fileID: 1673016889}
   m_Layer: 0
   m_Name: Terrain_(-1500.0, 0.0, -500.0)
-  m_TagString: Untagged
+  m_TagString: BuildableArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -25459,7 +25459,7 @@ GameObject:
   - component: {fileID: 1741092535}
   m_Layer: 0
   m_Name: Terrain_(-1500.0, 0.0, -1500.0)
-  m_TagString: Untagged
+  m_TagString: BuildableArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -29832,7 +29832,7 @@ GameObject:
   - component: {fileID: 2062109150}
   - component: {fileID: 2062109149}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: resCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
