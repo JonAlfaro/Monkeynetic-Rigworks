@@ -12,8 +12,12 @@ public class UnitStats
     public float OutgoingDamageMultiplier = 1;
     public float IncomingDamageMultiplier = 1;
     public Text uiTextHealth;
+    public Text uiCoreTextHealth;
+
 
     public bool isPlayer = false;
+
+    public bool isCore = false;
     // Not shown in inspector
     public float CurrentMovementSpeed { get; private set; }
     public float CurrentHealth { get; set; }
@@ -26,6 +30,9 @@ public class UnitStats
         if (isPlayer)
         {
             uiTextHealth.text = $"Health {CurrentHealth} / {MaxHealth}";
+        } else if (isCore)
+        {
+            uiCoreTextHealth.text = $"Health {CurrentHealth} / {MaxHealth}";
         }
     }
 
@@ -36,6 +43,9 @@ public class UnitStats
         if (isPlayer)
         {
             uiTextHealth.text = $"Health {CurrentHealth} / {MaxHealth}";
+        } else if (isCore)
+        {
+            uiCoreTextHealth.text = $"Health {CurrentHealth} / {MaxHealth}";
         }
         return this;
     }
@@ -46,6 +56,9 @@ public class UnitStats
         if (isPlayer)
         {
             uiTextHealth.text = $"Health {CurrentHealth} / {MaxHealth}";
+        } else if (isCore)
+        {
+            uiCoreTextHealth.text = $"Core Health {CurrentHealth} / {MaxHealth}";
         }
     }
 

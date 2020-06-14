@@ -6887,7 +6887,9 @@ MonoBehaviour:
     OutgoingDamageMultiplier: 1
     IncomingDamageMultiplier: 1
     uiTextHealth: {fileID: 0}
+    uiCoreTextHealth: {fileID: 1352182137}
     isPlayer: 0
+    isCore: 1
   StartingUnitMovementType: 2
   UnitMovementPassive:
     Enabled: 0
@@ -20504,7 +20506,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: HEALTH 0/0
+  m_Text: CORE HEALTH 0/0
 --- !u!222 &1352182138
 CanvasRenderer:
   m_ObjectHideFlags: 0
