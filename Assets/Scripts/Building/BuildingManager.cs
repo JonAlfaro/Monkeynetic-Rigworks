@@ -12,8 +12,10 @@ public class BuildingManager : MonoBehaviour
     public bool IsBuildingPositionValid { get; set; }
     public UnityEvent<bool> BuildingValidChanged;
     public UnityEvent<BuildingPrefab> BuildingChanged;
+    public csResourceManager resourceManager;
 
     private GameObject selectedBuilding;
+    private int selectedBuildingCosts = 10;
     private Vector3 buildingExtents = new Vector3(0.5f, 0.5f, 0.5f);
     private List<UIBuildingOption> uiBuildingOptions;
 
@@ -49,7 +51,14 @@ public class BuildingManager : MonoBehaviour
 
         if (IsBuildingPositionValid && selectedBuilding != null)
         {
-            Instantiate(selectedBuilding, (Vector3)BuildingPosition + BuildingOffset, BuildingRotation);
+            if (resourceManager.UseMoney(selectedBuildingCosts))
+            {
+                Instantiate(selectedBuilding, (Vector3)BuildingPosition + BuildingOffset, BuildingRotation);
+            }
+            else
+            {
+                Debug.Log("Your too poor");
+            }
         }
         else
         {
@@ -81,6 +90,8 @@ public class BuildingManager : MonoBehaviour
     {
         BuildingPrefab buildingPrefab = Buildings[buildingIndex];
         selectedBuilding = buildingPrefab.Building;
+        selectedBuildingCosts = buildingPrefab.BuildingCost;
+        
         foreach (UIBuildingOption buildingOption in uiBuildingOptions)
         {
             buildingOption.SelectedOverlay.SetActive(false);
