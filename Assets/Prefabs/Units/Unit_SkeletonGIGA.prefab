@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 854417935132763551}
   - component: {fileID: 854417935132763554}
   m_Layer: 0
-  m_Name: Unit_Skeleton_Lightning
+  m_Name: Unit_SkeletonGIGA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -241,9 +241,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnitStats:
-    MaxHealth: 7
-    MovementSpeed: 4.25
-    MinimumMovementSpeed: 0.5
+    MaxHealth: 1000
+    MovementSpeed: 6
+    MinimumMovementSpeed: 3
     UnitType: 0
     OutgoingDamageMultiplier: 1
     IncomingDamageMultiplier: 1
@@ -261,19 +261,19 @@ MonoBehaviour:
     TargetDistanceMax: 10
   UnitMovementAggressive:
     Enabled: 1
-    MinDistanceFromTarget: 3
-    MaxDistanceFromTarget: 15
+    MinDistanceFromTarget: 2
+    MaxDistanceFromTarget: 3.5
   UnitAttack:
-    AttackProjectile: {fileID: 8878554800626905244, guid: 0c25ee4c1383ed54e8258c220e01ebe8, type: 3}
-    TimeBetweenAttacks: 2
-    Range: 18
+    AttackProjectile: {fileID: 8878554800626905244, guid: aeb17aab372f95d478652e6ff9bb2780, type: 3}
+    TimeBetweenAttacks: 1
+    Range: 10
     ProjectileSpawnTransform: {fileID: 8554111079748884678}
   UnitAttackTargeting:
     TargetUnitType: 2
     UnitAttackTargetingType: 0
     CheckForValidTargetInterval: 0.1
-    TargetingRange: 20
-    LeashRange: 40
+    TargetingRange: 8
+    LeashRange: 32
     currentTargetUnitType: 0
   TargetTransform: {fileID: 0}
 --- !u!33 &854417935132763549
@@ -871,7 +871,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5fd9d0a9099a998409f03db10e971b46, type: 2}
+  - {fileID: 2100000, guid: 05fbc727cbbf93d478adc9fcf7cde4fc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1675,7 +1675,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 7108631595466352291, guid: 97735d1abc3c255499856a58d1539b41, type: 3}
   - {fileID: -8753481769234136891, guid: 97735d1abc3c255499856a58d1539b41, type: 3}
-  - {fileID: 9003353085549565770, guid: 97735d1abc3c255499856a58d1539b41, type: 3}
+  - {fileID: 2100000, guid: 066e86239c4f35d4bba90ed1f306a9b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
