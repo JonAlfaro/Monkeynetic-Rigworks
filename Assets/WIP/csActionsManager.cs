@@ -6,11 +6,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 
-public enum ActionType { Attack, Axe, Mine, Map };
+public enum ActionType { Forage, Sell};
 
 public class csActionsManager : MonoBehaviour
 {
-    private ActionType _selectedAction = ActionType.Attack;
+    private ActionType _selectedAction = ActionType.Forage;
     [FormerlySerializedAs("Player")] public GameObject player;
     [FormerlySerializedAs("ResourceManager")] public GameObject resourceManager;
     public float shootUpSpeed = 2;
@@ -31,10 +31,7 @@ public class csActionsManager : MonoBehaviour
         {
             switch (_selectedAction)
             {
-                case ActionType.Attack:
-                    Debug.Log("Attack");
-                    break;
-                case ActionType.Axe:
+                case ActionType.Forage:
                     var rot = player.transform.rotation;
                     var playerForward = player.transform.forward;
                     Debug.Log(playerForward);
@@ -59,15 +56,11 @@ public class csActionsManager : MonoBehaviour
                             break;
                         }
                     }
-                    Debug.Log("Axe");
                     break;
-                case ActionType.Mine:
-                    Debug.Log("Mine");
+                case ActionType.Sell:
+                    resourceManager.GetComponent<csResourceManager>().SellAll();
                     break;
-                case ActionType.Map:
-                    Debug.Log("Map");
-                    break;
-                
+
             }
         }
     }
