@@ -113,9 +113,13 @@ MonoBehaviour:
   UnitStats:
     MaxHealth: 15
     MovementSpeed: 0
+    MinimumMovementSpeed: 0.5
     UnitType: 1
     OutgoingDamageMultiplier: 1
     IncomingDamageMultiplier: 1
+    uiTextHealth: {fileID: 0}
+    CanModifyAttackTarget: 1
+    isPlayer: 0
   StartingUnitMovementType: 3
   UnitMovementPassive:
     Enabled: 0
@@ -138,6 +142,7 @@ MonoBehaviour:
     CheckForValidTargetInterval: 999
     TargetingRange: 0
     LeashRange: 0
+    currentTargetUnitType: 0
   TargetTransform: {fileID: 0}
 --- !u!208 &-3902707968569155420
 NavMeshObstacle:
@@ -149,7 +154,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_Extents: {x: 0.45, y: 0.45, z: 0.45}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1

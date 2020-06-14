@@ -12,6 +12,7 @@ public class UnitStats
     public float OutgoingDamageMultiplier = 1;
     public float IncomingDamageMultiplier = 1;
     public Text uiTextHealth;
+    public bool CanModifyAttackTarget = true;
 
     public bool isPlayer = false;
     // Not shown in inspector
