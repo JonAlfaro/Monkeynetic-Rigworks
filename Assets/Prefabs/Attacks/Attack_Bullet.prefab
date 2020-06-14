@@ -111,7 +111,7 @@ MonoBehaviour:
   Damage: 2
   ProjectileSpeed: 10
   OnDestroyEffect: {fileID: 427282648657909231, guid: 857aece6d84d9444eadbb87dd4cc684e, type: 3}
-  ProjectileLifeTime: 0
+  ProjectileLifeTime: 5
   Debuff:
     Enabled: 0
     Duration: 0

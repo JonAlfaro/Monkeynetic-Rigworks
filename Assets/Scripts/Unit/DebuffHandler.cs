@@ -78,7 +78,7 @@ public class DebuffHandler
         // Instantiate the particle effect if we have provided one. Destroy it 5 seconds later
         if (debuff.ParticleEffect != null)
         {
-            debuff.InstantiatedParticleEffect = GameObject.Instantiate(debuff.ParticleEffect, Unit.transform);
+            debuff.InstantiatedParticleEffect = GameObject.Instantiate(debuff.ParticleEffect, Unit.TargetTransform);
         }
         debuffs.Add(debuff);
     }

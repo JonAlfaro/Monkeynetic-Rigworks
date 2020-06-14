@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 854417935132763551}
   - component: {fileID: 854417935132763554}
   m_Layer: 0
-  m_Name: Unit_Skeleton
+  m_Name: Unit_Skeleton_Poison
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -241,8 +241,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnitStats:
-    MaxHealth: 5
-    MovementSpeed: 4
+    MaxHealth: 12
+    MovementSpeed: 3.75
     MinimumMovementSpeed: 0.5
     UnitType: 0
     OutgoingDamageMultiplier: 1
@@ -257,11 +257,11 @@ MonoBehaviour:
   UnitMovementAggressive:
     Enabled: 1
     MinDistanceFromTarget: 2
-    MaxDistanceFromTarget: 3.5
+    MaxDistanceFromTarget: 4.25
   UnitAttack:
-    AttackProjectile: {fileID: 8878554800626905244, guid: fe23c89453a82174083fcb59ab489507, type: 3}
-    TimeBetweenAttacks: 3
-    Range: 4
+    AttackProjectile: {fileID: 8878554800626905244, guid: 7655287518dacfa4f9cd121a18336d4a, type: 3}
+    TimeBetweenAttacks: 3.5
+    Range: 5
     ProjectileSpawnTransform: {fileID: 8554111079748884678}
   UnitAttackTargeting:
     TargetUnitType: 2

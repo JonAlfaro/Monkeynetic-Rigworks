@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 854417935132763551}
   - component: {fileID: 854417935132763554}
   m_Layer: 0
-  m_Name: Unit_Skeleton
+  m_Name: Unit_Skeleton_Fast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -221,7 +221,7 @@ Transform:
   m_GameObject: {fileID: 854417935132763545}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 55.29, y: 1.934, z: -7.08}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 0.65101, y: 1.30202, z: 0.65101}
   m_Children:
   - {fileID: 4883955988513697767}
   - {fileID: 7726604616705237066}
@@ -241,8 +241,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnitStats:
-    MaxHealth: 5
-    MovementSpeed: 4
+    MaxHealth: 3
+    MovementSpeed: 8
     MinimumMovementSpeed: 0.5
     UnitType: 0
     OutgoingDamageMultiplier: 1
@@ -260,7 +260,7 @@ MonoBehaviour:
     MaxDistanceFromTarget: 3.5
   UnitAttack:
     AttackProjectile: {fileID: 8878554800626905244, guid: fe23c89453a82174083fcb59ab489507, type: 3}
-    TimeBetweenAttacks: 3
+    TimeBetweenAttacks: 2.75
     Range: 4
     ProjectileSpawnTransform: {fileID: 8554111079748884678}
   UnitAttackTargeting:

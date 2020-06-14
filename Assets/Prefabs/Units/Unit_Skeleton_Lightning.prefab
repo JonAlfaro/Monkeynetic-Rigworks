@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 854417935132763551}
   - component: {fileID: 854417935132763554}
   m_Layer: 0
-  m_Name: Unit_Skeleton
+  m_Name: Unit_Skeleton_Lightning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -241,8 +241,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnitStats:
-    MaxHealth: 5
-    MovementSpeed: 4
+    MaxHealth: 7
+    MovementSpeed: 4.25
     MinimumMovementSpeed: 0.5
     UnitType: 0
     OutgoingDamageMultiplier: 1
@@ -256,19 +256,19 @@ MonoBehaviour:
     TargetDistanceMax: 10
   UnitMovementAggressive:
     Enabled: 1
-    MinDistanceFromTarget: 2
-    MaxDistanceFromTarget: 3.5
+    MinDistanceFromTarget: 3
+    MaxDistanceFromTarget: 15
   UnitAttack:
-    AttackProjectile: {fileID: 8878554800626905244, guid: fe23c89453a82174083fcb59ab489507, type: 3}
-    TimeBetweenAttacks: 3
-    Range: 4
+    AttackProjectile: {fileID: 8878554800626905244, guid: 0c25ee4c1383ed54e8258c220e01ebe8, type: 3}
+    TimeBetweenAttacks: 2
+    Range: 18
     ProjectileSpawnTransform: {fileID: 8554111079748884678}
   UnitAttackTargeting:
     TargetUnitType: 2
     UnitAttackTargetingType: 0
     CheckForValidTargetInterval: 0.1
-    TargetingRange: 8
-    LeashRange: 32
+    TargetingRange: 20
+    LeashRange: 40
     currentTargetUnitType: 0
   TargetTransform: {fileID: 0}
 --- !u!33 &854417935132763549

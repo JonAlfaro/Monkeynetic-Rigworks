@@ -66,14 +66,22 @@ public class UnitAttackProjectile : MonoBehaviour
             Destroy(Instantiate(OnDestroyEffect, transform.position, Quaternion.identity), 5f);
         }
 
-        VisualEffect vfx = GetComponentInChildren<VisualEffect>();
+        // Loop through all visual effects to detach them from this object and end them gracefully
+        VisualEffect[] vfxArray = GetComponentsInChildren<VisualEffect>();
 
-        if (vfx != null)
+        foreach (VisualEffect vfx in vfxArray)
         {
             vfx.Stop();
             vfx.transform.SetParent(transform.parent);
-            vfx.SetFloat("KillTrails", -3);
-            Destroy(vfx, 2f);
+            if (vfx.HasFloat("KillTrails"))
+            {
+                vfx.SetFloat("KillTrails", -3);
+            }
+            if (vfx.HasVector2("Spawn Rate"))
+            {
+                vfx.SetVector2("Spawn Rate", new Vector2(0, 0));
+            }
+            Destroy(vfx, 3f);
         }
 
         // Destroy self

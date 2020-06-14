@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 854417935132763551}
   - component: {fileID: 854417935132763554}
   m_Layer: 0
-  m_Name: Unit_Skeleton
+  m_Name: Unit_Skeleton_Big
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -221,7 +221,7 @@ Transform:
   m_GameObject: {fileID: 854417935132763545}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 55.29, y: 1.934, z: -7.08}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 2.266518, y: 4.533036, z: 2.266518}
   m_Children:
   - {fileID: 4883955988513697767}
   - {fileID: 7726604616705237066}
@@ -241,34 +241,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnitStats:
-    MaxHealth: 5
-    MovementSpeed: 4
-    MinimumMovementSpeed: 0.5
+    MaxHealth: 35
+    MovementSpeed: 3
+    MinimumMovementSpeed: 0.25
     UnitType: 0
     OutgoingDamageMultiplier: 1
     IncomingDamageMultiplier: 1
   StartingUnitMovementType: 0
   UnitMovementPassive:
     Enabled: 1
-    RetargetMinTime: 1
-    RetargetMaxTime: 12
-    TargetDistanceMin: -10
-    TargetDistanceMax: 10
+    RetargetMinTime: 4
+    RetargetMaxTime: 18
+    TargetDistanceMin: -20
+    TargetDistanceMax: 20
   UnitMovementAggressive:
     Enabled: 1
     MinDistanceFromTarget: 2
-    MaxDistanceFromTarget: 3.5
+    MaxDistanceFromTarget: 7.5
   UnitAttack:
-    AttackProjectile: {fileID: 8878554800626905244, guid: fe23c89453a82174083fcb59ab489507, type: 3}
-    TimeBetweenAttacks: 3
-    Range: 4
+    AttackProjectile: {fileID: 8878554800626905244, guid: 04c8867296f69df4ea12ccee6f212eca, type: 3}
+    TimeBetweenAttacks: 5
+    Range: 9
     ProjectileSpawnTransform: {fileID: 8554111079748884678}
   UnitAttackTargeting:
     TargetUnitType: 2
     UnitAttackTargetingType: 0
     CheckForValidTargetInterval: 0.1
-    TargetingRange: 8
-    LeashRange: 32
+    TargetingRange: 15
+    LeashRange: 38
     currentTargetUnitType: 0
   TargetTransform: {fileID: 0}
 --- !u!33 &854417935132763549
