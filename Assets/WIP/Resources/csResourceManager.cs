@@ -37,6 +37,7 @@ public class csResourceManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        uiGold.text = $"Gold ${goldTracker}";
         _fruitResources.Add(FruitResourceType.ForestApple, new ResourceInfo(1));
         _fruitResources.Add(FruitResourceType.BlueCoconut, new ResourceInfo(2));
         _fruitResources.Add(FruitResourceType.StoneMelon, new ResourceInfo(6));
@@ -120,6 +121,18 @@ Orange Orange: {_fruitResources[FruitResourceType.OrangeOrange].Count}
     public void SetSellStatus(bool sellState)
     {
         inRangeOfBusinessBob = sellState;
+    }
+
+    public bool UseMoney(int amount)
+    {
+        if (goldTracker >= amount)
+        {
+            goldTracker -= amount;
+            uiGold.text = $"Gold ${goldTracker}";
+            return true;
+        }
+
+        return false;
     }
 
     public void SellAll()
