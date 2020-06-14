@@ -1,9 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.TerrainAPI;
-using UnityEditor.PackageManager;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 using UnityEngine.Serialization;
 
 public enum ActionType { Forage, Sell};
