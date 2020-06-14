@@ -33,7 +33,7 @@ public class UnitStats
             uiTextHealth.text = $"Health {CurrentHealth} / {MaxHealth}";
         } else if (isCore)
         {
-            uiCoreTextHealth.text = $"Health {CurrentHealth} / {MaxHealth}";
+            uiCoreTextHealth.text = $"Core Health {CurrentHealth} / {MaxHealth}";
         }
     }
 
@@ -46,7 +46,7 @@ public class UnitStats
             uiTextHealth.text = $"Health {CurrentHealth} / {MaxHealth}";
         } else if (isCore)
         {
-            uiCoreTextHealth.text = $"Health {CurrentHealth} / {MaxHealth}";
+            uiCoreTextHealth.text = $"Core Health {CurrentHealth} / {MaxHealth}";
         }
         return this;
     }

@@ -366,11 +366,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: 0}
   MaxSpawnRange: 34.6
-  CanSpawnGameTimeHours: 00000000010000000200000003000000140000001500000016000000170000001700000017000000
+  CanSpawnGameTimeHours: 00000000010000000200000003000000140000001500000016000000170000001300000004000000
   NumberToSpawn: 1
   MaxConcurrentSpawnedCount: 10
   SpawnCooldown: 50
-  ShouldDespawnGameTimeHours: 040000000500000006000000
+  ShouldDespawnGameTimeHours: 050000000600000007000000
   RandomizedDespawnTimeRange: 5
   SpawnList:
   - Unit: {fileID: 854417935132763545, guid: ba27f248dbba05d43ae07f45ddcaf8a3, type: 3}
@@ -1249,11 +1249,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: 0}
   MaxSpawnRange: 34.6
-  CanSpawnGameTimeHours: 00000000010000000200000003000000140000001500000016000000170000001700000017000000
+  CanSpawnGameTimeHours: 00000000010000000200000003000000140000001500000016000000170000001300000004000000
   NumberToSpawn: 1
   MaxConcurrentSpawnedCount: 10
   SpawnCooldown: 50
-  ShouldDespawnGameTimeHours: 040000000500000006000000
+  ShouldDespawnGameTimeHours: 050000000600000007000000
   RandomizedDespawnTimeRange: 5
   SpawnList:
   - Unit: {fileID: 854417935132763545, guid: ba27f248dbba05d43ae07f45ddcaf8a3, type: 3}
@@ -3650,11 +3650,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: 0}
   MaxSpawnRange: 34.6
-  CanSpawnGameTimeHours: 00000000010000000200000003000000140000001500000016000000170000001700000017000000
+  CanSpawnGameTimeHours: 00000000010000000200000003000000140000001500000016000000170000001300000004000000
   NumberToSpawn: 1
   MaxConcurrentSpawnedCount: 10
   SpawnCooldown: 50
-  ShouldDespawnGameTimeHours: 040000000500000006000000
+  ShouldDespawnGameTimeHours: 050000000600000007000000
   RandomizedDespawnTimeRange: 5
   SpawnList:
   - Unit: {fileID: 854417935132763545, guid: ba27f248dbba05d43ae07f45ddcaf8a3, type: 3}
@@ -5372,6 +5372,90 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8948764034873637786, guid: 4867af074fd711f46b0af85d5b5ac707, type: 3}
   m_PrefabInstance: {fileID: 433713743}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &439506947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 439506948}
+  - component: {fileID: 439506949}
+  m_Layer: 0
+  m_Name: SpawnPoint (11)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &439506948
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439506947}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -121.1, y: -8.9153595, z: -140.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2068063076}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &439506949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439506947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23784a9fb91d5914783233958878c7b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnitPrefab: {fileID: 0}
+  MaxSpawnRange: 34.6
+  CanSpawnGameTimeHours: 00000000010000000200000003000000140000001500000016000000170000001300000004000000
+  NumberToSpawn: 1
+  MaxConcurrentSpawnedCount: 10
+  SpawnCooldown: 50
+  ShouldDespawnGameTimeHours: 050000000600000007000000
+  RandomizedDespawnTimeRange: 5
+  SpawnList:
+  - Unit: {fileID: 854417935132763545, guid: 3a81fea6e9e207f4ea15db739ea3c870, type: 3}
+    MinTimeUntilNextSpawn: 0.5
+    MaxTimeUntilNextSpawn: 2
+    SpawnWeight: 1
+    AmountToSpawn: 1
+    Probability: 0.33
+    MinSpawnsPerWave: 0
+    MaxSpawnsPerWave: 0
+    SpawnAmountInCurrentWave: 0
+  - Unit: {fileID: 854417935132763545, guid: 3a81fea6e9e207f4ea15db739ea3c870, type: 3}
+    MinTimeUntilNextSpawn: 1
+    MaxTimeUntilNextSpawn: 2.5
+    SpawnWeight: 2
+    AmountToSpawn: 2
+    Probability: 0.33
+    MinSpawnsPerWave: 0
+    MaxSpawnsPerWave: 0
+    SpawnAmountInCurrentWave: 0
+  - Unit: {fileID: 854417935132763545, guid: 3a81fea6e9e207f4ea15db739ea3c870, type: 3}
+    MinTimeUntilNextSpawn: 2
+    MaxTimeUntilNextSpawn: 3
+    SpawnWeight: 3
+    AmountToSpawn: 3
+    Probability: 0.33
+    MinSpawnsPerWave: 0
+    MaxSpawnsPerWave: 0
+    SpawnAmountInCurrentWave: 0
+  RandomiseSpawnOrder: 1
+  DesiredWaveWeight: 30
+  SpawnGameDayNightCycle: 21
+  TargetOverride: {fileID: 570506910}
+  LeashRangeOverride: 999
 --- !u!1001 &440590331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9041,11 +9125,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: 0}
   MaxSpawnRange: 34.6
-  CanSpawnGameTimeHours: 00000000010000000200000003000000140000001500000016000000170000001700000017000000
+  CanSpawnGameTimeHours: 00000000010000000200000003000000140000001500000016000000170000001300000004000000
   NumberToSpawn: 1
   MaxConcurrentSpawnedCount: 10
   SpawnCooldown: 50
-  ShouldDespawnGameTimeHours: 040000000500000006000000
+  ShouldDespawnGameTimeHours: 050000000600000007000000
   RandomizedDespawnTimeRange: 5
   SpawnList:
   - Unit: {fileID: 854417935132763545, guid: ba27f248dbba05d43ae07f45ddcaf8a3, type: 3}
@@ -9183,7 +9267,7 @@ MonoBehaviour:
     MinSpawnsPerWave: 1
     MaxSpawnsPerWave: 1
     SpawnAmountInCurrentWave: 0
-  RandomiseSpawnOrder: 1
+  RandomiseSpawnOrder: 0
   DesiredWaveWeight: 200
   SpawnGameDayNightCycle: 19
   TargetOverride: {fileID: 570506910}
@@ -12207,11 +12291,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: 0}
   MaxSpawnRange: 34.6
-  CanSpawnGameTimeHours: 00000000010000000200000003000000140000001500000016000000170000001700000017000000
+  CanSpawnGameTimeHours: 00000000010000000200000003000000140000001500000016000000170000001300000004000000
   NumberToSpawn: 1
   MaxConcurrentSpawnedCount: 10
   SpawnCooldown: 50
-  ShouldDespawnGameTimeHours: 040000000500000006000000
+  ShouldDespawnGameTimeHours: 050000000600000007000000
   RandomizedDespawnTimeRange: 5
   SpawnList:
   - Unit: {fileID: 854417935132763545, guid: ba27f248dbba05d43ae07f45ddcaf8a3, type: 3}
@@ -16389,11 +16473,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: 0}
   MaxSpawnRange: 34.6
-  CanSpawnGameTimeHours: 00000000010000000200000003000000140000001500000016000000170000001700000017000000
+  CanSpawnGameTimeHours: 00000000010000000200000003000000140000001500000016000000170000001300000004000000
   NumberToSpawn: 1
   MaxConcurrentSpawnedCount: 10
   SpawnCooldown: 50
-  ShouldDespawnGameTimeHours: 040000000500000006000000
+  ShouldDespawnGameTimeHours: 050000000600000007000000
   RandomizedDespawnTimeRange: 5
   SpawnList:
   - Unit: {fileID: 854417935132763545, guid: ba27f248dbba05d43ae07f45ddcaf8a3, type: 3}
@@ -19504,11 +19588,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: 0}
   MaxSpawnRange: 34.6
-  CanSpawnGameTimeHours: 00000000010000000200000003000000140000001500000016000000170000001700000017000000
+  CanSpawnGameTimeHours: 00000000010000000200000003000000140000001500000016000000170000001300000004000000
   NumberToSpawn: 1
   MaxConcurrentSpawnedCount: 10
   SpawnCooldown: 50
-  ShouldDespawnGameTimeHours: 040000000500000006000000
+  ShouldDespawnGameTimeHours: 050000000600000007000000
   RandomizedDespawnTimeRange: 5
   SpawnList:
   - Unit: {fileID: 854417935132763545, guid: ba27f248dbba05d43ae07f45ddcaf8a3, type: 3}
@@ -20630,13 +20714,13 @@ MonoBehaviour:
   colorDuskSky: {r: 0.03297438, g: 0.09650112, b: 0.5377358, a: 0}
   colorNightHorizon: {r: 0.003921569, g: 0.003921569, b: 0.054901965, a: 0}
   colorNightSky: {r: 0.11764707, g: 0, b: 0.27450982, a: 0}
-  hoursInADay: 14
-  hoursInANight: 10
+  hoursInADay: 12
+  hoursInANight: 12
   playerCamera: {fileID: 921065458}
-  secondsInHour: 6
+  secondsInHour: 20
   stageLight: {fileID: 2075280644}
   stageTerrain: {fileID: 1405334178}
-  startTime: 19
+  startTime: 8
   sunriseTime: 5
 --- !u!1 &1352182135
 GameObject:
@@ -21813,11 +21897,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: 0}
   MaxSpawnRange: 34.6
-  CanSpawnGameTimeHours: 00000000010000000200000003000000140000001500000016000000170000001700000017000000
+  CanSpawnGameTimeHours: 00000000010000000200000003000000140000001500000016000000170000001300000004000000
   NumberToSpawn: 1
   MaxConcurrentSpawnedCount: 10
   SpawnCooldown: 50
-  ShouldDespawnGameTimeHours: 040000000500000006000000
+  ShouldDespawnGameTimeHours: 050000000600000007000000
   RandomizedDespawnTimeRange: 5
   SpawnList:
   - Unit: {fileID: 854417935132763545, guid: aa4b0721dd180ad4f96426277066d7be, type: 3}
@@ -23666,15 +23750,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5911357206839300005, guid: 3abc7e7bb25e97d459e6e56c4b553c58, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 295.11673
+      value: 296.28
       objectReference: {fileID: 0}
     - target: {fileID: 5911357206839300005, guid: 3abc7e7bb25e97d459e6e56c4b553c58, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -20.0184
+      value: -0.16
       objectReference: {fileID: 0}
     - target: {fileID: 5911357206839300005, guid: 3abc7e7bb25e97d459e6e56c4b553c58, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 999.1384
+      value: 1045.12
       objectReference: {fileID: 0}
     - target: {fileID: 5911357206839300005, guid: 3abc7e7bb25e97d459e6e56c4b553c58, type: 3}
       propertyPath: m_LocalRotation.x
@@ -24726,15 +24810,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5911357206839300005, guid: 3abc7e7bb25e97d459e6e56c4b553c58, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 469.6372
+      value: 445.53
       objectReference: {fileID: 0}
     - target: {fileID: 5911357206839300005, guid: 3abc7e7bb25e97d459e6e56c4b553c58, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.3484
+      value: -0.17
       objectReference: {fileID: 0}
     - target: {fileID: 5911357206839300005, guid: 3abc7e7bb25e97d459e6e56c4b553c58, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 763.70374
+      value: 732.46
       objectReference: {fileID: 0}
     - target: {fileID: 5911357206839300005, guid: 3abc7e7bb25e97d459e6e56c4b553c58, type: 3}
       propertyPath: m_LocalRotation.x
@@ -26554,11 +26638,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: 0}
   MaxSpawnRange: 34.6
-  CanSpawnGameTimeHours: 00000000010000000200000003000000140000001500000016000000170000001700000017000000
+  CanSpawnGameTimeHours: 00000000010000000200000003000000140000001500000016000000170000001300000004000000
   NumberToSpawn: 1
   MaxConcurrentSpawnedCount: 10
   SpawnCooldown: 50
-  ShouldDespawnGameTimeHours: 040000000500000006000000
+  ShouldDespawnGameTimeHours: 050000000600000007000000
   RandomizedDespawnTimeRange: 5
   SpawnList:
   - Unit: {fileID: 854417935132763545, guid: ba27f248dbba05d43ae07f45ddcaf8a3, type: 3}
@@ -29040,11 +29124,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: 0}
   MaxSpawnRange: 34.6
-  CanSpawnGameTimeHours: 00000000010000000200000003000000140000001500000016000000170000001700000017000000
+  CanSpawnGameTimeHours: 00000000010000000200000003000000140000001500000016000000170000001300000004000000
   NumberToSpawn: 1
   MaxConcurrentSpawnedCount: 10
   SpawnCooldown: 50
-  ShouldDespawnGameTimeHours: 040000000500000006000000
+  ShouldDespawnGameTimeHours: 050000000600000007000000
   RandomizedDespawnTimeRange: 5
   SpawnList:
   - Unit: {fileID: 854417935132763545, guid: ba27f248dbba05d43ae07f45ddcaf8a3, type: 3}
@@ -30541,6 +30625,7 @@ Transform:
   - {fileID: 95336441}
   - {fileID: 1455985083}
   - {fileID: 656567119}
+  - {fileID: 439506948}
   m_Father: {fileID: 1351993407}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -30869,6 +30954,7 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!4 &2075280645
