@@ -247,6 +247,8 @@ MonoBehaviour:
     UnitType: 0
     OutgoingDamageMultiplier: 1
     IncomingDamageMultiplier: 1
+    uiTextHealth: {fileID: 0}
+    isPlayer: 0
   StartingUnitMovementType: 0
   UnitMovementPassive:
     Enabled: 1
