@@ -54,10 +54,10 @@ public class UnitAttackProjectile : MonoBehaviour
 
     private void Trigger(bool reachedTarget = true)
     {
-        if (reachedTarget)
+        if (reachedTarget && targetUnit != null)
         {
-            targetUnit?.TakeDamage(Damage);
-            targetUnit?.AddDebuff(Debuff);
+            targetUnit.TakeDamage(Damage);
+            targetUnit.AddDebuff(Debuff);
         }
 
         // Instantiate the on destroy effect and then remove it from the scene shortly after

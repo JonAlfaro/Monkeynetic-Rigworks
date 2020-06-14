@@ -3,6 +3,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using UnityEngine.VFX;
 
 [Serializable]
 public class DebuffHandler
@@ -56,7 +57,13 @@ public class DebuffHandler
             UpdateMovementSpeed(totalMovementSpeedModifier);
 
             // Remove any debuffs that have finished
-            debuffs.RemoveAll(debuff => debuff.EndTime <= Time.time);
+            List<Debuff> debuffsToRemove = debuffs.FindAll(debuff => debuff.EndTime <= Time.time);
+
+            debuffsToRemove.ForEach((debuff) =>
+            {
+                debuff.StopParticleEffect();
+                debuffs.Remove(debuff);
+            });
 
             this.onDebuffsChecked.Invoke();
 
@@ -71,9 +78,14 @@ public class DebuffHandler
         // Instantiate the particle effect if we have provided one. Destroy it 5 seconds later
         if (debuff.ParticleEffect != null)
         {
-            GameObject.Destroy(GameObject.Instantiate(debuff.ParticleEffect, Unit.transform), 5f);
+            debuff.InstantiatedParticleEffect = GameObject.Instantiate(debuff.ParticleEffect, Unit.transform);
         }
         debuffs.Add(debuff);
+    }
+
+    public void StopAllDebuffAnimations()
+    {
+        debuffs.ForEach((debuff) => debuff.StopParticleEffect());
     }
 
     private void ResetUnitStats()
