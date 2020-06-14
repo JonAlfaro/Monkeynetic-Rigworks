@@ -131,6 +131,7 @@ MonoBehaviour:
       id: 0
       isStickyNote: 0
   stickyNoteInfos: []
+  systemInfos: []
   categories: []
   uiBounds:
     serializedVersion: 2
@@ -258,7 +259,6 @@ MonoBehaviour:
     min: -Infinity
     max: Infinity
     descendantCount: 0
-  m_ImportDependencies: []
   m_GraphVersion: 4
   m_saved: 1
   m_SubgraphDependencies: []
@@ -1839,7 +1839,7 @@ MonoBehaviour:
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
-  - {fileID: 8926484042661615173}
+  - {fileID: 8926484042661615176}
   - {fileID: 8926484042661614866}
   m_OutputSlots: []
   m_Label: 
@@ -1866,6 +1866,7 @@ MonoBehaviour:
   castShadows: 0
   useExposureWeight: 0
   shaderGraph: {fileID: 0}
+  shadergraphGUID: 
   primitiveType: 1
   useGeometryShader: 0
 --- !u!114 &8926484042661614861
@@ -4882,12 +4883,6 @@ MonoBehaviour:
       m_SerializableType: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
     attributes:
-    - m_Type: 0
-      m_Min: 1
-      m_Max: 8
-      m_Tooltip: 
-      m_Regex: 
-      m_RegexMaxLength: 0
     - m_Type: 3
       m_Min: -Infinity
       m_Max: Infinity
@@ -5013,7 +5008,7 @@ MonoBehaviour:
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
-  - {fileID: 8926484042661615174}
+  - {fileID: 8926484042661615177}
   - {fileID: 8926484042661614973}
   m_OutputSlots: []
   m_Label: 
@@ -5040,6 +5035,7 @@ MonoBehaviour:
   castShadows: 0
   useExposureWeight: 0
   shaderGraph: {fileID: 0}
+  shadergraphGUID: 
   primitiveType: 1
   useGeometryShader: 0
 --- !u!114 &8926484042661614973
@@ -6190,7 +6186,7 @@ MonoBehaviour:
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
-  - {fileID: 8926484042661615175}
+  - {fileID: 8926484042661615178}
   - {fileID: 8926484042661615106}
   m_OutputSlots: []
   m_Label: 
@@ -6217,6 +6213,7 @@ MonoBehaviour:
   castShadows: 0
   useExposureWeight: 0
   shaderGraph: {fileID: 0}
+  shadergraphGUID: 
   primitiveType: 1
   useGeometryShader: 0
 --- !u!114 &8926484042661615106
@@ -7608,7 +7605,7 @@ MonoBehaviour:
   m_LinkedSlots:
   - {fileID: 8926484042661615106}
   - {fileID: 8926484042661614866}
---- !u!114 &8926484042661615173
+--- !u!114 &8926484042661615176
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7625,7 +7622,7 @@ MonoBehaviour:
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
   m_UISuperCollapsed: 0
-  m_MasterSlot: {fileID: 8926484042661615173}
+  m_MasterSlot: {fileID: 8926484042661615176}
   m_MasterData:
     m_Owner: {fileID: 8926484042661614860}
     m_Value:
@@ -7635,7 +7632,7 @@ MonoBehaviour:
       m_SerializableObject: 1
     m_Space: 2147483647
   m_Property:
-    name: softParticleFadeDistance
+    name: softParticlesFadeDistance
     m_serializedType:
       m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -7648,7 +7645,7 @@ MonoBehaviour:
       m_RegexMaxLength: 0
   m_Direction: 0
   m_LinkedSlots: []
---- !u!114 &8926484042661615174
+--- !u!114 &8926484042661615177
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7665,7 +7662,7 @@ MonoBehaviour:
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
   m_UISuperCollapsed: 0
-  m_MasterSlot: {fileID: 8926484042661615174}
+  m_MasterSlot: {fileID: 8926484042661615177}
   m_MasterData:
     m_Owner: {fileID: 8926484042661614972}
     m_Value:
@@ -7675,7 +7672,7 @@ MonoBehaviour:
       m_SerializableObject: 1
     m_Space: 2147483647
   m_Property:
-    name: softParticleFadeDistance
+    name: softParticlesFadeDistance
     m_serializedType:
       m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -7688,7 +7685,7 @@ MonoBehaviour:
       m_RegexMaxLength: 0
   m_Direction: 0
   m_LinkedSlots: []
---- !u!114 &8926484042661615175
+--- !u!114 &8926484042661615178
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7705,7 +7702,7 @@ MonoBehaviour:
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
   m_UISuperCollapsed: 0
-  m_MasterSlot: {fileID: 8926484042661615175}
+  m_MasterSlot: {fileID: 8926484042661615178}
   m_MasterData:
     m_Owner: {fileID: 8926484042661615105}
     m_Value:
@@ -7715,7 +7712,7 @@ MonoBehaviour:
       m_SerializableObject: 1
     m_Space: 2147483647
   m_Property:
-    name: softParticleFadeDistance
+    name: softParticlesFadeDistance
     m_serializedType:
       m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
