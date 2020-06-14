@@ -3,5 +3,5 @@
     public static bool IsBuildModeEnabled = false;
     public static bool IsActionModeEnabled = true;
     public static bool IsMenuMode = false;
-    public static int GameDay = 1;
+    public static int GameDayNightCycles = 0;
 }

@@ -21,6 +21,7 @@ public class csSkyboxController : MonoBehaviour
     
 
     private float _timeTracker;
+    private float _timeTracker12Hour;
 
     [FormerlySerializedAs("ColorDawnHorizon")]
     public Color colorDawnHorizon;
@@ -65,6 +66,7 @@ public class csSkyboxController : MonoBehaviour
         const int degreesInDay = 200;
         _nightLerpStep = 1 / _nightLerpDivider;
         _timeTracker = startTime;
+        _timeTracker12Hour = startTime;
         _dayHourTick = degreesInDay / hoursInADay / secondsInHour;
         _nightHourTick = (360 - degreesInDay) / hoursInANight / secondsInHour;
     }
@@ -79,7 +81,16 @@ public class csSkyboxController : MonoBehaviour
         // Skybox Controller
         Transform stageLightTransform;
         _timeTracker += 1 / secondsInHour * Time.fixedDeltaTime;
-        if (_timeTracker >= 24) _timeTracker = 0;
+        _timeTracker12Hour += 1 / secondsInHour * Time.fixedDeltaTime;
+        if (_timeTracker >= 24)
+        {
+            _timeTracker = 0;
+        }
+        if (_timeTracker12Hour >= 12)
+        {
+            GameVariables.GameDayNightCycles++;
+            _timeTracker12Hour = _timeTracker12Hour - 12;
+        }
         pushTime.Invoke(_timeTracker);
 
         if (printTime)

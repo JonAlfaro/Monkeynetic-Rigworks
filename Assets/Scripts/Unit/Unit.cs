@@ -29,12 +29,14 @@ public class Unit : MonoBehaviour
     private Coroutine movementCoroutine;
     private NavMeshAgent navMeshAgent;
     private DebuffHandler debuffHandler = new DebuffHandler();
+    private NavMeshPath navMeshPath;
     public void AddDebuff(Debuff debuff) => debuffHandler.AddDebuff(debuff);
     public void SetTargetType(UnitType? targetType) => UnitAttackTargeting.SetTargetUnitType(targetType);
 
     // Lifecycle functions
     private void Awake()
     {
+        navMeshPath = new NavMeshPath();
         navMeshAgent = GetComponent<NavMeshAgent>();
         UpdateNavMeshAgentSpeed();
         if (TargetTransform == null)
@@ -90,6 +92,9 @@ public class Unit : MonoBehaviour
     void OnNewMovementTarget(Vector3 newMovementTarget)
     {
         movementTarget = newMovementTarget;
+
+        //NavMesh.CalculatePath(transform.position, movementTarget, NavMesh.AllAreas, navMeshPath);
+        //navMeshAgent.SetPath(navMeshPath);
 
         // Set navMeshAgent target
         navMeshAgent?.SetDestination(movementTarget);

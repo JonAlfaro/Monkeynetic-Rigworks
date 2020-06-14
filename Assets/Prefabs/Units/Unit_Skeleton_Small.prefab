@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 854417935132763551}
   - component: {fileID: 854417935132763554}
   m_Layer: 0
-  m_Name: Unit_Skeleton_Fast
+  m_Name: Unit_Skeleton_Small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

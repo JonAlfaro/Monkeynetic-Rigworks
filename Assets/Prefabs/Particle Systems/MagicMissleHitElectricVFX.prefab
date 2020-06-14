@@ -87,7 +87,10 @@ VisualEffect:
     m_Vector3f:
       m_Array: []
     m_Vector4f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 74.1682, y: 73.28371, z: 41.549725, w: 1}
+        m_Name: FlashColour
+        m_Overridden: 1
     m_Uint:
       m_Array: []
     m_Int:
