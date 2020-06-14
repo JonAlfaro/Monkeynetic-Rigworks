@@ -450,14 +450,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitStats:
     MaxHealth: 2000
-    MovementSpeed: 0.5
-    MinimumMovementSpeed: 0.2
+    MovementSpeed: 1.5
+    MinimumMovementSpeed: 1
     UnitType: 0
     OutgoingDamageMultiplier: 1
     IncomingDamageMultiplier: 1
     uiTextHealth: {fileID: 0}
+    uiCoreTextHealth: {fileID: 0}
     CanModifyAttackTarget: 0
     isPlayer: 0
+    isCore: 0
   StartingUnitMovementType: 0
   UnitMovementPassive:
     Enabled: 1
@@ -1284,7 +1286,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 9184574335478674445, guid: 6595fd4f18bc81b44a1dd2f4fdd188f9, type: 3}
+  - {fileID: 2100000, guid: 12520a61f0c36584590e2338efba42a0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -14,6 +14,7 @@ public class csResourceManager : MonoBehaviour
     [FormerlySerializedAs("GoldTracker")] public int goldTracker = 0;
     public Image uiImageForage;
     public Image uiImageMoney;
+    public Image uiImageApple;
     private ActionType _selectedAction = ActionType.Forage;
     private bool inRangeOfBusinessBob = false;
     public Text uiGold;
@@ -70,11 +71,15 @@ Orange Orange: {_fruitResources[FruitResourceType.OrangeOrange].Count}
         {
             uiImageForage.enabled = (_selectedAction == ActionType.Forage) ? true : false;
             uiImageMoney.enabled = (_selectedAction == ActionType.Sell) ? true : false;
+            uiImageApple.enabled = (_selectedAction == ActionType.Eat_Apple) ? true : false;
             enabledModes += "ActionModeEnabled, ";
         }
-        
+
         if (GameVariables.IsBuildModeEnabled)
         {
+            uiImageForage.enabled = false;
+            uiImageMoney.enabled = false;
+            uiImageApple.enabled = false;
             enabledModes += "BuildModeEnabled, ";
         }
 

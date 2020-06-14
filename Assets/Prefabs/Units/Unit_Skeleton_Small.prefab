@@ -248,8 +248,10 @@ MonoBehaviour:
     OutgoingDamageMultiplier: 1
     IncomingDamageMultiplier: 1
     uiTextHealth: {fileID: 0}
+    uiCoreTextHealth: {fileID: 0}
     CanModifyAttackTarget: 1
     isPlayer: 0
+    isCore: 0
   StartingUnitMovementType: 0
   UnitMovementPassive:
     Enabled: 1
@@ -869,7 +871,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 9184574335478674445, guid: 6595fd4f18bc81b44a1dd2f4fdd188f9, type: 3}
+  - {fileID: 2100000, guid: 0b7185e92b9ae8c4ca7a44fc6223de88, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

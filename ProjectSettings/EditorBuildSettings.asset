@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/sceneIsland.unity
+    path: Assets/Scenes/sceneIsland-oldsike.unity
     guid: 2a09d651c2103274c9ba94ae9c32c5db
   m_configObjects: {}
