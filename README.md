@@ -1,9 +1,10 @@
 # Monkeynetic-Rigworks
 SP 5.0: Togo
 
-# Assets used in this project:
  - MAJOR THANKS TO OUR COMPOSER ElderlyC: [Youtube](https://www.youtube.com/user/Fudgadelical), [SoundCloud](https://soundcloud.com/dillon-bell-332260864)
  - MAJOR THANKS TO OUR [Voice Actor](https://cdn.discordapp.com/attachments/694308928267354133/695117144291278900/unknown.png)
+
+# Assets used in this project:
  - https://sketchfab.com/3d-models/stylized-portal-lowpoly-model-0e88151594cd4314892714b91b51f3dd
  - https://sketchfab.com/3d-models/free-animated-low-poly-cartoon-skeleton-9550b93d28354568adceb360981caa1b
  - https://sketchfab.com/3d-models/low-poly-weapons-2883d7fe0c9847fbb2e441ccc79e0e75
