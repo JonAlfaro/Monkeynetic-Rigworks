@@ -13,6 +13,7 @@ public class UnitStats
     public float IncomingDamageMultiplier = 1;
     public Text uiTextHealth;
     public Text uiCoreTextHealth;
+    public bool CanModifyAttackTarget;
 
 
     public bool isPlayer = false;

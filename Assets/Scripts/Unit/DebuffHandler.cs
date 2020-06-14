@@ -73,6 +73,12 @@ public class DebuffHandler
 
     public void AddDebuff(Debuff debuff)
     {
+        // If you can't charm this guy, return
+        if (debuff.ShouldModifyAttackTarget && !Unit.UnitStats.CanModifyAttackTarget)
+        {
+            return;
+        }
+
         // Set the debuff end time
         debuff.EndTime = Time.time + debuff.Duration;
         // Instantiate the particle effect if we have provided one. Destroy it 5 seconds later
