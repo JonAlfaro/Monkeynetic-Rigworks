@@ -81,7 +81,7 @@ public class UnitAttackProjectile : MonoBehaviour
             {
                 vfx.SetVector2("Spawn Rate", new Vector2(0, 0));
             }
-            Destroy(vfx, 3f);
+            Destroy(vfx.gameObject, 3f);
         }
 
         // Destroy self

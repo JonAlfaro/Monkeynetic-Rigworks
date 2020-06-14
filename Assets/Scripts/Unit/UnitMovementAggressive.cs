@@ -36,7 +36,7 @@ public class UnitMovementAggressive
             }
 
             // Wait for the next frame before continuing
-            yield return null;
+            yield return new WaitForSeconds(1);
         }
     }
 

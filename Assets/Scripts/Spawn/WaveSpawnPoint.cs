@@ -7,7 +7,7 @@ public class WaveSpawnPoint : SpawnPoint
     public List<WaveSpawn> SpawnList = new List<WaveSpawn>() { new WaveSpawn() };
     public bool RandomiseSpawnOrder = true;
     public int DesiredWaveWeight = 30;
-    public int SpawnGameDay = 1;
+    public int SpawnGameDayNightCycle = 1;
 
     [Header("Target Override")]
     public Unit TargetOverride;
@@ -27,7 +27,7 @@ public class WaveSpawnPoint : SpawnPoint
     public override bool Spawn(float gameTime)
     {
         DespawnCheck(gameTime);
-        if (SpawnGameDay != 0 && GameVariables.GameDay != SpawnGameDay)
+        if (SpawnGameDayNightCycle != 0 && GameVariables.GameDayNightCycles < SpawnGameDayNightCycle)
         {
             return false;
         }

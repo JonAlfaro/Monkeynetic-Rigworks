@@ -112,6 +112,7 @@ MonoBehaviour:
   UnitStats:
     MaxHealth: 5
     MovementSpeed: 2
+    MinimumMovementSpeed: 0.5
     UnitType: 0
     OutgoingDamageMultiplier: 1
     IncomingDamageMultiplier: 1
@@ -126,15 +127,18 @@ MonoBehaviour:
     Enabled: 0
     MinDistanceFromTarget: 1
     MaxDistanceFromTarget: 1
-  UnitAttackTargeting:
-    TargetUnitType: 3
-    UnitAttackTargetingType: 0
-    CheckForValidTargetInterval: 0.1
   UnitAttack:
     AttackProjectile: {fileID: 0}
     TimeBetweenAttacks: 3
     Range: 3
     ProjectileSpawnTransform: {fileID: 0}
+  UnitAttackTargeting:
+    TargetUnitType: 3
+    UnitAttackTargetingType: 0
+    CheckForValidTargetInterval: 0.1
+    TargetingRange: 0
+    LeashRange: 0
+    currentTargetUnitType: 0
   TargetTransform: {fileID: 0}
 --- !u!195 &647734950
 NavMeshAgent:
