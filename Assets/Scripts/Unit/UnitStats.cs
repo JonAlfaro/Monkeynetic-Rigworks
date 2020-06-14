@@ -1,4 +1,6 @@
 ﻿using System;
+using UnityEngine;
+using UnityEngine.UI;
 
 [Serializable]
 public class UnitStats
@@ -9,6 +11,9 @@ public class UnitStats
     public UnitType UnitType;
     public float OutgoingDamageMultiplier = 1;
     public float IncomingDamageMultiplier = 1;
+    public Text uiTextHealth;
+
+    public bool isPlayer = false;
     // Not shown in inspector
     public float CurrentMovementSpeed { get; private set; }
     public float CurrentHealth { get; private set; }
@@ -21,12 +26,20 @@ public class UnitStats
     {
         CurrentHealth = MaxHealth;
         CurrentMovementSpeed = MovementSpeed;
+        if (isPlayer)
+        {
+            uiTextHealth.text = $"Health {CurrentHealth} / {MaxHealth}";
+        }
         return this;
     }
 
     public void TakeDamage(float damage)
     {
         CurrentHealth -= damage * IncomingDamageMultiplier;
+        if (isPlayer)
+        {
+            uiTextHealth.text = $"Health {CurrentHealth} / {MaxHealth}";
+        }
     }
 
     public void ModifyMovementSpeed(float amount)

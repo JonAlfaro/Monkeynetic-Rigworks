@@ -14,14 +14,15 @@ public class csPaywall : MonoBehaviour
     public bool inSaleRange = false;
     private float lerpTracker = 0f;
     private int _directionMod = 1;
-    public MeshRenderer ghostBridge;
+    public GameObject ghostBridge;
     public csResourceManager gbManager;
     public bool sold = false;
+    public string payWallName;
 
     // Start is called before the first frame update
     void Start()
     {
-        ghostBridge.enabled = true;
+        ghostBridge.SetActive(true);
     }
 
     // Update is called once per frame
@@ -45,7 +46,7 @@ public class csPaywall : MonoBehaviour
         
         if (!sold && other.gameObject.CompareTag(player1Tag))
         {
-            uiText.text = $"Press E Purchase Bridge for {price} Gold ?";
+            uiText.text = $"Press E Purchase {payWallName} for {price} Gold ?";
             inSaleRange = true;
         }
     }
@@ -62,7 +63,8 @@ public class csPaywall : MonoBehaviour
     {
         if (gbManager.UseMoney(price))
         {
-            ghostBridge.enabled = false;
+            Debug.Log("Bought " + payWallName);
+            ghostBridge.SetActive(false);
             GetComponent<MeshCollider>().enabled = true;
             GetComponent<MeshRenderer>().enabled = true;
             uiText.text = $"";
