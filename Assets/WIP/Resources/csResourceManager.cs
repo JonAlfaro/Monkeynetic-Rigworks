@@ -21,6 +21,7 @@ public class csResourceManager : MonoBehaviour
     private float warningStepTracker = -1;
     private int warningCharacterIndex = 0;
     private string warningMessage = "You Are Not In Range OF Business BOB";
+    public GameObject playerWithUnit;
 
     
     public class ResourceInfo
@@ -116,6 +117,16 @@ Orange Orange: {_fruitResources[FruitResourceType.OrangeOrange].Count}
     public void IncreaseFruit(FruitResourceType fruitType, int fruitAmount)
     {
         _fruitResources[fruitType].Count += fruitAmount;
+    }
+    
+    public void EatApples()
+    {
+        var missingHealth =  playerWithUnit.GetComponent<Unit>().UnitStats.MaxHealth -  playerWithUnit.GetComponent<Unit>().UnitStats.CurrentHealth;
+        if (missingHealth == 0) return;
+        playerWithUnit.GetComponent<Unit>().UnitStats.CurrentHealth += Mathf.Clamp(_fruitResources[FruitResourceType.ForestApple].Count, 0,missingHealth);
+        _fruitResources[FruitResourceType.ForestApple].Count -=  (int)Mathf.Clamp(_fruitResources[FruitResourceType.ForestApple].Count, 0,missingHealth);
+        playerWithUnit.GetComponent<Unit>().UnitStats.UpdateHealth();
+
     }
 
     public void SetSellStatus(bool sellState)

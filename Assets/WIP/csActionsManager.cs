@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Serialization;
 
-public enum ActionType { Forage, Sell};
+public enum ActionType { Forage, Sell, Eat_Apple};
 
 public class csActionsManager : MonoBehaviour
 {
@@ -54,6 +54,9 @@ public class csActionsManager : MonoBehaviour
                     break;
                 case ActionType.Sell:
                     resourceManager.GetComponent<csResourceManager>().SellAll();
+                    break;
+                case ActionType.Eat_Apple:
+                    resourceManager.GetComponent<csResourceManager>().EatApples();
                     break;
 
             }

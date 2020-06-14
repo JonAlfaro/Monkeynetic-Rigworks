@@ -16,11 +16,18 @@ public class UnitStats
     public bool isPlayer = false;
     // Not shown in inspector
     public float CurrentMovementSpeed { get; private set; }
-    public float CurrentHealth { get; private set; }
+    public float CurrentHealth { get; set; }
 
     // Getters
     public bool IsDead => CurrentHealth <= 0;
 
+    public void UpdateHealth()
+    {
+        if (isPlayer)
+        {
+            uiTextHealth.text = $"Health {CurrentHealth} / {MaxHealth}";
+        }
+    }
 
     public UnitStats Init()
     {
